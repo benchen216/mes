@@ -1,0 +1,168 @@
+openapi: 3.0.0
+info:
+  title: qcadoo MES - MasterOrders API (generated)
+  version: 1.0.0
+  description: 'Auto-generated from the qcadoo MES Java sources by
+
+    `mes-bdd-tests/tools/generate_openapi.py`. Do not hand-edit: regenerate instead.
+
+
+    **URL structure** - `mes-application/src/main/webapp/WEB-INF/web.xml` maps the
+
+    DispatcherServlet at `/rest/*`, so every controller path is emitted with the
+
+    `/rest` prefix already baked into the path key. `servers[].url` is therefore `/`;
+
+    SpecFormula does not apply `servers[].url`, and baking the prefix in keeps the
+
+    spec correct for both.
+
+
+    **Authentication** - Spring Security 3.2 form login plus a `JSESSIONID` cookie,
+
+    not bearer tokens.
+
+
+    **Summaries** - the Java sources carry no summary text. Operations marked
+
+    `x-summary-source: generated` have a machine-derived placeholder and need human
+
+    curation; add an entry to `tools/summaries.yml` keyed by `ClassName.methodName`
+
+    to replace one.
+
+
+    **Responses** - only the success response is modelled. Several qcadoo endpoints
+
+    return HTTP 200 with an error code inside the payload rather than a 4xx/5xx
+
+    status, so error shapes are not inferable from the source.
+
+    '
+servers:
+  - url: /
+    description: Paths already include the /rest DispatcherServlet prefix
+paths:
+  /rest/masterOrders/generateOrdersSalePlan:
+    post:
+      summary: Generate orders sale plan (SalesPlanOrdersController)
+      description: 'Generated from `SalesPlanOrdersController.generateOrdersSalePlan()` in `mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/orders/SalesPlanOrdersController.java`.
+
+        '
+      operationId: generateOrdersSalePlan
+      tags:
+        - MasterOrders
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/orders/SalesPlanOrdersController.java
+      x-source-method: SalesPlanOrdersController.generateOrdersSalePlan:56
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateOrdersSalePlanRequest'
+      responses:
+        '200':
+          description: 'Success. Java return type: GenerateOrdersSalePlanResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateOrdersSalePlanResponse'
+  /rest/masterOrders/productsBySize:
+    post:
+      summary: Products by size (ProductsBySizeController)
+      description: 'Generated from `ProductsBySizeController.productsBySize()` in `mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/productBySize/ProductsBySizeController.java`.
+
+        '
+      operationId: productsBySize
+      tags:
+        - MasterOrders
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/productBySize/ProductsBySizeController.java
+      x-source-method: ProductsBySizeController.productsBySize:41
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductsBySizeRequest'
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductsBySizeResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductsBySizeResponse'
+components:
+  schemas:
+    GenerateOrdersSalePlanRequest:
+      type: object
+      description: Generated from com.qcadoo.mes.masterOrders.controllers.orders.GenerateOrdersSalePlanRequest
+      properties:
+        entityId:
+          type: integer
+          format: int64
+        positions:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderSalePlanPosition'
+    GenerateOrdersSalePlanResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.masterOrders.controllers.orders.GenerateOrdersSalePlanResponse
+      properties:
+        status:
+          $ref: '#/components/schemas/SimpleResponseStatus'
+        messages:
+          type: array
+          items:
+            type: string
+        errorMessages:
+          type: array
+          items:
+            type: string
+        entityId:
+          type: integer
+          format: int64
+    OrderSalePlanPosition:
+      type: object
+      description: Generated from com.qcadoo.mes.masterOrders.controllers.orders.OrderSalePlanPosition
+      properties:
+        id:
+          type: integer
+          format: int64
+        value:
+          type: number
+    ProductBySizePosition:
+      type: object
+      description: Generated from com.qcadoo.mes.masterOrders.controllers.productBySize.ProductBySizePosition
+      properties:
+        id:
+          type: integer
+          format: int64
+        value:
+          type: number
+    ProductsBySizeRequest:
+      type: object
+      description: Generated from com.qcadoo.mes.masterOrders.controllers.productBySize.ProductsBySizeRequest
+      properties:
+        entityId:
+          type: integer
+          format: int64
+        positions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductBySizePosition'
+    ProductsBySizeResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.masterOrders.controllers.productBySize.ProductsBySizeResponse
+      properties:
+        status:
+          $ref: '#/components/schemas/SimpleResponseStatus'
+        message:
+          type: string
+    SimpleResponseStatus:
+      type: string
+      description: Java enum com.qcadoo.mes.masterOrders.controllers.orders.SimpleResponseStatus
+      enum:
+        - OK
+        - ERROR

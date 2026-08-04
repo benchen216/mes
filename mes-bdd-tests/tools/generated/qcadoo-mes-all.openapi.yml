@@ -1,0 +1,5036 @@
+openapi: 3.0.0
+info:
+  title: qcadoo MES REST API (generated)
+  version: 1.0.0
+  description: 'Auto-generated from the qcadoo MES Java sources by
+
+    `mes-bdd-tests/tools/generate_openapi.py`. Do not hand-edit: regenerate instead.
+
+
+    **URL structure** - `mes-application/src/main/webapp/WEB-INF/web.xml` maps the
+
+    DispatcherServlet at `/rest/*`, so every controller path is emitted with the
+
+    `/rest` prefix already baked into the path key. `servers[].url` is therefore `/`;
+
+    SpecFormula does not apply `servers[].url`, and baking the prefix in keeps the
+
+    spec correct for both.
+
+
+    **Authentication** - Spring Security 3.2 form login plus a `JSESSIONID` cookie,
+
+    not bearer tokens.
+
+
+    **Summaries** - the Java sources carry no summary text. Operations marked
+
+    `x-summary-source: generated` have a machine-derived placeholder and need human
+
+    curation; add an entry to `tools/summaries.yml` keyed by `ClassName.methodName`
+
+    to replace one.
+
+
+    **Responses** - only the success response is modelled. Several qcadoo endpoints
+
+    return HTTP 200 with an error code inside the payload rather than a 4xx/5xx
+
+    status, so error shapes are not inferable from the source.
+
+    '
+servers:
+  - url: /
+    description: Paths already include the /rest DispatcherServlet prefix
+paths:
+  /rest/action/config:
+    get:
+      summary: Get config view (ActionsLookupController)
+      description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `ActionsLookupController`.
+
+        '
+      operationId: actionsLookupControllerGetConfigView
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getConfigView:44
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/action/records:
+    get:
+      summary: Get records (ActionsLookupController)
+      description: 'Generated from `BasicLookupController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `ActionsLookupController`.
+
+
+        NOTE: parameter ''record'' (ActionDTO) has no binding annotation; Spring binds it as a @ModelAttribute
+        from the query string - its individual fields are not modelled
+
+        '
+      operationId: actionsLookupControllerGetRecords
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getRecords:27
+      parameters:
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: context
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 0
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<ActionDTO>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseActionDTO'
+  /rest/activityStream:
+    get:
+      summary: Get activity stream (ActivityStreamController)
+      description: 'Generated from `ActivityStreamController.getActivityStream()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/activityStream/controllers/ActivityStreamController.java`.
+
+        '
+      operationId: getActivityStream
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/activityStream/controllers/ActivityStreamController.java
+      x-source-method: ActivityStreamController.getActivityStream:25
+      responses:
+        '200':
+          description: 'Success. Java return type: List<ActivityDto>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ActivityDto'
+  /rest/activityStream/markAsViewed:
+    post:
+      summary: Mark activity as viewed (ActivityStreamController)
+      description: 'Generated from `ActivityStreamController.markActivityAsViewed()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/activityStream/controllers/ActivityStreamController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+        '
+      operationId: markActivityAsViewed
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/activityStream/controllers/ActivityStreamController.java
+      x-source-method: ActivityStreamController.markActivityAsViewed:31
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: integer
+                format: int32
+      responses:
+        '200':
+          description: Empty response body
+  /rest/advancedGenealogy/multiUploadFiles:
+    post:
+      summary: Upload (AdvancedGenealogyMultiUploadController)
+      description: 'Generated from `AdvancedGenealogyMultiUploadController.upload()` in `mes-plugins/mes-plugins-advanced-genealogy/src/main/java/com/qcadoo/mes/advancedGenealogy/AdvancedGenealogyMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: advancedGenealogyMultiUploadControllerUpload
+      tags:
+        - AdvancedGenealogy
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-advanced-genealogy/src/main/java/com/qcadoo/mes/advancedGenealogy/AdvancedGenealogyMultiUploadController.java
+      x-source-method: AdvancedGenealogyMultiUploadController.upload:73
+      responses:
+        '200':
+          description: Empty response body
+  /rest/attribute/{attr}:
+    get:
+      summary: Get attributes by query (BasicApiController)
+      description: 'Generated from `BasicApiController.getAttributesByQuery()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
+
+        '
+      operationId: getAttributesByQuery
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
+      x-source-method: BasicApiController.getAttributesByQuery:229
+      parameters:
+        - name: attr
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: DataResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+  /rest/attribute/{name}/config:
+    get:
+      summary: Get config view (AttributeLookupController)
+      description: 'Generated from `AttributeLookupController.getConfigView()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java`.
+
+        '
+      operationId: attributeLookupControllerGetConfigView
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java
+      x-source-method: AttributeLookupController.getConfigView:57
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/attribute/{name}/records:
+    get:
+      summary: Get records (AttributeLookupController)
+      description: 'Generated from `AttributeLookupController.getRecords()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java`.
+
+
+        NOTE: parameter ''record'' (AttributeDto) has no binding annotation; Spring binds it as a @ModelAttribute
+        from the query string - its individual fields are not modelled
+
+        '
+      operationId: attributeLookupControllerGetRecords
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java
+      x-source-method: AttributeLookupController.getRecords:36
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: context
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 0
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<AttributeDto>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseAttributeDto'
+  /rest/basic/multiUploadFiles:
+    post:
+      summary: Upload (WorkstationMultiUploadController)
+      description: 'Generated from `WorkstationMultiUploadController.upload()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/WorkstationMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: workstationMultiUploadControllerUpload
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/WorkstationMultiUploadController.java
+      x-source-method: WorkstationMultiUploadController.upload:67
+      responses:
+        '200':
+          description: Empty response body
+  /rest/basic/multiUploadFilesForProduct:
+    post:
+      summary: Upload (ProductMultiUploadController)
+      description: 'Generated from `ProductMultiUploadController.upload()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: productMultiUploadControllerUpload
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductMultiUploadController.java
+      x-source-method: ProductMultiUploadController.upload:72
+      responses:
+        '200':
+          description: Empty response body
+  /rest/basic/multiUploadFilesForSubassembly:
+    post:
+      summary: Upload (SubassemblyMultiUploadController)
+      description: 'Generated from `SubassemblyMultiUploadController.upload()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/SubassemblyMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: subassemblyMultiUploadControllerUpload
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/SubassemblyMultiUploadController.java
+      x-source-method: SubassemblyMultiUploadController.upload:68
+      responses:
+        '200':
+          description: Empty response body
+  /rest/batch/config:
+    get:
+      summary: Get config view (BatchLookupController)
+      description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `BatchLookupController`.
+
+        '
+      operationId: batchLookupControllerGetConfigView
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getConfigView:44
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/batch/records:
+    get:
+      summary: Get records (BatchLookupController)
+      description: 'Generated from `BasicLookupController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `BatchLookupController`.
+
+
+        NOTE: parameter ''record'' (BatchDTO) has no binding annotation; Spring binds it as a @ModelAttribute
+        from the query string - its individual fields are not modelled
+
+        '
+      operationId: batchLookupControllerGetRecords
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getRecords:27
+      parameters:
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: context
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 0
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<BatchDTO>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseBatchDTO'
+  /rest/cmmsMachineParts/multiUploadFiles:
+    post:
+      summary: Upload (MachinePartMultiUploadController)
+      description: 'Generated from `MachinePartMultiUploadController.upload()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/MachinePartMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: machinePartMultiUploadControllerUpload
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/MachinePartMultiUploadController.java
+      x-source-method: MachinePartMultiUploadController.upload:67
+      responses:
+        '200':
+          description: Empty response body
+  /rest/cmmsMachineParts/multiUploadFilesForEvent:
+    post:
+      summary: Upload (MaintenanceEventMultiUploadController)
+      description: 'Generated from `MaintenanceEventMultiUploadController.upload()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/MaintenanceEventMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: maintenanceEventMultiUploadControllerUpload
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/MaintenanceEventMultiUploadController.java
+      x-source-method: MaintenanceEventMultiUploadController.upload:67
+      responses:
+        '200':
+          description: Empty response body
+  /rest/cmmsMachineParts/multiUploadFilesForPlannedEvent:
+    post:
+      summary: Upload (PlannedEventMultiUploadController)
+      description: 'Generated from `PlannedEventMultiUploadController.upload()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/PlannedEventMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: plannedEventMultiUploadControllerUpload
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/PlannedEventMultiUploadController.java
+      x-source-method: PlannedEventMultiUploadController.upload:72
+      responses:
+        '200':
+          description: Empty response body
+  /rest/cmmsMachineParts/multiUploadFilesForTool:
+    post:
+      summary: Upload (ToolMultiUploadController)
+      description: 'Generated from `ToolMultiUploadController.upload()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ToolMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: toolMultiUploadControllerUpload
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ToolMultiUploadController.java
+      x-source-method: ToolMultiUploadController.upload:67
+      responses:
+        '200':
+          description: Empty response body
+  /rest/countries:
+    get:
+      summary: Get countries (BasicApiController)
+      description: 'Generated from `BasicApiController.getCountries()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
+
+        '
+      operationId: getCountries
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
+      x-source-method: BasicApiController.getCountries:183
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: CountriesResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountriesResponse'
+  /rest/countriesByPage:
+    get:
+      summary: Get countries by page (BasicApiController)
+      description: 'Generated from `BasicApiController.getCountriesByPage()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
+
+        '
+      operationId: getCountriesByPage
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
+      x-source-method: BasicApiController.getCountriesByPage:174
+      parameters:
+        - name: limit
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: order
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: CountriesGridResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountriesGridResponse'
+  /rest/createTechnology:
+    post:
+      summary: Create technology (OrdersApiController)
+      description: 'Generated from `OrdersApiController.createTechnology()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrdersApiController.java`.
+
+        '
+      operationId: createTechnology
+      tags:
+        - Orders
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrdersApiController.java
+      x-source-method: OrdersApiController.createTechnology:39
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TechnologyCreationRequest'
+      responses:
+        '200':
+          description: 'Success. Java return type: TechnologyCreationResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TechnologyCreationResponse'
+  /rest/dailyProductionChart/data:
+    get:
+      summary: Get data (DailyProductionChartController)
+      description: 'Generated from `DailyProductionChartController.getData()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/DailyProductionChartController.java`.
+
+        '
+      operationId: dailyProductionChartControllerGetData
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/DailyProductionChartController.java
+      x-source-method: DailyProductionChartController.getData:22
+      responses:
+        '200':
+          description: 'Success. Java return type: List<Long>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: integer
+                  format: int64
+  /rest/dashboardKanban/operationalTasksCompleted:
+    get:
+      summary: Get operational tasks completed (DashboardKanbanController)
+      description: 'Generated from `DashboardKanbanController.getOperationalTasksCompleted()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java`.
+
+        '
+      operationId: getOperationalTasksCompleted
+      tags:
+        - Orders
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java
+      x-source-method: DashboardKanbanController.getOperationalTasksCompleted:84
+      responses:
+        '200':
+          description: 'Success. Java return type: List<OperationalTaskHolder>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OperationalTaskHolder'
+  /rest/dashboardKanban/operationalTasksInProgress:
+    get:
+      summary: Get operational tasks in progress (DashboardKanbanController)
+      description: 'Generated from `DashboardKanbanController.getOperationalTasksInProgress()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java`.
+
+        '
+      operationId: getOperationalTasksInProgress
+      tags:
+        - Orders
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java
+      x-source-method: DashboardKanbanController.getOperationalTasksInProgress:78
+      responses:
+        '200':
+          description: 'Success. Java return type: List<OperationalTaskHolder>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OperationalTaskHolder'
+  /rest/dashboardKanban/operationalTasksPending:
+    get:
+      summary: Get operational tasks pending (DashboardKanbanController)
+      description: 'Generated from `DashboardKanbanController.getOperationalTasksPending()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java`.
+
+        '
+      operationId: getOperationalTasksPending
+      tags:
+        - Orders
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java
+      x-source-method: DashboardKanbanController.getOperationalTasksPending:72
+      responses:
+        '200':
+          description: 'Success. Java return type: List<OperationalTaskHolder>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OperationalTaskHolder'
+  /rest/dashboardKanban/ordersCompleted:
+    get:
+      summary: 查詢已完成訂單
+      description: 'Generated from `DashboardKanbanController.getOrdersCompleted()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java`.
+
+        '
+      operationId: getOrdersCompleted
+      tags:
+        - Orders
+      x-summary-source: curated
+      x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java
+      x-source-method: DashboardKanbanController.getOrdersCompleted:66
+      responses:
+        '200':
+          description: 'Success. Java return type: List<OrderHolder>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrderHolder'
+  /rest/dashboardKanban/ordersInProgress:
+    get:
+      summary: 查詢進行中訂單
+      description: 'Generated from `DashboardKanbanController.getOrdersInProgress()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java`.
+
+        '
+      operationId: getOrdersInProgress
+      tags:
+        - Orders
+      x-summary-source: curated
+      x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java
+      x-source-method: DashboardKanbanController.getOrdersInProgress:60
+      responses:
+        '200':
+          description: 'Success. Java return type: List<OrderHolder>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrderHolder'
+  /rest/dashboardKanban/ordersPending:
+    get:
+      summary: 查詢待處理訂單
+      description: 'Generated from `DashboardKanbanController.getOrdersPending()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java`.
+
+        '
+      operationId: getOrdersPending
+      tags:
+        - Orders
+      x-summary-source: curated
+      x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java
+      x-source-method: DashboardKanbanController.getOrdersPending:54
+      responses:
+        '200':
+          description: 'Success. Java return type: List<OrderHolder>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrderHolder'
+  /rest/dashboardKanban/updateOrderState/{orderId}:
+    put:
+      summary: 推進訂單狀態
+      description: 'Generated from `DashboardKanbanController.updateOrderState()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java`.
+
+        '
+      operationId: updateOrderState
+      tags:
+        - Orders
+      x-summary-source: curated
+      x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java
+      x-source-method: DashboardKanbanController.updateOrderState:90
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: OrderResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+  /rest/deliveries/multiUploadFiles:
+    post:
+      summary: Upload (DeliveriesMultiUploadController)
+      description: 'Generated from `DeliveriesMultiUploadController.upload()` in `mes-plugins/mes-plugins-deliveries/src/main/java/com/qcadoo/mes/deliveries/controllers/DeliveriesMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: deliveriesMultiUploadControllerUpload
+      tags:
+        - Deliveries
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-deliveries/src/main/java/com/qcadoo/mes/deliveries/controllers/DeliveriesMultiUploadController.java
+      x-source-method: DeliveriesMultiUploadController.upload:67
+      responses:
+        '200':
+          description: Empty response body
+  /rest/docPositionsAttributes/columns:
+    get:
+      summary: Get columns (DocumentPositionsAttributesController)
+      description: 'Generated from `DocumentPositionsAttributesController.getColumns()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java`.
+
+        '
+      operationId: documentPositionsAttributesControllerGetColumns
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java
+      x-source-method: DocumentPositionsAttributesController.getColumns:27
+      responses:
+        '200':
+          description: 'Success. Java return type: List<ColumnDTO>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ColumnDTO'
+  /rest/docPositionsAttributes/records:
+    get:
+      summary: Get records (DocumentPositionsAttributesController)
+      description: 'Generated from `DocumentPositionsAttributesController.getRecords()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java`.
+
+        '
+      operationId: documentPositionsAttributesControllerGetRecords
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java
+      x-source-method: DocumentPositionsAttributesController.getRecords:39
+      parameters:
+        - name: dateFrom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: List<Map<String, Object>>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /rest/docPositionsAttributes/validate:
+    get:
+      summary: Validate (DocumentPositionsAttributesController)
+      description: 'Generated from `DocumentPositionsAttributesController.validate()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java`.
+
+        '
+      operationId: documentPositionsAttributesControllerValidate
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java
+      x-source-method: DocumentPositionsAttributesController.validate:33
+      parameters:
+        - name: dateFrom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: String'
+          content:
+            text/plain:
+              schema:
+                type: string
+  /rest/emplPieceworkSettlement/columns:
+    get:
+      summary: Get columns (EmployeePieceworkSettlementController)
+      description: 'Generated from `EmployeePieceworkSettlementController.getColumns()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java`.
+
+        '
+      operationId: employeePieceworkSettlementControllerGetColumns
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java
+      x-source-method: EmployeePieceworkSettlementController.getColumns:30
+      responses:
+        '200':
+          description: 'Success. Java return type: List<ColumnDTO>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ColumnDTO'
+  /rest/emplPieceworkSettlement/exportToCsv:
+    post:
+      summary: Export to csv (EmployeePieceworkSettlementController)
+      description: 'Generated from `EmployeePieceworkSettlementController.exportToCsv()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java`.
+
+        '
+      operationId: employeePieceworkSettlementControllerExportToCsv
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java
+      x-source-method: EmployeePieceworkSettlementController.exportToCsv:52
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: 'Success. Java return type: Object'
+          content:
+            application/json:
+              schema:
+                type: object
+  /rest/emplPieceworkSettlement/records:
+    get:
+      summary: Get records (EmployeePieceworkSettlementController)
+      description: 'Generated from `EmployeePieceworkSettlementController.getRecords()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java`.
+
+        '
+      operationId: employeePieceworkSettlementControllerGetRecords
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java
+      x-source-method: EmployeePieceworkSettlementController.getRecords:42
+      parameters:
+        - name: dateFrom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: List<Map<String, Object>>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /rest/emplPieceworkSettlement/validate:
+    get:
+      summary: Validate (EmployeePieceworkSettlementController)
+      description: 'Generated from `EmployeePieceworkSettlementController.validate()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java`.
+
+        '
+      operationId: employeePieceworkSettlementControllerValidate
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java
+      x-source-method: EmployeePieceworkSettlementController.validate:36
+      parameters:
+        - name: dateFrom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: String'
+          content:
+            text/plain:
+              schema:
+                type: string
+  /rest/emplWorkingTimeSettlement/columns:
+    get:
+      summary: Get columns (EmployeeWorkingTimeSettlementController)
+      description: 'Generated from `EmployeeWorkingTimeSettlementController.getColumns()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java`.
+
+        '
+      operationId: employeeWorkingTimeSettlementControllerGetColumns
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java
+      x-source-method: EmployeeWorkingTimeSettlementController.getColumns:35
+      responses:
+        '200':
+          description: 'Success. Java return type: List<ColumnDTO>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ColumnDTO'
+  /rest/emplWorkingTimeSettlement/exportToCsv:
+    post:
+      summary: Export to csv (EmployeeWorkingTimeSettlementController)
+      description: 'Generated from `EmployeeWorkingTimeSettlementController.exportToCsv()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java`.
+
+        '
+      operationId: employeeWorkingTimeSettlementControllerExportToCsv
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java
+      x-source-method: EmployeeWorkingTimeSettlementController.exportToCsv:57
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: 'Success. Java return type: Object'
+          content:
+            application/json:
+              schema:
+                type: object
+  /rest/emplWorkingTimeSettlement/records:
+    get:
+      summary: Get records (EmployeeWorkingTimeSettlementController)
+      description: 'Generated from `EmployeeWorkingTimeSettlementController.getRecords()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java`.
+
+        '
+      operationId: employeeWorkingTimeSettlementControllerGetRecords
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java
+      x-source-method: EmployeeWorkingTimeSettlementController.getRecords:47
+      parameters:
+        - name: dateFrom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: List<Map<String, Object>>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /rest/emplWorkingTimeSettlement/validate:
+    get:
+      summary: Validate (EmployeeWorkingTimeSettlementController)
+      description: 'Generated from `EmployeeWorkingTimeSettlementController.validate()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java`.
+
+        '
+      operationId: employeeWorkingTimeSettlementControllerValidate
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java
+      x-source-method: EmployeeWorkingTimeSettlementController.validate:41
+      parameters:
+        - name: dateFrom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: String'
+          content:
+            text/plain:
+              schema:
+                type: string
+  /rest/factories:
+    get:
+      summary: Get factories (BasicApiController)
+      description: 'Generated from `BasicApiController.getFactories()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
+
+        '
+      operationId: getFactories
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
+      x-source-method: BasicApiController.getFactories:68
+      responses:
+        '200':
+          description: 'Success. Java return type: FactoriesResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FactoriesResponse'
+  /rest/faultTypes:
+    post:
+      summary: Get fault types (BasicApiController)
+      description: 'Generated from `BasicApiController.getFaultTypes()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
+
+        '
+      operationId: getFaultTypes
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
+      x-source-method: BasicApiController.getFaultTypes:74
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaultTypeRequest'
+      responses:
+        '200':
+          description: 'Success. Java return type: FaultTypeResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaultTypeResponse'
+  /rest/lProducedQuantitiesChart/data:
+    get:
+      summary: Get data (LinesProducedQuantitiesChartController)
+      description: 'Generated from `LinesProducedQuantitiesChartController.getData()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/LinesProducedQuantitiesChartController.java`.
+
+        '
+      operationId: linesProducedQuantitiesChartControllerGetData
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/LinesProducedQuantitiesChartController.java
+      x-source-method: LinesProducedQuantitiesChartController.getData:32
+      parameters:
+        - name: dateFrom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/lProducedQuantitiesChart/validate:
+    get:
+      summary: Validate (LinesProducedQuantitiesChartController)
+      description: 'Generated from `LinesProducedQuantitiesChartController.validate()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/LinesProducedQuantitiesChartController.java`.
+
+        '
+      operationId: linesProducedQuantitiesChartControllerValidate
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/LinesProducedQuantitiesChartController.java
+      x-source-method: LinesProducedQuantitiesChartController.validate:26
+      parameters:
+        - name: dateFrom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: String'
+          content:
+            text/plain:
+              schema:
+                type: string
+  /rest/masterOrders/generateOrdersSalePlan:
+    post:
+      summary: Generate orders sale plan (SalesPlanOrdersController)
+      description: 'Generated from `SalesPlanOrdersController.generateOrdersSalePlan()` in `mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/orders/SalesPlanOrdersController.java`.
+
+        '
+      operationId: generateOrdersSalePlan
+      tags:
+        - MasterOrders
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/orders/SalesPlanOrdersController.java
+      x-source-method: SalesPlanOrdersController.generateOrdersSalePlan:56
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateOrdersSalePlanRequest'
+      responses:
+        '200':
+          description: 'Success. Java return type: GenerateOrdersSalePlanResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateOrdersSalePlanResponse'
+  /rest/masterOrders/productsBySize:
+    post:
+      summary: Products by size (ProductsBySizeController)
+      description: 'Generated from `ProductsBySizeController.productsBySize()` in `mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/productBySize/ProductsBySizeController.java`.
+
+        '
+      operationId: productsBySize
+      tags:
+        - MasterOrders
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/productBySize/ProductsBySizeController.java
+      x-source-method: ProductsBySizeController.productsBySize:41
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductsBySizeRequest'
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductsBySizeResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductsBySizeResponse'
+  /rest/operDurationAnalysis/columns:
+    get:
+      summary: Get columns (OperationDurationAnalysisController)
+      description: 'Generated from `OperationDurationAnalysisController.getColumns()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java`.
+
+        '
+      operationId: operationDurationAnalysisControllerGetColumns
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java
+      x-source-method: OperationDurationAnalysisController.getColumns:35
+      responses:
+        '200':
+          description: 'Success. Java return type: List<ColumnDTO>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ColumnDTO'
+  /rest/operDurationAnalysis/exportToCsv:
+    post:
+      summary: Export to csv (OperationDurationAnalysisController)
+      description: 'Generated from `OperationDurationAnalysisController.exportToCsv()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java`.
+
+        '
+      operationId: operationDurationAnalysisControllerExportToCsv
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java
+      x-source-method: OperationDurationAnalysisController.exportToCsv:57
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: 'Success. Java return type: Object'
+          content:
+            application/json:
+              schema:
+                type: object
+  /rest/operDurationAnalysis/records:
+    get:
+      summary: Get records (OperationDurationAnalysisController)
+      description: 'Generated from `OperationDurationAnalysisController.getRecords()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java`.
+
+        '
+      operationId: operationDurationAnalysisControllerGetRecords
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java
+      x-source-method: OperationDurationAnalysisController.getRecords:47
+      parameters:
+        - name: dateFrom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: List<Map<String, Object>>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /rest/operDurationAnalysis/validate:
+    get:
+      summary: Validate (OperationDurationAnalysisController)
+      description: 'Generated from `OperationDurationAnalysisController.validate()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java`.
+
+        '
+      operationId: operationDurationAnalysisControllerValidate
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java
+      x-source-method: OperationDurationAnalysisController.validate:41
+      parameters:
+        - name: dateFrom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: String'
+          content:
+            text/plain:
+              schema:
+                type: string
+  /rest/operation:
+    post:
+      summary: Save operation (TechnologyApiController)
+      description: 'Generated from `TechnologyApiController.saveOperation()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
+
+        '
+      operationId: saveOperation
+      tags:
+        - Technologies
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
+      x-source-method: TechnologyApiController.saveOperation:128
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OperationRequest'
+      responses:
+        '200':
+          description: 'Success. Java return type: OperationResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+  /rest/operationalTasks:
+    post:
+      summary: Save order with operational tasks (OrdersApiController)
+      description: 'Generated from `OrdersApiController.saveOrderWithOperationalTasks()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrdersApiController.java`.
+
+        '
+      operationId: saveOrderWithOperationalTasks
+      tags:
+        - Orders
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrdersApiController.java
+      x-source-method: OrdersApiController.saveOrderWithOperationalTasks:33
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderCreationRequest'
+      responses:
+        '200':
+          description: 'Success. Java return type: OrderCreationResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderCreationResponse'
+  /rest/operations:
+    get:
+      summary: Get operations (TechnologyApiController)
+      description: 'Generated from `TechnologyApiController.getOperations()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
+
+        '
+      operationId: getOperations
+      tags:
+        - Technologies
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
+      x-source-method: TechnologyApiController.getOperations:53
+      responses:
+        '200':
+          description: 'Success. Java return type: OperationsResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationsResponse'
+  /rest/order:
+    post:
+      summary: 建立訂單
+      description: 'Generated from `OrdersApiController.saveOrder()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrdersApiController.java`.
+
+        '
+      operationId: saveOrder
+      tags:
+        - Orders
+      x-summary-source: curated
+      x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrdersApiController.java
+      x-source-method: OrdersApiController.saveOrder:27
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderCreationRequest'
+      responses:
+        '200':
+          description: 'Success. Java return type: OrderCreationResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderCreationResponse'
+  /rest/orderTechnologicalProcessesAnalysis/columns:
+    get:
+      summary: Get columns (OrderTechnologicalProcessesAnalysisController)
+      description: 'Generated from `OrderTechnologicalProcessesAnalysisController.getColumns()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java`.
+
+        '
+      operationId: orderTechnologicalProcessesAnalysisControllerGetColumns
+      tags:
+        - Orders
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java
+      x-source-method: OrderTechnologicalProcessesAnalysisController.getColumns:35
+      responses:
+        '200':
+          description: 'Success. Java return type: List<ColumnDTO>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ColumnDTO'
+  /rest/orderTechnologicalProcessesAnalysis/exportToCsv:
+    post:
+      summary: Export to csv (OrderTechnologicalProcessesAnalysisController)
+      description: 'Generated from `OrderTechnologicalProcessesAnalysisController.exportToCsv()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java`.
+
+        '
+      operationId: orderTechnologicalProcessesAnalysisControllerExportToCsv
+      tags:
+        - Orders
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java
+      x-source-method: OrderTechnologicalProcessesAnalysisController.exportToCsv:58
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: 'Success. Java return type: Object'
+          content:
+            application/json:
+              schema:
+                type: object
+  /rest/orderTechnologicalProcessesAnalysis/records:
+    get:
+      summary: Get records (OrderTechnologicalProcessesAnalysisController)
+      description: 'Generated from `OrderTechnologicalProcessesAnalysisController.getRecords()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java`.
+
+        '
+      operationId: orderTechnologicalProcessesAnalysisControllerGetRecords
+      tags:
+        - Orders
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java
+      x-source-method: OrderTechnologicalProcessesAnalysisController.getRecords:47
+      parameters:
+        - name: dateFrom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: List<Map<String, Object>>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /rest/orderTechnologicalProcessesAnalysis/validate:
+    get:
+      summary: Validate (OrderTechnologicalProcessesAnalysisController)
+      description: 'Generated from `OrderTechnologicalProcessesAnalysisController.validate()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java`.
+
+        '
+      operationId: orderTechnologicalProcessesAnalysisControllerValidate
+      tags:
+        - Orders
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java
+      x-source-method: OrderTechnologicalProcessesAnalysisController.validate:41
+      parameters:
+        - name: dateFrom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: String'
+          content:
+            text/plain:
+              schema:
+                type: string
+  /rest/orders/multiUploadFilesForOrder:
+    post:
+      summary: Upload (OrderMultiUploadController)
+      description: 'Generated from `OrderMultiUploadController.upload()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: orderMultiUploadControllerUpload
+      tags:
+        - Orders
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderMultiUploadController.java
+      x-source-method: OrderMultiUploadController.upload:72
+      responses:
+        '200':
+          description: Empty response body
+  /rest/palletNumber/config:
+    get:
+      summary: Get config view (PalletNumberLookupController)
+      description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `PalletNumberLookupController`.
+
+        '
+      operationId: palletNumberLookupControllerGetConfigView
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getConfigView:44
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/palletNumber/records:
+    get:
+      summary: Get records (PalletNumberLookupController)
+      description: 'Generated from `BasicLookupController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `PalletNumberLookupController`.
+
+
+        NOTE: parameter ''record'' (PalletNumberDTO) has no binding annotation; Spring binds it as a @ModelAttribute
+        from the query string - its individual fields are not modelled
+
+        '
+      operationId: palletNumberLookupControllerGetRecords
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getRecords:27
+      parameters:
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: context
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 0
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<PalletNumberDTO>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponsePalletNumberDTO'
+  /rest/palletnumbers:
+    get:
+      summary: Get pallet numbers by query (BasicApiController)
+      description: 'Generated from `BasicApiController.getPalletNumbersByQuery()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
+
+        '
+      operationId: getPalletNumbersByQuery
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
+      x-source-method: BasicApiController.getPalletNumbersByQuery:223
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: DataResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+  /rest/prodAttributes/columns:
+    get:
+      summary: Get columns (ProductsAttributesController)
+      description: 'Generated from `ProductsAttributesController.getColumns()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductsAttributesController.java`.
+
+        '
+      operationId: productsAttributesControllerGetColumns
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductsAttributesController.java
+      x-source-method: ProductsAttributesController.getColumns:26
+      responses:
+        '200':
+          description: 'Success. Java return type: List<ColumnDTO>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ColumnDTO'
+  /rest/prodAttributes/records:
+    get:
+      summary: Get records (ProductsAttributesController)
+      description: 'Generated from `ProductsAttributesController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductsAttributesController.java`.
+
+        '
+      operationId: productsAttributesControllerGetRecords
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductsAttributesController.java
+      x-source-method: ProductsAttributesController.getRecords:32
+      responses:
+        '200':
+          description: 'Success. Java return type: List<Map<String, Object>>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /rest/prodBalanceAnalysis/columns:
+    get:
+      summary: Get columns (ProductionBalanceAnalysisController)
+      description: 'Generated from `ProductionBalanceAnalysisController.getColumns()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java`.
+
+        '
+      operationId: productionBalanceAnalysisControllerGetColumns
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java
+      x-source-method: ProductionBalanceAnalysisController.getColumns:35
+      responses:
+        '200':
+          description: 'Success. Java return type: List<ColumnDTO>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ColumnDTO'
+  /rest/prodBalanceAnalysis/exportToCsv:
+    post:
+      summary: Export to csv (ProductionBalanceAnalysisController)
+      description: 'Generated from `ProductionBalanceAnalysisController.exportToCsv()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java`.
+
+        '
+      operationId: productionBalanceAnalysisControllerExportToCsv
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java
+      x-source-method: ProductionBalanceAnalysisController.exportToCsv:57
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: 'Success. Java return type: Object'
+          content:
+            application/json:
+              schema:
+                type: object
+  /rest/prodBalanceAnalysis/records:
+    get:
+      summary: Get records (ProductionBalanceAnalysisController)
+      description: 'Generated from `ProductionBalanceAnalysisController.getRecords()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java`.
+
+        '
+      operationId: productionBalanceAnalysisControllerGetRecords
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java
+      x-source-method: ProductionBalanceAnalysisController.getRecords:47
+      parameters:
+        - name: dateFrom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: List<Map<String, Object>>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /rest/prodBalanceAnalysis/validate:
+    get:
+      summary: Validate (ProductionBalanceAnalysisController)
+      description: 'Generated from `ProductionBalanceAnalysisController.validate()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java`.
+
+        '
+      operationId: productionBalanceAnalysisControllerValidate
+      tags:
+        - ProductionCounting
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java
+      x-source-method: ProductionBalanceAnalysisController.validate:41
+      parameters:
+        - name: dateFrom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: String'
+          content:
+            text/plain:
+              schema:
+                type: string
+  /rest/product:
+    post:
+      summary: Save product (BasicApiController)
+      description: 'Generated from `BasicApiController.saveProduct()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
+
+        '
+      operationId: basicApiControllerSaveProduct
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
+      x-source-method: BasicApiController.saveProduct:189
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductRequest'
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+  /rest/product/config:
+    get:
+      summary: Get config view (ProductLookupController)
+      description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `ProductLookupController`.
+
+        '
+      operationId: productLookupControllerGetConfigView
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getConfigView:44
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/product/records:
+    get:
+      summary: Get records (ProductLookupController)
+      description: 'Generated from `BasicLookupController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `ProductLookupController`.
+
+
+        NOTE: parameter ''record'' (ProductDTO) has no binding annotation; Spring binds it as a @ModelAttribute
+        from the query string - its individual fields are not modelled
+
+        '
+      operationId: productLookupControllerGetRecords
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getRecords:27
+      parameters:
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: context
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 0
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<ProductDTO>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseProductDTO'
+  /rest/productData/multiUploadFiles:
+    post:
+      summary: Upload (ProductDataMultiUploadController)
+      description: 'Generated from `ProductDataMultiUploadController.upload()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/ProductDataMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: productDataMultiUploadControllerUpload
+      tags:
+        - Technologies
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/ProductDataMultiUploadController.java
+      x-source-method: ProductDataMultiUploadController.upload:78
+      responses:
+        '200':
+          description: Empty response body
+  /rest/productionLine:
+    post:
+      summary: Save product (ProductionLinesApiController)
+      description: 'Generated from `ProductionLinesApiController.saveProduct()` in `mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java`.
+
+        '
+      operationId: productionLinesApiControllerSaveProduct
+      tags:
+        - ProductionLines
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java
+      x-source-method: ProductionLinesApiController.saveProduct:86
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductionLineRequest'
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductionLineResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductionLineResponse'
+  /rest/productionLine/{productionLineId}/shiftWorkingDate:
+    get:
+      summary: Get shift working date (ProductionLinesApiController)
+      description: 'Generated from `ProductionLinesApiController.getShiftWorkingDate()` in `mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java`.
+
+        '
+      operationId: getShiftWorkingDate
+      tags:
+        - ProductionLines
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java
+      x-source-method: ProductionLinesApiController.getShiftWorkingDate:65
+      parameters:
+        - name: productionLineId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: 'Success. Java return type: ShiftWorkingDateResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShiftWorkingDateResponse'
+  /rest/productionLines:
+    get:
+      summary: Get technologies (ProductionLinesApiController)
+      description: 'Generated from `ProductionLinesApiController.getTechnologies()` in `mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java`.
+
+        '
+      operationId: productionLinesApiControllerGetTechnologies
+      tags:
+        - ProductionLines
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java
+      x-source-method: ProductionLinesApiController.getTechnologies:53
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductionLinesResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductionLinesResponse'
+  /rest/productionLines/default:
+    get:
+      summary: 查詢預設生產線
+      description: 'Generated from `ProductionLinesApiController.getDefaultProductionLine()` in `mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java`.
+
+        '
+      operationId: getDefaultProductionLine
+      tags:
+        - ProductionLines
+      x-summary-source: curated
+      x-source-file: mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java
+      x-source-method: ProductionLinesApiController.getDefaultProductionLine:59
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductionLineDto'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductionLineDto'
+  /rest/productionLinesByPage:
+    get:
+      summary: Get products (ProductionLinesApiController)
+      description: 'Generated from `ProductionLinesApiController.getProducts()` in `mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java`.
+
+        '
+      operationId: productionLinesApiControllerGetProducts
+      tags:
+        - ProductionLines
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java
+      x-source-method: ProductionLinesApiController.getProducts:77
+      parameters:
+        - name: limit
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: order
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductionLinesGridResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductionLinesGridResponse'
+  /rest/products:
+    get:
+      summary: Get products by query (BasicApiController)
+      description: 'Generated from `BasicApiController.getProductsByQuery()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
+
+        '
+      operationId: getProductsByQuery
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
+      x-source-method: BasicApiController.getProductsByQuery:152
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: DataResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+  /rest/productsByPage:
+    get:
+      summary: Get products (BasicApiController)
+      description: 'Generated from `BasicApiController.getProducts()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
+
+        '
+      operationId: basicApiControllerGetProducts
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
+      x-source-method: BasicApiController.getProducts:164
+      parameters:
+        - name: limit
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: order
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductsGridResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductsGridResponse'
+  /rest/productsTypeahead:
+    get:
+      summary: Get products typeahead (BasicApiController)
+      description: 'Generated from `BasicApiController.getProductsTypeahead()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
+
+        '
+      operationId: getProductsTypeahead
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
+      x-source-method: BasicApiController.getProductsTypeahead:158
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: DataResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+  /rest/resAttributes/columns:
+    get:
+      summary: Get columns (ResourcesAttributesController)
+      description: 'Generated from `ResourcesAttributesController.getColumns()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesController.java`.
+
+        '
+      operationId: resourcesAttributesControllerGetColumns
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesController.java
+      x-source-method: ResourcesAttributesController.getColumns:26
+      responses:
+        '200':
+          description: 'Success. Java return type: List<ColumnDTO>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ColumnDTO'
+  /rest/resAttributes/records:
+    get:
+      summary: Get records (ResourcesAttributesController)
+      description: 'Generated from `ResourcesAttributesController.getRecords()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesController.java`.
+
+        '
+      operationId: resourcesAttributesControllerGetRecords
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesController.java
+      x-source-method: ResourcesAttributesController.getRecords:32
+      responses:
+        '200':
+          description: 'Success. Java return type: List<Map<String, Object>>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /rest/resource/config:
+    get:
+      summary: Get config view (ResourceLookupController)
+      description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `ResourceLookupController`.
+
+        '
+      operationId: resourceLookupControllerGetConfigView
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getConfigView:44
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/resource/records:
+    get:
+      summary: Get records (ResourceLookupController)
+      description: 'Generated from `ResourceLookupController.getRecords()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/batch/ResourceLookupController.java`.
+
+
+        NOTE: parameter ''record'' (ResourceDTO) has no binding annotation; Spring binds it as a @ModelAttribute
+        from the query string - its individual fields are not modelled
+
+        '
+      operationId: resourceLookupControllerGetRecords
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/batch/ResourceLookupController.java
+      x-source-method: ResourceLookupController.getRecords:38
+      parameters:
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: context
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 0
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<ResourceDTO>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseResourceDTO'
+  /rest/responsibleWorker/config:
+    get:
+      summary: Get config view (WorkersLookupController)
+      description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `WorkersLookupController`.
+
+        '
+      operationId: workersLookupControllerGetConfigView
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getConfigView:44
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/responsibleWorker/records:
+    get:
+      summary: Get records (WorkersLookupController)
+      description: 'Generated from `BasicLookupController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `WorkersLookupController`.
+
+
+        NOTE: parameter ''record'' (WorkerDTO) has no binding annotation; Spring binds it as a @ModelAttribute
+        from the query string - its individual fields are not modelled
+
+        '
+      operationId: workersLookupControllerGetRecords
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getRecords:27
+      parameters:
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: context
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 0
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<WorkerDTO>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseWorkerDTO'
+  /rest/rest/actions:
+    put:
+      summary: Create (ActionsController)
+      description: 'Generated from `ActionsController.create()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+        '
+      operationId: actionsControllerCreate
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
+      x-source-method: ActionsController.create:49
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionForPlannedEventDTO'
+      responses:
+        '200':
+          description: Empty response body
+  /rest/rest/actions/actions:
+    get:
+      summary: Get actions for object (ActionsController)
+      description: 'Generated from `ActionsController.getActionsForObject()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
+
+        '
+      operationId: getActionsForObject
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
+      x-source-method: ActionsController.getActionsForObject:73
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: context
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: DataResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+  /rest/rest/actions/gridConfig/{id}:
+    get:
+      summary: Grid config (ActionsController)
+      description: 'Generated from `ActionsController.gridConfig()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
+
+        '
+      operationId: actionsControllerGridConfig
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
+      x-source-method: ActionsController.gridConfig:31
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/rest/actions/states:
+    get:
+      summary: Get states (ActionsController)
+      description: 'Generated from `ActionsController.getStates()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
+
+        '
+      operationId: getStates
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
+      x-source-method: ActionsController.getStates:67
+      responses:
+        '200':
+          description: 'Success. Java return type: List<Map<String, String>>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties:
+                    type: string
+  /rest/rest/actions/workers:
+    get:
+      summary: Get workers (ActionsController)
+      description: 'Generated from `ActionsController.getWorkers()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
+
+        '
+      operationId: getWorkers
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
+      x-source-method: ActionsController.getWorkers:79
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: DataResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+  /rest/rest/actions/{id}:
+    get:
+      summary: Find all (ActionsController)
+      description: 'Generated from `ActionsController.findAll()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
+
+
+        NOTE: parameter ''actionForPlannedEventDto'' (ActionForPlannedEventDTO) has no binding annotation;
+        Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: actionsControllerFindAll
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
+      x-source-method: ActionsController.findAll:40
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<ActionForPlannedEventDTO>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseActionForPlannedEventDTO'
+    delete:
+      summary: Delete (ActionsController)
+      description: 'Generated from `ActionsController.delete()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+        '
+      operationId: actionsControllerDelete
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
+      x-source-method: ActionsController.delete:55
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Empty response body
+    put:
+      summary: Update (ActionsController)
+      description: 'Generated from `ActionsController.update()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+        '
+      operationId: actionsControllerUpdate
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
+      x-source-method: ActionsController.update:61
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionForPlannedEventDTO'
+      responses:
+        '200':
+          description: Empty response body
+  /rest/rest/documentPositions:
+    put:
+      summary: Create (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.create()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+        '
+      operationId: documentPositionsControllerCreate
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.create:65
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentPositionDTO'
+      responses:
+        '200':
+          description: Empty response body
+  /rest/rest/documentPositions/batch:
+    get:
+      summary: Get batches (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getBatches()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getBatches
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getBatches:90
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: product
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: DataResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+  /rest/rest/documentPositions/gridConfig/{id}:
+    get:
+      summary: Grid config (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.gridConfig()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: documentPositionsControllerGridConfig
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.gridConfig:157
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/rest/documentPositions/product/{number}:
+    get:
+      summary: Get product for product number (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getProductForProductNumber()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getProductForProductNumber
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getProductForProductNumber:57
+      parameters:
+        - name: number
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductDTO'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDTO'
+  /rest/rest/documentPositions/productFromLocation:
+    get:
+      summary: Get product from location (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getProductFromLocation()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getProductFromLocation
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getProductFromLocation:151
+      parameters:
+        - name: location
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: document
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductDTO'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDTO'
+  /rest/rest/documentPositions/resource:
+    get:
+      summary: Get resource for product (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getResourceForProduct()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getResourceForProduct
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getResourceForProduct:112
+      parameters:
+        - name: context
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: product
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: conversion
+          in: query
+          required: true
+          schema:
+            type: number
+        - name: batchId
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: ResourceDTO'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceDTO'
+  /rest/rest/documentPositions/resourceByNumber/{document}/{resource}:
+    get:
+      summary: Get batch for resource (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getBatchForResource()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getBatchForResource
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getBatchForResource:135
+      parameters:
+        - name: document
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: resource
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: ResourceDTO'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceDTO'
+  /rest/rest/documentPositions/resources:
+    get:
+      summary: Get resources (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getResources()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getResources
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getResources:123
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: product
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: conversion
+          in: query
+          required: true
+          schema:
+            type: number
+        - name: context
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: batchId
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: DataResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+  /rest/rest/documentPositions/storageLocation/{document}:
+    get:
+      summary: Get storage location for empty product (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getStorageLocationForEmptyProduct()` in
+        `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getStorageLocationForEmptyProduct
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getStorageLocationForEmptyProduct:96
+      parameters:
+        - name: document
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: StorageLocationDTO'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageLocationDTO'
+  /rest/rest/documentPositions/storageLocation/{product}/{document}:
+    get:
+      summary: Get storage location for product and warehouse (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getStorageLocationForProductAndWarehouse()`
+        in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getStorageLocationForProductAndWarehouse
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getStorageLocationForProductAndWarehouse:102
+      parameters:
+        - name: product
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: document
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: StorageLocationDTO'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageLocationDTO'
+  /rest/rest/documentPositions/storagelocations:
+    get:
+      summary: Get storage locations (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getStorageLocations()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getStorageLocations
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getStorageLocations:83
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: product
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: DataResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+  /rest/rest/documentPositions/typeOfLoadUnitByLoadUnit/{document}/{loadUnitNumber}:
+    get:
+      summary: Get type of load unit for load unit number (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getTypeOfLoadUnitForLoadUnitNumber()`
+        in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getTypeOfLoadUnitForLoadUnitNumber
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getTypeOfLoadUnitForLoadUnitNumber:143
+      parameters:
+        - name: document
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: loadUnitNumber
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: String'
+          content:
+            application/json:
+              schema:
+                type: string
+  /rest/rest/documentPositions/units/{number}:
+    get:
+      summary: Get units for product (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getUnitsForProduct()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getUnitsForProduct
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getUnitsForProduct:49
+      parameters:
+        - name: number
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/rest/documentPositions/{ids}:
+    delete:
+      summary: Delete (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.delete()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+        '
+      operationId: documentPositionsControllerDelete
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.delete:71
+      parameters:
+        - name: ids
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Empty response body
+  /rest/rest/documentPositions/{id}:
+    get:
+      summary: Find all (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.findAll()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+
+        NOTE: parameter ''positionDTO'' (DocumentPositionDTO) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: documentPositionsControllerFindAll
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.findAll:37
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<DocumentPositionDTO>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseDocumentPositionDTO'
+    put:
+      summary: Update (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.update()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: path variable ''id'' present in the URI template but not bound by a @PathVariable parameter;
+        typed as string
+
+        '
+      operationId: documentPositionsControllerUpdate
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.update:77
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentPositionDTO'
+      responses:
+        '200':
+          description: Empty response body
+  /rest/storageLocation/config:
+    get:
+      summary: Get config view (StorageLocationLookupController)
+      description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `StorageLocationLookupController`.
+
+        '
+      operationId: storageLocationLookupControllerGetConfigView
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getConfigView:44
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/storageLocation/records:
+    get:
+      summary: Get records (StorageLocationLookupController)
+      description: 'Generated from `BasicLookupController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `StorageLocationLookupController`.
+
+
+        NOTE: parameter ''record'' (StorageLocationDTO) has no binding annotation; Spring binds it as
+        a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: storageLocationLookupControllerGetRecords
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getRecords:27
+      parameters:
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: context
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 0
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<StorageLocationDTO>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseStorageLocationDTO'
+  /rest/subassemblies/{workstationId}:
+    get:
+      summary: Get subassemblies (BasicApiController)
+      description: 'Generated from `BasicApiController.getSubassemblies()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
+
+        '
+      operationId: getSubassemblies
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
+      x-source-method: BasicApiController.getSubassemblies:80
+      parameters:
+        - name: workstationId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: SubassembliesResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubassembliesResponse'
+  /rest/technologies:
+    get:
+      summary: Get technologies (TechnologyApiController)
+      description: 'Generated from `TechnologyApiController.getTechnologies()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
+
+        '
+      operationId: technologyApiControllerGetTechnologies
+      tags:
+        - Technologies
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
+      x-source-method: TechnologyApiController.getTechnologies:59
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: productId
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: master
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - name: forEach
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: 'Success. Java return type: TechnologiesResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TechnologiesResponse'
+  /rest/technologies/multiUploadFiles:
+    post:
+      summary: Upload (TechnologyMultiUploadController)
+      description: 'Generated from `TechnologyMultiUploadController.upload()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: technologyMultiUploadControllerUpload
+      tags:
+        - Technologies
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyMultiUploadController.java
+      x-source-method: TechnologyMultiUploadController.upload:77
+      responses:
+        '200':
+          description: Empty response body
+  /rest/technologies/technologiesMultiUploadFiles:
+    post:
+      summary: Technologies upload (TechnologyMultiUploadController)
+      description: 'Generated from `TechnologyMultiUploadController.technologiesUpload()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: technologiesUpload
+      tags:
+        - Technologies
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyMultiUploadController.java
+      x-source-method: TechnologyMultiUploadController.technologiesUpload:102
+      responses:
+        '200':
+          description: Empty response body
+  /rest/technologiesByPage:
+    get:
+      summary: Get products (TechnologyApiController)
+      description: 'Generated from `TechnologyApiController.getProducts()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
+
+        '
+      operationId: technologyApiControllerGetProducts
+      tags:
+        - Technologies
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
+      x-source-method: TechnologyApiController.getProducts:118
+      parameters:
+        - name: limit
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: order
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: productId
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: forEach
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: 'Success. Java return type: TechnologiesGridResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TechnologiesGridResponse'
+  /rest/technology/{technologyId}/materials:
+    get:
+      summary: Get technology materials (TechnologyApiController)
+      description: 'Generated from `TechnologyApiController.getTechnologyMaterials()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
+
+        '
+      operationId: getTechnologyMaterials
+      tags:
+        - Technologies
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
+      x-source-method: TechnologyApiController.getTechnologyMaterials:67
+      parameters:
+        - name: technologyId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: List<MaterialDto>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MaterialDto'
+  /rest/technology/{technologyId}/operationMaterials:
+    get:
+      summary: Get technology operation materials (TechnologyApiController)
+      description: 'Generated from `TechnologyApiController.getTechnologyOperationMaterials()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
+
+        '
+      operationId: getTechnologyOperationMaterials
+      tags:
+        - Technologies
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
+      x-source-method: TechnologyApiController.getTechnologyOperationMaterials:106
+      parameters:
+        - name: technologyId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: List<OperationMaterialDto>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OperationMaterialDto'
+  /rest/technology/{technologyId}/productionLine:
+    get:
+      summary: Get technology production line (TechnologyApiController)
+      description: 'Generated from `TechnologyApiController.getTechnologyProductionLine()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
+
+        '
+      operationId: getTechnologyProductionLine
+      tags:
+        - Technologies
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
+      x-source-method: TechnologyApiController.getTechnologyProductionLine:112
+      parameters:
+        - name: technologyId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductionLineDto'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductionLineDto'
+  /rest/technologyConfigurator/configuration:
+    get:
+      summary: Get configuration (TechnologyConfiguratorController)
+      description: 'Generated from `TechnologyConfiguratorController.getConfiguration()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyConfiguratorController.java`.
+
+        '
+      operationId: getConfiguration
+      tags:
+        - Technologies
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyConfiguratorController.java
+      x-source-method: TechnologyConfiguratorController.getConfiguration:51
+      responses:
+        '200':
+          description: 'Success. Java return type: TechnologyConfigurationDto'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TechnologyConfigurationDto'
+  /rest/typeOfLoadUnits:
+    get:
+      summary: Get type of load units (BasicApiController)
+      description: 'Generated from `BasicApiController.getTypeOfLoadUnits()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
+
+        '
+      operationId: getTypeOfLoadUnits
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
+      x-source-method: BasicApiController.getTypeOfLoadUnits:246
+      responses:
+        '200':
+          description: 'Success. Java return type: List<Map<String, String>>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties:
+                    type: string
+  /rest/units:
+    get:
+      summary: Get units (BasicApiController)
+      description: 'Generated from `BasicApiController.getUnits()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
+
+        '
+      operationId: getUnits
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
+      x-source-method: BasicApiController.getUnits:240
+      responses:
+        '200':
+          description: 'Success. Java return type: List<Map<String, String>>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties:
+                    type: string
+  /rest/workstation:
+    post:
+      summary: Save workstation (BasicApiController)
+      description: 'Generated from `BasicApiController.saveWorkstation()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
+
+        '
+      operationId: saveWorkstation
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
+      x-source-method: BasicApiController.saveWorkstation:86
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkstationRequest'
+      responses:
+        '200':
+          description: 'Success. Java return type: WorkstationResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkstationResponse'
+  /rest/workstationType:
+    post:
+      summary: Save workstation type (BasicApiController)
+      description: 'Generated from `BasicApiController.saveWorkstationType()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
+
+        '
+      operationId: saveWorkstationType
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
+      x-source-method: BasicApiController.saveWorkstationType:119
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkstationRequest'
+      responses:
+        '200':
+          description: 'Success. Java return type: WorkstationResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkstationResponse'
+  /rest/workstationTypes:
+    get:
+      summary: Get workstation types (BasicApiController)
+      description: 'Generated from `BasicApiController.getWorkstationTypes()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
+
+        '
+      operationId: getWorkstationTypes
+      tags:
+        - Basic
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
+      x-source-method: BasicApiController.getWorkstationTypes:62
+      responses:
+        '200':
+          description: 'Success. Java return type: WorkstationTypesResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkstationTypesResponse'
+  /rest/workstationTypesByPage:
+    get:
+      summary: 'Get workstations (TechnologyApiController) #4'
+      description: 'Generated from `TechnologyApiController.getWorkstations()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
+
+        '
+      operationId: technologyApiControllerGetWorkstations4
+      tags:
+        - Technologies
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
+      x-source-method: TechnologyApiController.getWorkstations:97
+      parameters:
+        - name: limit
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: order
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: WorkstationTypesGridResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkstationTypesGridResponse'
+  /rest/workstationTypesByQuery:
+    get:
+      summary: 'Get workstations (TechnologyApiController) #3'
+      description: 'Generated from `TechnologyApiController.getWorkstations()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
+
+        '
+      operationId: technologyApiControllerGetWorkstations3
+      tags:
+        - Technologies
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
+      x-source-method: TechnologyApiController.getWorkstations:91
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: WorkstationTypesResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkstationTypesResponse'
+  /rest/workstations:
+    get:
+      summary: 'Get workstations (TechnologyApiController) #1'
+      description: 'Generated from `TechnologyApiController.getWorkstations()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
+
+        '
+      operationId: technologyApiControllerGetWorkstations
+      tags:
+        - Technologies
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
+      x-source-method: TechnologyApiController.getWorkstations:73
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: tocId
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: WorkstationsResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkstationsResponse'
+  /rest/workstationsByPage:
+    get:
+      summary: 'Get workstations (TechnologyApiController) #2'
+      description: 'Generated from `TechnologyApiController.getWorkstations()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
+
+        '
+      operationId: technologyApiControllerGetWorkstations2
+      tags:
+        - Technologies
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
+      x-source-method: TechnologyApiController.getWorkstations:80
+      parameters:
+        - name: limit
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: order
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: tocId
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - name: operation
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: WorkstationsGridResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkstationsGridResponse'
+components:
+  schemas:
+    AbstractDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.dto.AbstractDTO (no serialisable
+        fields found; shape is opaque to static analysis)
+    ActionDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.cmmsMachineParts.dto.ActionDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type: string
+        plannedEventId:
+          type: integer
+          format: int64
+    ActionForPlannedEventDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.cmmsMachineParts.dto.ActionForPlannedEventDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        plannedEvent:
+          type: integer
+          format: int64
+        action:
+          type: string
+        responsibleWorker:
+          type: string
+        description:
+          type: string
+        state:
+          type: string
+        reason:
+          type: string
+    ActivityDto:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.activityStream.model.ActivityDto
+      properties:
+        id:
+          type: integer
+          format: int64
+        message:
+          type: string
+        type:
+          type: string
+        viewed:
+          type: boolean
+        date:
+          type: string
+          format: date-time
+    AttributeDto:
+      type: object
+      description: Generated from com.qcadoo.mes.materialFlowResources.AttributeDto
+      properties:
+        id:
+          type: integer
+          format: int64
+        value:
+          type: string
+        number:
+          type: string
+        dataType:
+          type: string
+        valueType:
+          type: string
+        description:
+          type: string
+        precision:
+          type: integer
+          format: int32
+    BatchDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.materialFlowResources.BatchDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        product:
+          type: string
+        supplier:
+          type: string
+    ColumnDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.dto.ColumnDTO
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        unit:
+          type: string
+        dataType:
+          type: string
+    CountriesGridResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.responses.CountriesGridResponse
+      properties:
+        total:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/CountryDto'
+    CountriesResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.responses.CountriesResponse
+      properties:
+        countries:
+          type: array
+          items:
+            $ref: '#/components/schemas/CountryDto'
+    CountryDto:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.dto.CountryDto
+      properties:
+        id:
+          type: integer
+          format: int64
+        country:
+          type: string
+        code:
+          type: string
+    DataResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.responses.DataResponse
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/AbstractDTO'
+        numberOfResults:
+          type: integer
+          format: int32
+    DocumentPositionDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.materialFlowResources.DocumentPositionDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        document:
+          type: integer
+          format: int64
+        number:
+          type: integer
+          format: int32
+        product:
+          type: string
+        productName:
+          type: string
+        quantity:
+          type: number
+        unit:
+          type: string
+        givenquantity:
+          type: number
+        givenunit:
+          type: string
+        conversion:
+          type: number
+        expirationDate:
+          type: string
+          format: date-time
+        productionDate:
+          type: string
+          format: date-time
+        palletNumber:
+          type: string
+        resourceNumber:
+          type: string
+        pickingDate:
+          type: string
+          format: date-time
+        pickingWorker:
+          type: string
+        typeOfLoadUnit:
+          type: string
+        storageLocation:
+          type: string
+        price:
+          type: number
+        sellingPrice:
+          type: number
+        batch:
+          type: string
+        batchId:
+          type: integer
+          format: int64
+        resource:
+          type: string
+        waste:
+          type: boolean
+        lastResource:
+          type: boolean
+        attrs:
+          type: object
+          additionalProperties: true
+    FactoriesResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.responses.FactoriesResponse
+      properties:
+        factories:
+          type: array
+          items:
+            $ref: '#/components/schemas/FactoryDto'
+    FactoryDto:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.dto.FactoryDto
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        name:
+          type: string
+    FaultTypeDto:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.dto.FaultTypeDto
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        name:
+          type: string
+    FaultTypeRequest:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.requests.FaultTypeRequest
+      properties:
+        workstationId:
+          type: integer
+          format: int64
+        subassemblyId:
+          type: integer
+          format: int64
+    FaultTypeResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.responses.FaultTypeResponse
+      properties:
+        faultTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/FaultTypeDto'
+    GenerateOrdersSalePlanRequest:
+      type: object
+      description: Generated from com.qcadoo.mes.masterOrders.controllers.orders.GenerateOrdersSalePlanRequest
+      properties:
+        entityId:
+          type: integer
+          format: int64
+        positions:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderSalePlanPosition'
+    GenerateOrdersSalePlanResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.masterOrders.controllers.orders.GenerateOrdersSalePlanResponse
+      properties:
+        status:
+          $ref: '#/components/schemas/SimpleResponseStatus'
+        messages:
+          type: array
+          items:
+            type: string
+        errorMessages:
+          type: array
+          items:
+            type: string
+        entityId:
+          type: integer
+          format: int64
+    GridResponseActionDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionDTO'
+    GridResponseActionForPlannedEventDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionForPlannedEventDTO'
+    GridResponseAttributeDto:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeDto'
+    GridResponseBatchDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/BatchDTO'
+    GridResponseDocumentPositionDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/DocumentPositionDTO'
+    GridResponsePalletNumberDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/PalletNumberDTO'
+    GridResponseProductDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductDTO'
+    GridResponseResourceDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceDTO'
+    GridResponseStorageLocationDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/StorageLocationDTO'
+    GridResponseWorkerDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkerDTO'
+    MaterialDto:
+      type: object
+      description: Generated from com.qcadoo.mes.technologies.controller.dataProvider.MaterialDto
+      properties:
+        productInId:
+          type: integer
+          format: int64
+        productId:
+          type: integer
+          format: int64
+        index:
+          type: integer
+          format: int64
+        product:
+          type: string
+        productNumber:
+          type: string
+        productName:
+          type: string
+        unit:
+          type: string
+        quantity:
+          type: number
+        quantityPerUnit:
+          type: number
+    OperationDto:
+      type: object
+      description: Generated from com.qcadoo.mes.technologies.controller.dataProvider.OperationDto
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        productNumber:
+          type: string
+        productUnit:
+          type: string
+    OperationMaterialDto:
+      type: object
+      description: Generated from com.qcadoo.mes.technologies.controller.dataProvider.OperationMaterialDto
+      properties:
+        productInId:
+          type: integer
+          format: int64
+        tocId:
+          type: integer
+          format: int64
+        operationId:
+          type: integer
+          format: int64
+        node:
+          type: string
+        operationNumber:
+          type: string
+        productId:
+          type: integer
+          format: int64
+        index:
+          type: integer
+          format: int64
+        product:
+          type: string
+        productNumber:
+          type: string
+        productName:
+          type: string
+        unit:
+          type: string
+        quantity:
+          type: number
+        quantityPerUnit:
+          type: number
+        workstationId:
+          type: integer
+          format: int64
+        workstationNumber:
+          type: string
+    OperationRequest:
+      type: object
+      description: Generated from com.qcadoo.mes.technologies.controller.dataProvider.OperationRequest
+      properties:
+        number:
+          type: string
+        name:
+          type: string
+    OperationResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.technologies.controller.dataProvider.OperationResponse
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        code:
+          $ref: '#/components/schemas/StatusCode'
+        message:
+          type: string
+    OperationalTaskHolder:
+      type: object
+      description: Generated from com.qcadoo.mes.orders.controllers.dto.OperationalTaskHolder
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        state:
+          type: string
+        type:
+          type: string
+        plannedQuantity:
+          type: number
+        usedQuantity:
+          type: number
+        orderNumber:
+          type: string
+        workstationNumber:
+          type: string
+        productNumber:
+          type: string
+        productName:
+          type: string
+        productUnit:
+          type: string
+        staffName:
+          type: string
+        orderProductNumber:
+          type: string
+        orderProductName:
+          type: string
+        orderId:
+          type: integer
+          format: int64
+        dashboardShowForProduct:
+          type: string
+        productionTrackingStaff:
+          type: string
+        dashboardShowDescription:
+          type: boolean
+    OperationsResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.technologies.controller.dataProvider.OperationsResponse
+      properties:
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/OperationDto'
+    OrderCreationRequest:
+      type: object
+      description: Generated from com.qcadoo.mes.orders.controllers.requests.OrderCreationRequest
+      properties:
+        productId:
+          type: integer
+          format: int64
+        quantity:
+          type: number
+        description:
+          type: string
+        typeOfProductionRecording:
+          type: string
+        technologyId:
+          type: integer
+          format: int64
+        productionLineId:
+          type: integer
+          format: int64
+        startDate:
+          type: string
+          format: date-time
+        finishDate:
+          type: string
+          format: date-time
+        materials:
+          type: array
+          items:
+            $ref: '#/components/schemas/MaterialDto'
+        technologyOperations:
+          type: array
+          items:
+            $ref: '#/components/schemas/TechnologyOperationDto'
+    OrderCreationResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.orders.controllers.responses.OrderCreationResponse
+      properties:
+        code:
+          $ref: '#/components/schemas/StatusCode'
+        number:
+          type: string
+        message:
+          type: string
+        additionalInformation:
+          type: string
+        order:
+          $ref: '#/components/schemas/OrderHolder'
+        operationalTasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/OperationalTaskHolder'
+    OrderHolder:
+      type: object
+      description: Generated from com.qcadoo.mes.orders.controllers.dto.OrderHolder
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        state:
+          type: string
+        typeOfProductionRecording:
+          type: string
+        plannedQuantity:
+          type: number
+        doneQuantity:
+          type: number
+        reportedProductionQuantity:
+          type: number
+        masterOrderQuantity:
+          type: number
+        masterOrderNumber:
+          type: string
+        orderCategory:
+          type: string
+        productionLineNumber:
+          type: string
+        productNumber:
+          type: string
+        productName:
+          type: string
+        productUnit:
+          type: string
+        companyName:
+          type: string
+        addressNumber:
+          type: string
+        dashboardShowForProduct:
+          type: string
+        dashboardShowDescription:
+          type: boolean
+        deadline:
+          type: string
+        productionTrackingStaff:
+          type: string
+    OrderResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.orders.controllers.responses.OrderResponse
+      properties:
+        order:
+          $ref: '#/components/schemas/OrderHolder'
+        message:
+          type: string
+    OrderSalePlanPosition:
+      type: object
+      description: Generated from com.qcadoo.mes.masterOrders.controllers.orders.OrderSalePlanPosition
+      properties:
+        id:
+          type: integer
+          format: int64
+        value:
+          type: number
+    PalletNumberDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.dto.PalletNumberDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type: string
+        number:
+          type: string
+    ProductBySizePosition:
+      type: object
+      description: Generated from com.qcadoo.mes.masterOrders.controllers.productBySize.ProductBySizePosition
+      properties:
+        id:
+          type: integer
+          format: int64
+        value:
+          type: number
+    ProductDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.dto.ProductDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type: string
+        number:
+          type: string
+        name:
+          type: string
+        ean:
+          type: string
+        globaltypeofmaterial:
+          type: string
+        category:
+          type: string
+        unit:
+          type: string
+    ProductRequest:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.requests.ProductRequest
+      properties:
+        number:
+          type: string
+        name:
+          type: string
+        unit:
+          type: string
+        globalTypeOfMaterial:
+          type: string
+    ProductResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.responses.ProductResponse
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        name:
+          type: string
+        unit:
+          type: string
+        code:
+          $ref: '#/components/schemas/StatusCode'
+        message:
+          type: string
+    ProductionLineDto:
+      type: object
+      description: Generated from com.qcadoo.mes.productionLines.controller.dataProvider.ProductionLineDto
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        name:
+          type: string
+    ProductionLineRequest:
+      type: object
+      description: Generated from com.qcadoo.mes.productionLines.controller.dataProvider.ProductionLineRequest
+      properties:
+        number:
+          type: string
+        name:
+          type: string
+        unit:
+          type: string
+    ProductionLineResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.productionLines.controller.dataProvider.ProductionLineResponse
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        name:
+          type: string
+        unit:
+          type: string
+        code:
+          $ref: '#/components/schemas/StatusCode'
+        message:
+          type: string
+    ProductionLinesGridResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.productionLines.controller.dataProvider.ProductionLinesGridResponse
+      properties:
+        total:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductionLineDto'
+    ProductionLinesResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.productionLines.controller.dataProvider.ProductionLinesResponse
+      properties:
+        productionLines:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductionLineDto'
+    ProductsBySizeRequest:
+      type: object
+      description: Generated from com.qcadoo.mes.masterOrders.controllers.productBySize.ProductsBySizeRequest
+      properties:
+        entityId:
+          type: integer
+          format: int64
+        positions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductBySizePosition'
+    ProductsBySizeResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.masterOrders.controllers.productBySize.ProductsBySizeResponse
+      properties:
+        status:
+          $ref: '#/components/schemas/SimpleResponseStatus'
+        message:
+          type: string
+    ProductsGridResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.responses.ProductsGridResponse
+      properties:
+        total:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductDTO'
+    ResourceDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.materialFlowResources.ResourceDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        batch:
+          type: string
+        batchId:
+          type: integer
+          format: int64
+        quantity:
+          type: number
+        quantityInAdditionalUnit:
+          type: number
+        reservedQuantity:
+          type: number
+        availableQuantity:
+          type: number
+        price:
+          type: number
+        conversion:
+          type: number
+        givenUnit:
+          type: string
+        unit:
+          type: string
+        product:
+          type: string
+        expirationDate:
+          type: string
+          format: date-time
+        productionDate:
+          type: string
+          format: date-time
+        storageLocation:
+          type: string
+        palletNumber:
+          type: string
+        typeOfLoadUnit:
+          type: string
+        waste:
+          type: boolean
+        lastResource:
+          type: boolean
+        lastResourceString:
+          type: string
+        wasteString:
+          type: string
+        attrs:
+          type: object
+          additionalProperties: true
+    ShiftWorkingDateResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.productionLines.controller.dataProvider.ShiftWorkingDateResponse
+      properties:
+        start:
+          type: string
+          format: date-time
+        finish:
+          type: string
+          format: date-time
+        code:
+          $ref: '#/components/schemas/StatusCode'
+        message:
+          type: string
+    SimpleResponseStatus:
+      type: string
+      description: Java enum com.qcadoo.mes.masterOrders.controllers.orders.SimpleResponseStatus
+      enum:
+        - OK
+        - ERROR
+    StatusCode:
+      type: string
+      description: Java enum com.qcadoo.mes.basic.controllers.dataProvider.responses.StatusCode
+      enum:
+        - OK
+        - ERROR
+    StorageLocationDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.materialFlowResources.StorageLocationDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        product:
+          type: string
+        location:
+          type: string
+    SubassembliesResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.responses.SubassembliesResponse
+      properties:
+        subassemblies:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubassemblyDto'
+    SubassemblyDto:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.dto.SubassemblyDto
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        name:
+          type: string
+    TechnologiesGridResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.technologies.controller.dataProvider.TechnologiesGridResponse
+      properties:
+        total:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/TechnologyDto'
+    TechnologiesResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.technologies.controller.dataProvider.TechnologiesResponse
+      properties:
+        technologies:
+          type: array
+          items:
+            $ref: '#/components/schemas/TechnologyDto'
+    TechnologyConfigurationDto:
+      type: object
+      description: Generated from com.qcadoo.mes.technologies.controller.dataProvider.TechnologyConfigurationDto
+      properties:
+        typeOfProductionRecording:
+          type: string
+    TechnologyCreationRequest:
+      type: object
+      description: Generated from com.qcadoo.mes.orders.controllers.requests.TechnologyCreationRequest
+      properties:
+        productId:
+          type: integer
+          format: int64
+        quantity:
+          type: number
+        description:
+          type: string
+        typeOfProductionRecording:
+          type: string
+        materials:
+          type: array
+          items:
+            $ref: '#/components/schemas/MaterialDto'
+        technologyOperations:
+          type: array
+          items:
+            $ref: '#/components/schemas/TechnologyOperationDto'
+    TechnologyCreationResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.orders.controllers.responses.TechnologyCreationResponse
+      properties:
+        code:
+          $ref: '#/components/schemas/StatusCode'
+        number:
+          type: string
+        message:
+          type: string
+        additionalInformation:
+          type: string
+    TechnologyDto:
+      type: object
+      description: Generated from com.qcadoo.mes.technologies.controller.dataProvider.TechnologyDto
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        name:
+          type: string
+        master:
+          type: boolean
+    TechnologyOperationDto:
+      type: object
+      description: Generated from com.qcadoo.mes.orders.controllers.dto.TechnologyOperationDto
+      properties:
+        id:
+          type: integer
+          format: int64
+        operationId:
+          type: integer
+          format: int64
+        workstationId:
+          type: integer
+          format: int64
+        node:
+          type: string
+        materials:
+          type: array
+          items:
+            $ref: '#/components/schemas/MaterialDto'
+    WorkerDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.cmmsMachineParts.dto.WorkerDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type: string
+    WorkstationDto:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.dto.WorkstationDto
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        name:
+          type: string
+    WorkstationRequest:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.requests.WorkstationRequest
+      properties:
+        number:
+          type: string
+        name:
+          type: string
+        type:
+          type: integer
+          format: int64
+    WorkstationResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.responses.WorkstationResponse
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        name:
+          type: string
+        code:
+          $ref: '#/components/schemas/StatusCode'
+        message:
+          type: string
+    WorkstationTypeDto:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.dto.WorkstationTypeDto
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        name:
+          type: string
+    WorkstationTypesGridResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.responses.WorkstationTypesGridResponse
+      properties:
+        total:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkstationTypeDto'
+    WorkstationTypesResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.responses.WorkstationTypesResponse
+      properties:
+        workstationTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkstationTypeDto'
+    WorkstationsGridResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.responses.WorkstationsGridResponse
+      properties:
+        total:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkstationDto'
+    WorkstationsResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.responses.WorkstationsResponse
+      properties:
+        workstations:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkstationDto'

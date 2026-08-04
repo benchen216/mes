@@ -1,0 +1,70 @@
+openapi: 3.0.0
+info:
+  title: qcadoo MES - AdvancedGenealogy API (generated)
+  version: 1.0.0
+  description: 'Auto-generated from the qcadoo MES Java sources by
+
+    `mes-bdd-tests/tools/generate_openapi.py`. Do not hand-edit: regenerate instead.
+
+
+    **URL structure** - `mes-application/src/main/webapp/WEB-INF/web.xml` maps the
+
+    DispatcherServlet at `/rest/*`, so every controller path is emitted with the
+
+    `/rest` prefix already baked into the path key. `servers[].url` is therefore `/`;
+
+    SpecFormula does not apply `servers[].url`, and baking the prefix in keeps the
+
+    spec correct for both.
+
+
+    **Authentication** - Spring Security 3.2 form login plus a `JSESSIONID` cookie,
+
+    not bearer tokens.
+
+
+    **Summaries** - the Java sources carry no summary text. Operations marked
+
+    `x-summary-source: generated` have a machine-derived placeholder and need human
+
+    curation; add an entry to `tools/summaries.yml` keyed by `ClassName.methodName`
+
+    to replace one.
+
+
+    **Responses** - only the success response is modelled. Several qcadoo endpoints
+
+    return HTTP 200 with an error code inside the payload rather than a 4xx/5xx
+
+    status, so error shapes are not inferable from the source.
+
+    '
+servers:
+  - url: /
+    description: Paths already include the /rest DispatcherServlet prefix
+paths:
+  /rest/advancedGenealogy/multiUploadFiles:
+    post:
+      summary: Upload (AdvancedGenealogyMultiUploadController)
+      description: 'Generated from `AdvancedGenealogyMultiUploadController.upload()` in `mes-plugins/mes-plugins-advanced-genealogy/src/main/java/com/qcadoo/mes/advancedGenealogy/AdvancedGenealogyMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: upload
+      tags:
+        - AdvancedGenealogy
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-advanced-genealogy/src/main/java/com/qcadoo/mes/advancedGenealogy/AdvancedGenealogyMultiUploadController.java
+      x-source-method: AdvancedGenealogyMultiUploadController.upload:73
+      responses:
+        '200':
+          description: Empty response body
+components:
+  schemas: {}

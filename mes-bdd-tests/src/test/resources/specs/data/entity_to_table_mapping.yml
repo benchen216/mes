@@ -1,0 +1,7 @@
+# qcadoo 資料表命名慣例:<plugin>_<model>,全小寫
+#
+# 此處只列 schema.sql 內的資料表(即 SpecFormula 會清理的範圍)。
+# 參考資料(產品、技術規範)由 seed-reference-data.sql 建立,刻意不納入。
+entity_to_table_mapping:
+  - 訂單: orders_order
+  - 訂單狀態變更: orders_orderstatechange

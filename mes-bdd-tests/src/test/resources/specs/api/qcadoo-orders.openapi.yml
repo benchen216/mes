@@ -1,0 +1,306 @@
+openapi: 3.0.0
+info:
+  title: qcadoo MES — Orders API
+  version: 1.0.0
+  description: |
+    手寫的 OpenAPI spec,對應 qcadoo MES 既有的 REST endpoint。
+
+    **來源**:
+    - `OrdersApiController.java` — POST /order
+    - `DashboardKanbanController.java` — 狀態流轉與看板查詢
+
+    **URL 結構**:所有路徑掛在 `/rest/*` 之下(見 `mes-application/src/main/webapp/WEB-INF/web.xml`
+    的 DispatcherServlet mapping),因此 server url 設為 `/rest`。
+
+    **認證**:qcadoo 使用 Spring Security 3.2 form login + JSESSIONID cookie,
+    非 Bearer token。由 `QcadooSessionHttpClientAdapter` 處理。
+
+servers:
+  - url: /rest
+    description: qcadoo DispatcherServlet 掛載點
+
+paths:
+  /rest/order:
+    post:
+      summary: 建立訂單
+      description: |
+        對應 `OrdersApiController.saveOrder()`。
+        底層 `OrderCreationService.createOrder()` 會自動產生訂單編號,
+        並在條件符合時把訂單推進到 ACCEPTED 狀態。
+      operationId: createOrder
+      tags: [Orders]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderCreationRequest'
+      responses:
+        '200':
+          description: 建立結果(注意:業務失敗時仍回 200,以 code 欄位區分)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderCreationResponse'
+
+  /rest/dashboardKanban/updateOrderState/{orderId}:
+    put:
+      summary: 推進訂單狀態
+      description: |
+        對應 `DashboardKanbanController.updateOrderState()`。
+
+        **限制**:目標狀態寫死在程式碼中 —— 若當前為 IN_PROGRESS 則轉 COMPLETED,
+        否則一律轉 IN_PROGRESS。無法指定任意目標狀態。
+        要完整測試狀態機的 7 個狀態,需新增可指定 targetState 的 endpoint。
+      operationId: updateOrderState
+      tags: [Orders]
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 狀態變更結果
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+
+  /rest/dashboardKanban/ordersPending:
+    get:
+      summary: 查詢待處理訂單
+      operationId: getOrdersPending
+      tags: [Orders]
+      responses:
+        '200':
+          description: 待處理訂單清單
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrderHolder'
+
+  /rest/dashboardKanban/ordersInProgress:
+    get:
+      summary: 查詢進行中訂單
+      operationId: getOrdersInProgress
+      tags: [Orders]
+      responses:
+        '200':
+          description: 進行中訂單清單(state = 03inProgress)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrderHolder'
+
+  /rest/dashboardKanban/ordersCompleted:
+    get:
+      summary: 查詢已完成訂單
+      operationId: getOrdersCompleted
+      tags: [Orders]
+      responses:
+        '200':
+          description: 已完成訂單清單(state = 04completed)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrderHolder'
+
+  /rest/productionLines/default:
+    get:
+      summary: 查詢預設生產線
+      description: 對應 `ProductionLinesApiController.getDefaultProductionLine()`。
+      operationId: getDefaultProductionLine
+      tags: [ProductionLines]
+      responses:
+        '200':
+          description: 預設生產線
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductionLineDto'
+
+components:
+  schemas:
+    OrderCreationRequest:
+      type: object
+      description: 對應 controllers/requests/OrderCreationRequest.java
+      properties:
+        productId:
+          type: integer
+          format: int64
+          description: 產品 ID(basic_product.id)
+        quantity:
+          type: number
+          description: 計畫數量
+        description:
+          type: string
+        typeOfProductionRecording:
+          type: string
+          description: 生產記錄方式,如 "02cumulated"
+        technologyId:
+          type: integer
+          format: int64
+          description: 技術規範 ID;為 null 時會嘗試自動建立
+        productionLineId:
+          type: integer
+          format: int64
+        startDate:
+          type: string
+          format: date-time
+        finishDate:
+          type: string
+          format: date-time
+        materials:
+          type: array
+          items:
+            $ref: '#/components/schemas/MaterialDto'
+        technologyOperations:
+          type: array
+          items:
+            $ref: '#/components/schemas/TechnologyOperationDto'
+
+    MaterialDto:
+      type: object
+      properties:
+        productInId:
+          type: integer
+          format: int64
+        productId:
+          type: integer
+          format: int64
+        index:
+          type: integer
+          format: int64
+        product:
+          type: string
+        productNumber:
+          type: string
+        productName:
+          type: string
+        unit:
+          type: string
+        quantity:
+          type: number
+        quantityPerUnit:
+          type: number
+
+    TechnologyOperationDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        operationId:
+          type: integer
+          format: int64
+        workstationId:
+          type: integer
+          format: int64
+        node:
+          type: string
+        materials:
+          type: array
+          items:
+            $ref: '#/components/schemas/MaterialDto'
+
+    OrderCreationResponse:
+      type: object
+      description: 對應 controllers/responses/OrderCreationResponse.java
+      properties:
+        code:
+          type: string
+          enum: [OK, ERROR]
+        number:
+          type: string
+          description: 自動產生的訂單編號
+        message:
+          type: string
+        additionalInformation:
+          type: string
+        order:
+          $ref: '#/components/schemas/OrderHolder'
+        operationalTasks:
+          type: array
+          items:
+            type: object
+
+    OrderResponse:
+      type: object
+      description: 對應 controllers/responses/OrderResponse.java
+      properties:
+        order:
+          $ref: '#/components/schemas/OrderHolder'
+        message:
+          type: string
+
+    ProductionLineDto:
+      type: object
+      description: 對應 mes-plugins-production-lines 的 ProductionLineDto
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        name:
+          type: string
+
+    OrderHolder:
+      type: object
+      description: 對應 controllers/dto/OrderHolder.java
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        state:
+          type: string
+          enum: ['01pending', '02accepted', '03inProgress', '04completed', '05declined', '06interrupted', '07abandoned']
+        typeOfProductionRecording:
+          type: string
+        plannedQuantity:
+          type: number
+        doneQuantity:
+          type: number
+        reportedProductionQuantity:
+          type: number
+        masterOrderQuantity:
+          type: number
+        masterOrderNumber:
+          type: string
+        orderCategory:
+          type: string
+        productionLineNumber:
+          type: string
+        productNumber:
+          type: string
+        productName:
+          type: string
+        productUnit:
+          type: string
+        companyName:
+          type: string
+        addressNumber:
+          type: string
+        dashboardShowForProduct:
+          type: string
+        dashboardShowDescription:
+          type: boolean
+        deadline:
+          type: string
+        productionTrackingStaff:
+          type: string

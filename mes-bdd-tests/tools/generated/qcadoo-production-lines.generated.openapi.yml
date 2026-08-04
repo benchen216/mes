@@ -1,0 +1,272 @@
+openapi: 3.0.0
+info:
+  title: qcadoo MES - ProductionLines API (generated)
+  version: 1.0.0
+  description: 'Auto-generated from the qcadoo MES Java sources by
+
+    `mes-bdd-tests/tools/generate_openapi.py`. Do not hand-edit: regenerate instead.
+
+
+    **URL structure** - `mes-application/src/main/webapp/WEB-INF/web.xml` maps the
+
+    DispatcherServlet at `/rest/*`, so every controller path is emitted with the
+
+    `/rest` prefix already baked into the path key. `servers[].url` is therefore `/`;
+
+    SpecFormula does not apply `servers[].url`, and baking the prefix in keeps the
+
+    spec correct for both.
+
+
+    **Authentication** - Spring Security 3.2 form login plus a `JSESSIONID` cookie,
+
+    not bearer tokens.
+
+
+    **Summaries** - the Java sources carry no summary text. Operations marked
+
+    `x-summary-source: generated` have a machine-derived placeholder and need human
+
+    curation; add an entry to `tools/summaries.yml` keyed by `ClassName.methodName`
+
+    to replace one.
+
+
+    **Responses** - only the success response is modelled. Several qcadoo endpoints
+
+    return HTTP 200 with an error code inside the payload rather than a 4xx/5xx
+
+    status, so error shapes are not inferable from the source.
+
+    '
+servers:
+  - url: /
+    description: Paths already include the /rest DispatcherServlet prefix
+paths:
+  /rest/productionLine:
+    post:
+      summary: Save product (ProductionLinesApiController)
+      description: 'Generated from `ProductionLinesApiController.saveProduct()` in `mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java`.
+
+        '
+      operationId: saveProduct
+      tags:
+        - ProductionLines
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java
+      x-source-method: ProductionLinesApiController.saveProduct:86
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductionLineRequest'
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductionLineResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductionLineResponse'
+  /rest/productionLine/{productionLineId}/shiftWorkingDate:
+    get:
+      summary: Get shift working date (ProductionLinesApiController)
+      description: 'Generated from `ProductionLinesApiController.getShiftWorkingDate()` in `mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java`.
+
+        '
+      operationId: getShiftWorkingDate
+      tags:
+        - ProductionLines
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java
+      x-source-method: ProductionLinesApiController.getShiftWorkingDate:65
+      parameters:
+        - name: productionLineId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: 'Success. Java return type: ShiftWorkingDateResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShiftWorkingDateResponse'
+  /rest/productionLines:
+    get:
+      summary: Get technologies (ProductionLinesApiController)
+      description: 'Generated from `ProductionLinesApiController.getTechnologies()` in `mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java`.
+
+        '
+      operationId: getTechnologies
+      tags:
+        - ProductionLines
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java
+      x-source-method: ProductionLinesApiController.getTechnologies:53
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductionLinesResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductionLinesResponse'
+  /rest/productionLines/default:
+    get:
+      summary: 查詢預設生產線
+      description: 'Generated from `ProductionLinesApiController.getDefaultProductionLine()` in `mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java`.
+
+        '
+      operationId: getDefaultProductionLine
+      tags:
+        - ProductionLines
+      x-summary-source: curated
+      x-source-file: mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java
+      x-source-method: ProductionLinesApiController.getDefaultProductionLine:59
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductionLineDto'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductionLineDto'
+  /rest/productionLinesByPage:
+    get:
+      summary: Get products (ProductionLinesApiController)
+      description: 'Generated from `ProductionLinesApiController.getProducts()` in `mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java`.
+
+        '
+      operationId: getProducts
+      tags:
+        - ProductionLines
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java
+      x-source-method: ProductionLinesApiController.getProducts:77
+      parameters:
+        - name: limit
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: order
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductionLinesGridResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductionLinesGridResponse'
+components:
+  schemas:
+    ProductionLineDto:
+      type: object
+      description: Generated from com.qcadoo.mes.productionLines.controller.dataProvider.ProductionLineDto
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        name:
+          type: string
+    ProductionLineRequest:
+      type: object
+      description: Generated from com.qcadoo.mes.productionLines.controller.dataProvider.ProductionLineRequest
+      properties:
+        number:
+          type: string
+        name:
+          type: string
+        unit:
+          type: string
+    ProductionLineResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.productionLines.controller.dataProvider.ProductionLineResponse
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        name:
+          type: string
+        unit:
+          type: string
+        code:
+          $ref: '#/components/schemas/StatusCode'
+        message:
+          type: string
+    ProductionLinesGridResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.productionLines.controller.dataProvider.ProductionLinesGridResponse
+      properties:
+        total:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductionLineDto'
+    ProductionLinesResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.productionLines.controller.dataProvider.ProductionLinesResponse
+      properties:
+        productionLines:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductionLineDto'
+    ShiftWorkingDateResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.productionLines.controller.dataProvider.ShiftWorkingDateResponse
+      properties:
+        start:
+          type: string
+          format: date-time
+        finish:
+          type: string
+          format: date-time
+        code:
+          $ref: '#/components/schemas/StatusCode'
+        message:
+          type: string
+    StatusCode:
+      type: string
+      description: Java enum com.qcadoo.mes.basic.controllers.dataProvider.responses.StatusCode
+      enum:
+        - OK
+        - ERROR

@@ -1,0 +1,28 @@
+# Curated operation summaries for the generated OpenAPI specs.
+#
+# SpecFormula matches operations by their `summary` string, so summaries are the
+# part of the spec that actually needs human words. The Java sources carry none,
+# so the generator emits a placeholder like
+#
+#     Get orders pending (DashboardKanbanController)
+#
+# and marks it `x-summary-source: generated`.
+#
+# Add an entry below, keyed by `ClassName.methodName`, to replace one. The key may
+# name either the declaring class (useful for endpoints inherited from
+# `BasicLookupController`) or the concrete `@Controller` class.
+#
+# After editing, regenerate:
+#     python3 mes-bdd-tests/tools/generate_openapi.py
+#
+# Entries below are transcribed from the hand-written, SpecFormula-verified spec
+# at mes-bdd-tests/src/test/resources/specs/api/qcadoo-orders.openapi.yml so that
+# the generated spec can be dropped in without rewriting existing feature steps.
+
+summaries:
+  OrdersApiController.saveOrder: 建立訂單
+  DashboardKanbanController.updateOrderState: 推進訂單狀態
+  DashboardKanbanController.getOrdersPending: 查詢待處理訂單
+  DashboardKanbanController.getOrdersInProgress: 查詢進行中訂單
+  DashboardKanbanController.getOrdersCompleted: 查詢已完成訂單
+  ProductionLinesApiController.getDefaultProductionLine: 查詢預設生產線

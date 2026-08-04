@@ -1,0 +1,51 @@
+config:
+  api:
+    resource_path: specs/api
+    project_path: src/test/resources/specs/api
+    time_format: iso
+
+  data:
+    permission: isolated
+    source:
+      - name: default
+        resource_path: specs/data
+        project_path: src/test/resources/specs/data
+        # qcadoo 使用 PostgreSQL,且抽取出的 schema.sql 含 PostgreSQL 專屬語法
+        # (character varying / timestamp without time zone / nextval / ::cast),
+        # 因此不能用 embedded(H2)。
+        db_type: postgresql
+
+instructions:
+  - name: 時間控制
+    format: ^現在的時間是 "(?P<time>[^"]+)"$
+    instruction_type: time_control
+
+  - name: 資料準備
+    format: ^準備一個(?P<entity>[一-鿿a-zA-Z0-9_]+), with table:$
+    instruction_type: entity_setup
+    data_format: data_table
+
+  - name: API 呼叫
+    format: ^\((?:No Actor|UID="(?P<userId>\$[\w.]+)")\) (?P<summary>.+?), call table:$
+    instruction_type: api_call
+    data_format: data_table
+
+  - name: 回應驗證(表格)
+    format: ^(?P<summary>.+?)\((?P<status_code>\d{3})\)回應,?\s*with table:$
+    instruction_type: response_validate
+    data_format: data_table
+
+  - name: 回應驗證(JSON)
+    format: ^(?P<summary>.+?)\((?P<status_code>\d{3})\)回應為,?\s*with JSON:$
+    instruction_type: response_validate
+    data_format: json
+
+  - name: 資料庫驗證
+    format: ^應該存在一個(?P<entity>[一-鿿a-zA-Z0-9_]+), with table:$
+    instruction_type: entity_validate
+    data_format: data_table
+
+  - name: 資料庫不存在驗證
+    format: ^應該不存在一個(?P<entity>[一-鿿a-zA-Z0-9_]+), with table:$
+    instruction_type: entity_non_existence_validate
+    data_format: data_table

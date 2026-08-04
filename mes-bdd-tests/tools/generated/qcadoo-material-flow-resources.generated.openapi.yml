@@ -1,0 +1,1314 @@
+openapi: 3.0.0
+info:
+  title: qcadoo MES - MaterialFlowResources API (generated)
+  version: 1.0.0
+  description: 'Auto-generated from the qcadoo MES Java sources by
+
+    `mes-bdd-tests/tools/generate_openapi.py`. Do not hand-edit: regenerate instead.
+
+
+    **URL structure** - `mes-application/src/main/webapp/WEB-INF/web.xml` maps the
+
+    DispatcherServlet at `/rest/*`, so every controller path is emitted with the
+
+    `/rest` prefix already baked into the path key. `servers[].url` is therefore `/`;
+
+    SpecFormula does not apply `servers[].url`, and baking the prefix in keeps the
+
+    spec correct for both.
+
+
+    **Authentication** - Spring Security 3.2 form login plus a `JSESSIONID` cookie,
+
+    not bearer tokens.
+
+
+    **Summaries** - the Java sources carry no summary text. Operations marked
+
+    `x-summary-source: generated` have a machine-derived placeholder and need human
+
+    curation; add an entry to `tools/summaries.yml` keyed by `ClassName.methodName`
+
+    to replace one.
+
+
+    **Responses** - only the success response is modelled. Several qcadoo endpoints
+
+    return HTTP 200 with an error code inside the payload rather than a 4xx/5xx
+
+    status, so error shapes are not inferable from the source.
+
+    '
+servers:
+  - url: /
+    description: Paths already include the /rest DispatcherServlet prefix
+paths:
+  /rest/attribute/{name}/config:
+    get:
+      summary: Get config view (AttributeLookupController)
+      description: 'Generated from `AttributeLookupController.getConfigView()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java`.
+
+        '
+      operationId: attributeLookupControllerGetConfigView
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java
+      x-source-method: AttributeLookupController.getConfigView:57
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/attribute/{name}/records:
+    get:
+      summary: Get records (AttributeLookupController)
+      description: 'Generated from `AttributeLookupController.getRecords()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java`.
+
+
+        NOTE: parameter ''record'' (AttributeDto) has no binding annotation; Spring binds it as a @ModelAttribute
+        from the query string - its individual fields are not modelled
+
+        '
+      operationId: attributeLookupControllerGetRecords
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java
+      x-source-method: AttributeLookupController.getRecords:36
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: context
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 0
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<AttributeDto>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseAttributeDto'
+  /rest/batch/config:
+    get:
+      summary: Get config view (BatchLookupController)
+      description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `BatchLookupController`.
+
+        '
+      operationId: batchLookupControllerGetConfigView
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getConfigView:44
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/batch/records:
+    get:
+      summary: Get records (BatchLookupController)
+      description: 'Generated from `BasicLookupController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `BatchLookupController`.
+
+
+        NOTE: parameter ''record'' (BatchDTO) has no binding annotation; Spring binds it as a @ModelAttribute
+        from the query string - its individual fields are not modelled
+
+        '
+      operationId: batchLookupControllerGetRecords
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getRecords:27
+      parameters:
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: context
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 0
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<BatchDTO>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseBatchDTO'
+  /rest/docPositionsAttributes/columns:
+    get:
+      summary: Get columns (DocumentPositionsAttributesController)
+      description: 'Generated from `DocumentPositionsAttributesController.getColumns()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java`.
+
+        '
+      operationId: documentPositionsAttributesControllerGetColumns
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java
+      x-source-method: DocumentPositionsAttributesController.getColumns:27
+      responses:
+        '200':
+          description: 'Success. Java return type: List<ColumnDTO>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ColumnDTO'
+  /rest/docPositionsAttributes/records:
+    get:
+      summary: Get records (DocumentPositionsAttributesController)
+      description: 'Generated from `DocumentPositionsAttributesController.getRecords()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java`.
+
+        '
+      operationId: documentPositionsAttributesControllerGetRecords
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java
+      x-source-method: DocumentPositionsAttributesController.getRecords:39
+      parameters:
+        - name: dateFrom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: List<Map<String, Object>>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /rest/docPositionsAttributes/validate:
+    get:
+      summary: Validate (DocumentPositionsAttributesController)
+      description: 'Generated from `DocumentPositionsAttributesController.validate()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java`.
+
+        '
+      operationId: validate
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java
+      x-source-method: DocumentPositionsAttributesController.validate:33
+      parameters:
+        - name: dateFrom
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: String'
+          content:
+            text/plain:
+              schema:
+                type: string
+  /rest/resAttributes/columns:
+    get:
+      summary: Get columns (ResourcesAttributesController)
+      description: 'Generated from `ResourcesAttributesController.getColumns()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesController.java`.
+
+        '
+      operationId: resourcesAttributesControllerGetColumns
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesController.java
+      x-source-method: ResourcesAttributesController.getColumns:26
+      responses:
+        '200':
+          description: 'Success. Java return type: List<ColumnDTO>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ColumnDTO'
+  /rest/resAttributes/records:
+    get:
+      summary: Get records (ResourcesAttributesController)
+      description: 'Generated from `ResourcesAttributesController.getRecords()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesController.java`.
+
+        '
+      operationId: resourcesAttributesControllerGetRecords
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesController.java
+      x-source-method: ResourcesAttributesController.getRecords:32
+      responses:
+        '200':
+          description: 'Success. Java return type: List<Map<String, Object>>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /rest/resource/config:
+    get:
+      summary: Get config view (ResourceLookupController)
+      description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `ResourceLookupController`.
+
+        '
+      operationId: resourceLookupControllerGetConfigView
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getConfigView:44
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/resource/records:
+    get:
+      summary: Get records (ResourceLookupController)
+      description: 'Generated from `ResourceLookupController.getRecords()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/batch/ResourceLookupController.java`.
+
+
+        NOTE: parameter ''record'' (ResourceDTO) has no binding annotation; Spring binds it as a @ModelAttribute
+        from the query string - its individual fields are not modelled
+
+        '
+      operationId: resourceLookupControllerGetRecords
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/batch/ResourceLookupController.java
+      x-source-method: ResourceLookupController.getRecords:38
+      parameters:
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: context
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 0
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<ResourceDTO>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseResourceDTO'
+  /rest/rest/documentPositions:
+    put:
+      summary: Create (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.create()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+        '
+      operationId: create
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.create:65
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentPositionDTO'
+      responses:
+        '200':
+          description: Empty response body
+  /rest/rest/documentPositions/batch:
+    get:
+      summary: Get batches (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getBatches()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getBatches
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getBatches:90
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: product
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: DataResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+  /rest/rest/documentPositions/gridConfig/{id}:
+    get:
+      summary: Grid config (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.gridConfig()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: gridConfig
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.gridConfig:157
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/rest/documentPositions/product/{number}:
+    get:
+      summary: Get product for product number (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getProductForProductNumber()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getProductForProductNumber
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getProductForProductNumber:57
+      parameters:
+        - name: number
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductDTO'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDTO'
+  /rest/rest/documentPositions/productFromLocation:
+    get:
+      summary: Get product from location (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getProductFromLocation()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getProductFromLocation
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getProductFromLocation:151
+      parameters:
+        - name: location
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: document
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: ProductDTO'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDTO'
+  /rest/rest/documentPositions/resource:
+    get:
+      summary: Get resource for product (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getResourceForProduct()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getResourceForProduct
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getResourceForProduct:112
+      parameters:
+        - name: context
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: product
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: conversion
+          in: query
+          required: true
+          schema:
+            type: number
+        - name: batchId
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: ResourceDTO'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceDTO'
+  /rest/rest/documentPositions/resourceByNumber/{document}/{resource}:
+    get:
+      summary: Get batch for resource (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getBatchForResource()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getBatchForResource
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getBatchForResource:135
+      parameters:
+        - name: document
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: resource
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: ResourceDTO'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceDTO'
+  /rest/rest/documentPositions/resources:
+    get:
+      summary: Get resources (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getResources()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getResources
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getResources:123
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: product
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: conversion
+          in: query
+          required: true
+          schema:
+            type: number
+        - name: context
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: batchId
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: DataResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+  /rest/rest/documentPositions/storageLocation/{document}:
+    get:
+      summary: Get storage location for empty product (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getStorageLocationForEmptyProduct()` in
+        `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getStorageLocationForEmptyProduct
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getStorageLocationForEmptyProduct:96
+      parameters:
+        - name: document
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: StorageLocationDTO'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageLocationDTO'
+  /rest/rest/documentPositions/storageLocation/{product}/{document}:
+    get:
+      summary: Get storage location for product and warehouse (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getStorageLocationForProductAndWarehouse()`
+        in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getStorageLocationForProductAndWarehouse
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getStorageLocationForProductAndWarehouse:102
+      parameters:
+        - name: product
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: document
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: StorageLocationDTO'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageLocationDTO'
+  /rest/rest/documentPositions/storagelocations:
+    get:
+      summary: Get storage locations (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getStorageLocations()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getStorageLocations
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getStorageLocations:83
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: product
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: DataResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+  /rest/rest/documentPositions/typeOfLoadUnitByLoadUnit/{document}/{loadUnitNumber}:
+    get:
+      summary: Get type of load unit for load unit number (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getTypeOfLoadUnitForLoadUnitNumber()`
+        in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getTypeOfLoadUnitForLoadUnitNumber
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getTypeOfLoadUnitForLoadUnitNumber:143
+      parameters:
+        - name: document
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: loadUnitNumber
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: String'
+          content:
+            application/json:
+              schema:
+                type: string
+  /rest/rest/documentPositions/units/{number}:
+    get:
+      summary: Get units for product (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.getUnitsForProduct()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+        '
+      operationId: getUnitsForProduct
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.getUnitsForProduct:49
+      parameters:
+        - name: number
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/rest/documentPositions/{ids}:
+    delete:
+      summary: Delete (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.delete()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+        '
+      operationId: delete
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.delete:71
+      parameters:
+        - name: ids
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Empty response body
+  /rest/rest/documentPositions/{id}:
+    get:
+      summary: Find all (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.findAll()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+
+        NOTE: parameter ''positionDTO'' (DocumentPositionDTO) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: findAll
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.findAll:37
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<DocumentPositionDTO>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseDocumentPositionDTO'
+    put:
+      summary: Update (DocumentPositionsController)
+      description: 'Generated from `DocumentPositionsController.update()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: path variable ''id'' present in the URI template but not bound by a @PathVariable parameter;
+        typed as string
+
+        '
+      operationId: update
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
+      x-source-method: DocumentPositionsController.update:77
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentPositionDTO'
+      responses:
+        '200':
+          description: Empty response body
+  /rest/storageLocation/config:
+    get:
+      summary: Get config view (StorageLocationLookupController)
+      description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `StorageLocationLookupController`.
+
+        '
+      operationId: storageLocationLookupControllerGetConfigView
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getConfigView:44
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/storageLocation/records:
+    get:
+      summary: Get records (StorageLocationLookupController)
+      description: 'Generated from `BasicLookupController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `StorageLocationLookupController`.
+
+
+        NOTE: parameter ''record'' (StorageLocationDTO) has no binding annotation; Spring binds it as
+        a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: storageLocationLookupControllerGetRecords
+      tags:
+        - MaterialFlowResources
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getRecords:27
+      parameters:
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: context
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 0
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<StorageLocationDTO>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseStorageLocationDTO'
+components:
+  schemas:
+    AbstractDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.dto.AbstractDTO (no serialisable
+        fields found; shape is opaque to static analysis)
+    AttributeDto:
+      type: object
+      description: Generated from com.qcadoo.mes.materialFlowResources.AttributeDto
+      properties:
+        id:
+          type: integer
+          format: int64
+        value:
+          type: string
+        number:
+          type: string
+        dataType:
+          type: string
+        valueType:
+          type: string
+        description:
+          type: string
+        precision:
+          type: integer
+          format: int32
+    BatchDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.materialFlowResources.BatchDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        product:
+          type: string
+        supplier:
+          type: string
+    ColumnDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.dto.ColumnDTO
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        unit:
+          type: string
+        dataType:
+          type: string
+    DataResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.responses.DataResponse
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/AbstractDTO'
+        numberOfResults:
+          type: integer
+          format: int32
+    DocumentPositionDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.materialFlowResources.DocumentPositionDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        document:
+          type: integer
+          format: int64
+        number:
+          type: integer
+          format: int32
+        product:
+          type: string
+        productName:
+          type: string
+        quantity:
+          type: number
+        unit:
+          type: string
+        givenquantity:
+          type: number
+        givenunit:
+          type: string
+        conversion:
+          type: number
+        expirationDate:
+          type: string
+          format: date-time
+        productionDate:
+          type: string
+          format: date-time
+        palletNumber:
+          type: string
+        resourceNumber:
+          type: string
+        pickingDate:
+          type: string
+          format: date-time
+        pickingWorker:
+          type: string
+        typeOfLoadUnit:
+          type: string
+        storageLocation:
+          type: string
+        price:
+          type: number
+        sellingPrice:
+          type: number
+        batch:
+          type: string
+        batchId:
+          type: integer
+          format: int64
+        resource:
+          type: string
+        waste:
+          type: boolean
+        lastResource:
+          type: boolean
+        attrs:
+          type: object
+          additionalProperties: true
+    GridResponseAttributeDto:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeDto'
+    GridResponseBatchDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/BatchDTO'
+    GridResponseDocumentPositionDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/DocumentPositionDTO'
+    GridResponseResourceDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceDTO'
+    GridResponseStorageLocationDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/StorageLocationDTO'
+    ProductDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.dto.ProductDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type: string
+        number:
+          type: string
+        name:
+          type: string
+        ean:
+          type: string
+        globaltypeofmaterial:
+          type: string
+        category:
+          type: string
+        unit:
+          type: string
+    ResourceDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.materialFlowResources.ResourceDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        batch:
+          type: string
+        batchId:
+          type: integer
+          format: int64
+        quantity:
+          type: number
+        quantityInAdditionalUnit:
+          type: number
+        reservedQuantity:
+          type: number
+        availableQuantity:
+          type: number
+        price:
+          type: number
+        conversion:
+          type: number
+        givenUnit:
+          type: string
+        unit:
+          type: string
+        product:
+          type: string
+        expirationDate:
+          type: string
+          format: date-time
+        productionDate:
+          type: string
+          format: date-time
+        storageLocation:
+          type: string
+        palletNumber:
+          type: string
+        typeOfLoadUnit:
+          type: string
+        waste:
+          type: boolean
+        lastResource:
+          type: boolean
+        lastResourceString:
+          type: string
+        wasteString:
+          type: string
+        attrs:
+          type: object
+          additionalProperties: true
+    StorageLocationDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.materialFlowResources.StorageLocationDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        number:
+          type: string
+        product:
+          type: string
+        location:
+          type: string

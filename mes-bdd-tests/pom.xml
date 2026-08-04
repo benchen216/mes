@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+        刻意「不」繼承 mes 的 root pom / qcadoo-super-pom。
+
+        原因:qcadoo 是 Java 1.8 + Spring 3.2.11 + javax.servlet;
+        SpecFormula 需要 Java 17 + Spring 6 + jakarta.servlet。
+        兩者的 org.springframework.* package namespace 相同,無法在同一
+        classpath 共存,因此本模組必須完全獨立,並在**獨立的 JVM**
+        中透過真實 HTTP 與 qcadoo 溝通。
+
+        本模組也刻意「不」註冊進 mes 根 pom 的 <modules>,避免被
+        qcadoo 的建置流程拉進去。
+    -->
+    <groupId>com.qcadoo.mes</groupId>
+    <artifactId>mes-bdd-tests</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>qcadoo MES — BDD Acceptance Tests (SpecFormula)</name>
+
+    <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <specformula.version>0.0.0-SNAPSHOT</specformula.version>
+        <spring.boot.version>3.2.0</spring.boot.version>
+        <cucumber.version>7.15.0</cucumber.version>
+        <junit.platform.version>1.10.2</junit.platform.version>
+        <testcontainers.version>2.0.5</testcontainers.version>
+
+        <!--
+            受測 qcadoo 實例;可用 -Dqcadoo.base.url=... 覆寫。
+            刻意避開 8080 —— 開發機上常被其他專案佔用(例如 Axelor Open Suite)。
+        -->
+        <qcadoo.base.url>http://localhost:8090</qcadoo.base.url>
+        <qcadoo.username>superadmin</qcadoo.username>
+        <qcadoo.password>qcadoo123</qcadoo.password>
+
+        <!--
+            ⚠️ 必須指向可拋棄的資料庫實例。
+            SpecFormula 每個 scenario 結束後會對 schema.sql 列出的資料表
+            執行 TRUNCATE ... CASCADE,詳見 FINDINGS.md。
+        -->
+        <qcadoo.db.url>jdbc:postgresql://localhost:5433/mes</qcadoo.db.url>
+        <qcadoo.db.username>postgres</qcadoo.db.username>
+        <qcadoo.db.password>postgres123</qcadoo.db.password>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--
+                Testcontainers BOM 必須排在 spring-boot-dependencies 之前 ——
+                dependencyManagement 的 import 是「先宣告者勝」。
+
+                Spring Boot 3.2.0 內建的 Testcontainers 是 1.19.3,其 docker-java
+                client API version 為 1.32,而本機 Docker Engine 要求最低 1.40,
+                會直接啟動失敗。因此改用 SpecFormula 框架同版本的 2.0.5。
+
+                注意 Testcontainers 2.x 的 artifact 已改名:
+                  1.x: org.testcontainers:postgresql
+                  2.x: org.testcontainers:testcontainers-postgresql
+            -->
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>testcontainers-bom</artifactId>
+                <version>${testcontainers.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- SpecFormula:Cucumber Backend SPI + Spring 橋接 + core -->
+        <dependency>
+            <groupId>ai.specformula</groupId>
+            <artifactId>specformula-cucumber</artifactId>
+            <version>${specformula.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--
+            刻意「不」引入 specformula-testcontainer。
+
+            Testcontainer 會另起一個空白資料庫,而 qcadoo 用的是自己的那一個。
+            兩者分離會讓 entity_setup 寫入的資料對 qcadoo 不可見,
+            測出來的綠燈只證明測試框架能讀寫自己寫的資料,不代表 qcadoo 正確。
+            改由 BddTestConfiguration 提供指向 qcadoo 實際資料庫的 DataSource。
+        -->
+
+        <!-- Spring:SpecFormula 的相依為 provided,需由消費端提供 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Apache HttpClient 5:自訂 adapter 需要 cookie store 支援 -->
+        <dependency>
+            <groupId>org.apache.httpcomponents.client5</groupId>
+            <artifactId>httpclient5</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Cucumber -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-spring</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>${junit.platform.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Testcontainers PostgreSQL(2.x 的 artifact 名稱) -->
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>testcontainers-postgresql</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <qcadoo.base.url>${qcadoo.base.url}</qcadoo.base.url>
+                        <qcadoo.username>${qcadoo.username}</qcadoo.username>
+                        <qcadoo.password>${qcadoo.password}</qcadoo.password>
+                        <qcadoo.db.url>${qcadoo.db.url}</qcadoo.db.url>
+                        <qcadoo.db.username>${qcadoo.db.username}</qcadoo.db.username>
+                        <qcadoo.db.password>${qcadoo.db.password}</qcadoo.db.password>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

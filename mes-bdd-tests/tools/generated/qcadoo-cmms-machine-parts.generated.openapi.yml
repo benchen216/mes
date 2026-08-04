@@ -1,0 +1,646 @@
+openapi: 3.0.0
+info:
+  title: qcadoo MES - CmmsMachineParts API (generated)
+  version: 1.0.0
+  description: 'Auto-generated from the qcadoo MES Java sources by
+
+    `mes-bdd-tests/tools/generate_openapi.py`. Do not hand-edit: regenerate instead.
+
+
+    **URL structure** - `mes-application/src/main/webapp/WEB-INF/web.xml` maps the
+
+    DispatcherServlet at `/rest/*`, so every controller path is emitted with the
+
+    `/rest` prefix already baked into the path key. `servers[].url` is therefore `/`;
+
+    SpecFormula does not apply `servers[].url`, and baking the prefix in keeps the
+
+    spec correct for both.
+
+
+    **Authentication** - Spring Security 3.2 form login plus a `JSESSIONID` cookie,
+
+    not bearer tokens.
+
+
+    **Summaries** - the Java sources carry no summary text. Operations marked
+
+    `x-summary-source: generated` have a machine-derived placeholder and need human
+
+    curation; add an entry to `tools/summaries.yml` keyed by `ClassName.methodName`
+
+    to replace one.
+
+
+    **Responses** - only the success response is modelled. Several qcadoo endpoints
+
+    return HTTP 200 with an error code inside the payload rather than a 4xx/5xx
+
+    status, so error shapes are not inferable from the source.
+
+    '
+servers:
+  - url: /
+    description: Paths already include the /rest DispatcherServlet prefix
+paths:
+  /rest/action/config:
+    get:
+      summary: Get config view (ActionsLookupController)
+      description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `ActionsLookupController`.
+
+        '
+      operationId: actionsLookupControllerGetConfigView
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getConfigView:44
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/action/records:
+    get:
+      summary: Get records (ActionsLookupController)
+      description: 'Generated from `BasicLookupController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `ActionsLookupController`.
+
+
+        NOTE: parameter ''record'' (ActionDTO) has no binding annotation; Spring binds it as a @ModelAttribute
+        from the query string - its individual fields are not modelled
+
+        '
+      operationId: actionsLookupControllerGetRecords
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getRecords:27
+      parameters:
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: context
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 0
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<ActionDTO>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseActionDTO'
+  /rest/cmmsMachineParts/multiUploadFiles:
+    post:
+      summary: Upload (MachinePartMultiUploadController)
+      description: 'Generated from `MachinePartMultiUploadController.upload()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/MachinePartMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: machinePartMultiUploadControllerUpload
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/MachinePartMultiUploadController.java
+      x-source-method: MachinePartMultiUploadController.upload:67
+      responses:
+        '200':
+          description: Empty response body
+  /rest/cmmsMachineParts/multiUploadFilesForEvent:
+    post:
+      summary: Upload (MaintenanceEventMultiUploadController)
+      description: 'Generated from `MaintenanceEventMultiUploadController.upload()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/MaintenanceEventMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: maintenanceEventMultiUploadControllerUpload
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/MaintenanceEventMultiUploadController.java
+      x-source-method: MaintenanceEventMultiUploadController.upload:67
+      responses:
+        '200':
+          description: Empty response body
+  /rest/cmmsMachineParts/multiUploadFilesForPlannedEvent:
+    post:
+      summary: Upload (PlannedEventMultiUploadController)
+      description: 'Generated from `PlannedEventMultiUploadController.upload()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/PlannedEventMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: plannedEventMultiUploadControllerUpload
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/PlannedEventMultiUploadController.java
+      x-source-method: PlannedEventMultiUploadController.upload:72
+      responses:
+        '200':
+          description: Empty response body
+  /rest/cmmsMachineParts/multiUploadFilesForTool:
+    post:
+      summary: Upload (ToolMultiUploadController)
+      description: 'Generated from `ToolMultiUploadController.upload()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ToolMultiUploadController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+
+        NOTE: parameter ''request'' (MultipartHttpServletRequest) has no binding annotation; Spring binds
+        it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: toolMultiUploadControllerUpload
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ToolMultiUploadController.java
+      x-source-method: ToolMultiUploadController.upload:67
+      responses:
+        '200':
+          description: Empty response body
+  /rest/responsibleWorker/config:
+    get:
+      summary: Get config view (WorkersLookupController)
+      description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `WorkersLookupController`.
+
+        '
+      operationId: workersLookupControllerGetConfigView
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getConfigView:44
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/responsibleWorker/records:
+    get:
+      summary: Get records (WorkersLookupController)
+      description: 'Generated from `BasicLookupController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
+
+
+        Endpoint is inherited from `BasicLookupController`; the concrete controller is `WorkersLookupController`.
+
+
+        NOTE: parameter ''record'' (WorkerDTO) has no binding annotation; Spring binds it as a @ModelAttribute
+        from the query string - its individual fields are not modelled
+
+        '
+      operationId: workersLookupControllerGetRecords
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
+      x-source-method: BasicLookupController.getRecords:27
+      parameters:
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: context
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 0
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<WorkerDTO>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseWorkerDTO'
+  /rest/rest/actions:
+    put:
+      summary: Create (ActionsController)
+      description: 'Generated from `ActionsController.create()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+        '
+      operationId: create
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
+      x-source-method: ActionsController.create:49
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionForPlannedEventDTO'
+      responses:
+        '200':
+          description: Empty response body
+  /rest/rest/actions/actions:
+    get:
+      summary: Get actions for object (ActionsController)
+      description: 'Generated from `ActionsController.getActionsForObject()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
+
+        '
+      operationId: getActionsForObject
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
+      x-source-method: ActionsController.getActionsForObject:73
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: context
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: DataResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+  /rest/rest/actions/gridConfig/{id}:
+    get:
+      summary: Grid config (ActionsController)
+      description: 'Generated from `ActionsController.gridConfig()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
+
+        '
+      operationId: gridConfig
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
+      x-source-method: ActionsController.gridConfig:31
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'Success. Java return type: Map<String, Object>'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /rest/rest/actions/states:
+    get:
+      summary: Get states (ActionsController)
+      description: 'Generated from `ActionsController.getStates()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
+
+        '
+      operationId: getStates
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
+      x-source-method: ActionsController.getStates:67
+      responses:
+        '200':
+          description: 'Success. Java return type: List<Map<String, String>>'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties:
+                    type: string
+  /rest/rest/actions/workers:
+    get:
+      summary: Get workers (ActionsController)
+      description: 'Generated from `ActionsController.getWorkers()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
+
+        '
+      operationId: getWorkers
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
+      x-source-method: ActionsController.getWorkers:79
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Success. Java return type: DataResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+  /rest/rest/actions/{id}:
+    get:
+      summary: Find all (ActionsController)
+      description: 'Generated from `ActionsController.findAll()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
+
+
+        NOTE: parameter ''actionForPlannedEventDto'' (ActionForPlannedEventDTO) has no binding annotation;
+        Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled
+
+        '
+      operationId: findAll
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
+      x-source-method: ActionsController.findAll:40
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: sidx
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: sord
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: rows
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: 'Success. Java return type: GridResponse<ActionForPlannedEventDTO>'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GridResponseActionForPlannedEventDTO'
+    delete:
+      summary: Delete (ActionsController)
+      description: 'Generated from `ActionsController.delete()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+        '
+      operationId: delete
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
+      x-source-method: ActionsController.delete:55
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Empty response body
+    put:
+      summary: Update (ActionsController)
+      description: 'Generated from `ActionsController.update()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
+
+
+        NOTE: no ''produces'' declared; assumed application/json (Spring content negotiation with Jackson
+        on the classpath)
+
+        '
+      operationId: update
+      tags:
+        - CmmsMachineParts
+      x-summary-source: generated
+      x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
+      x-source-method: ActionsController.update:61
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionForPlannedEventDTO'
+      responses:
+        '200':
+          description: Empty response body
+components:
+  schemas:
+    AbstractDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.dto.AbstractDTO (no serialisable
+        fields found; shape is opaque to static analysis)
+    ActionDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.cmmsMachineParts.dto.ActionDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type: string
+        plannedEventId:
+          type: integer
+          format: int64
+    ActionForPlannedEventDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.cmmsMachineParts.dto.ActionForPlannedEventDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        plannedEvent:
+          type: integer
+          format: int64
+        action:
+          type: string
+        responsibleWorker:
+          type: string
+        description:
+          type: string
+        state:
+          type: string
+        reason:
+          type: string
+    DataResponse:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.controllers.dataProvider.responses.DataResponse
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/AbstractDTO'
+        numberOfResults:
+          type: integer
+          format: int32
+    GridResponseActionDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionDTO'
+    GridResponseActionForPlannedEventDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionForPlannedEventDTO'
+    GridResponseWorkerDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.basic.GridResponse
+      properties:
+        page:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int32
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkerDTO'
+    WorkerDTO:
+      type: object
+      description: Generated from com.qcadoo.mes.cmmsMachineParts.dto.WorkerDTO
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type: string

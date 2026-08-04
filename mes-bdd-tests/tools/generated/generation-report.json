@@ -1,0 +1,2842 @@
+{
+  "totals": {
+    "controllers_scanned": 79,
+    "endpoints_emitted": 130,
+    "endpoints_excluded": 75,
+    "inherited_endpoints": 13,
+    "schemas_generated": 77,
+    "summaries_generated": 124,
+    "summaries_curated": 6,
+    "unresolved_types": 1,
+    "opaque_type_uses": 26,
+    "unbound_parameters": 23,
+    "parse_failures": 0
+  },
+  "endpoints_by_module": {
+    "advanced-genealogy": 1,
+    "basic": 28,
+    "cmms-machine-parts": 16,
+    "deliveries": 1,
+    "master-orders": 2,
+    "material-flow-resources": 29,
+    "orders": 15,
+    "production-counting": 18,
+    "production-lines": 5,
+    "technologies": 15
+  },
+  "endpoints_by_verb": {
+    "DELETE": 2,
+    "GET": 93,
+    "POST": 30,
+    "PUT": 5
+  },
+  "endpoints_by_media_type": {
+    "application/json": 123,
+    "text/plain": 7
+  },
+  "exclusion_reasons": {
+    "no @ResponseBody - renders a JSP view, not a JSON payload": 75
+  },
+  "exclusions": [
+    {
+      "controller": "ActionsLookupController",
+      "method": "getLookupView",
+      "path": "/rest/action/lookup",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java"
+    },
+    {
+      "controller": "AdvancedGenealogyController",
+      "method": "trackingRecordDetailsReportPdf",
+      "path": "/rest/advancedGenealogy/trackingRecordReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-advanced-genealogy/src/main/java/com/qcadoo/mes/advancedGenealogy/AdvancedGenealogyController.java"
+    },
+    {
+      "controller": "AdvancedGenealogyMultiUploadController",
+      "method": "getAttachment",
+      "path": "/rest/advancedGenealogy/getAttachment.html",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-advanced-genealogy/src/main/java/com/qcadoo/mes/advancedGenealogy/AdvancedGenealogyMultiUploadController.java"
+    },
+    {
+      "controller": "AttributeLookupController",
+      "method": "getLookupView",
+      "path": "/rest/attribute/{name}/lookup",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java"
+    },
+    {
+      "controller": "BasicController",
+      "method": "getGeneralParameterPageView",
+      "path": "/rest/generalParameters",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicController.java"
+    },
+    {
+      "controller": "BasicController",
+      "method": "getLicensesPageView",
+      "path": "/rest/licenses",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicController.java"
+    },
+    {
+      "controller": "BasicProductionCountingController",
+      "method": "manifestoReportPdf",
+      "path": "/rest/BasicProductionCountingConstants.PLUGIN_IDENTIFIER/manifestoReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic-production-counting/src/main/java/com/qcadoo/mes/basicProductionCounting/controllers/BasicProductionCountingController.java"
+    },
+    {
+      "controller": "BatchLookupController",
+      "method": "getLookupView",
+      "path": "/rest/batch/lookup",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java"
+    },
+    {
+      "controller": "CompanyController",
+      "method": "getParameterPageView",
+      "path": "/rest/companyView",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/CompanyController.java"
+    },
+    {
+      "controller": "DashboardController",
+      "method": "getDashboardView",
+      "path": "/rest/dashboard",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/DashboardController.java"
+    },
+    {
+      "controller": "DeliveriesController",
+      "method": "deliveredProductLabelsReportPdf",
+      "path": "/rest/DeliveriesConstants.PLUGIN_IDENTIFIER/deliveredProductLabelsReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-deliveries/src/main/java/com/qcadoo/mes/deliveries/controllers/DeliveriesController.java"
+    },
+    {
+      "controller": "DeliveriesController",
+      "method": "deliveryReportPdf",
+      "path": "/rest/DeliveriesConstants.PLUGIN_IDENTIFIER/deliveryReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-deliveries/src/main/java/com/qcadoo/mes/deliveries/controllers/DeliveriesController.java"
+    },
+    {
+      "controller": "DeliveriesController",
+      "method": "getSupplyParametersPageView",
+      "path": "/rest/supplyParameters",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-deliveries/src/main/java/com/qcadoo/mes/deliveries/controllers/DeliveriesController.java"
+    },
+    {
+      "controller": "DeliveriesController",
+      "method": "orderReportPdf",
+      "path": "/rest/DeliveriesConstants.PLUGIN_IDENTIFIER/orderReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-deliveries/src/main/java/com/qcadoo/mes/deliveries/controllers/DeliveriesController.java"
+    },
+    {
+      "controller": "DeliveriesMultiUploadController",
+      "method": "getAttachment",
+      "path": "/rest/deliveries/getAttachment.html",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-deliveries/src/main/java/com/qcadoo/mes/deliveries/controllers/DeliveriesMultiUploadController.java"
+    },
+    {
+      "controller": "DeliveryByPalletTypeController",
+      "method": "generatePlannedEventsReport",
+      "path": "/rest/deliveries/deliveryByPalletType.xlsx",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-deliveries/src/main/java/com/qcadoo/mes/deliveries/report/deliveryByPalletType/DeliveryByPalletTypeController.java"
+    },
+    {
+      "controller": "DeviationReportController",
+      "method": "printDeviationReport",
+      "path": "/rest/deviationCausesReporting/deviations.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-deviation-causes-reporting/src/main/java/com/qcadoo/mes/deviationCausesReporting/controllers/DeviationReportController.java"
+    },
+    {
+      "controller": "DocumentPositionsAttributesViewController",
+      "method": "getDocumentPositionsAttributesView",
+      "path": "/rest/documentPositionsAttributes",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesViewController.java"
+    },
+    {
+      "controller": "EmployeePieceworkSettlementViewController",
+      "method": "getAnalysisView",
+      "path": "/rest/employeePieceworkSettlement",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementViewController.java"
+    },
+    {
+      "controller": "EmployeeWorkingTimeSettlementViewController",
+      "method": "getAnalysisView",
+      "path": "/rest/employeeWorkingTimeSettlement",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementViewController.java"
+    },
+    {
+      "controller": "LinesProducedQuantitiesChartViewController",
+      "method": "getLinesProducedQuantitiesChartView",
+      "path": "/rest/linesProducedQuantitiesChart",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/LinesProducedQuantitiesChartViewController.java"
+    },
+    {
+      "controller": "MachinePartMultiUploadController",
+      "method": "getAttachment",
+      "path": "/rest/cmmsMachineParts/getAttachment.html",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/MachinePartMultiUploadController.java"
+    },
+    {
+      "controller": "MaintenanceEventMultiUploadController",
+      "method": "getAttachment",
+      "path": "/rest/cmmsMachineParts/getAttachmentForEvent.html",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/MaintenanceEventMultiUploadController.java"
+    },
+    {
+      "controller": "MaintenanceEventsReportController",
+      "method": "generateMaintenanceEventsReport",
+      "path": "/rest/cmmsMachineParts/maintenanceEvents.xlsx",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/reports/MaintenanceEventsReportController.java"
+    },
+    {
+      "controller": "MasterOrdersControllerMO",
+      "method": "getSalesParametersPageView",
+      "path": "/rest/salesParameters",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/MasterOrdersControllerMO.java"
+    },
+    {
+      "controller": "MaterialFlowResourcesController",
+      "method": "documentPdf",
+      "path": "/rest/MaterialFlowResourcesConstants.PLUGIN_IDENTIFIER/document.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/MaterialFlowResourcesController.java"
+    },
+    {
+      "controller": "MaterialFlowResourcesController",
+      "method": "getMaterialFlowResourcesParametersPageView",
+      "path": "/rest/materialFlowResourcesParameters",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/MaterialFlowResourcesController.java"
+    },
+    {
+      "controller": "MaterialRequirementCoverageForOrderController",
+      "method": "materialRequirementCoverageReportPdf",
+      "path": "/rest/MaterialRequirementCoverageForOrderConstans.PLUGIN_IDENTIFIER/materialRequirementCoverageForOrderReportPdf.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-material-requirement-coverage-for-order/src/main/java/com/qcadoo/mes/materialRequirementCoverageForOrder/controllers/MaterialRequirementCoverageForOrderController.java"
+    },
+    {
+      "controller": "OperationDurationAnalysisViewController",
+      "method": "getOperationDurationAnalysisView",
+      "path": "/rest/operationDurationAnalysis",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisViewController.java"
+    },
+    {
+      "controller": "OrderMultiUploadController",
+      "method": "getAttachment",
+      "path": "/rest/orders/getAttachmentForOrder.html",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderMultiUploadController.java"
+    },
+    {
+      "controller": "OrderSuppliesController",
+      "method": "materialRequirementCoverageReportPdf",
+      "path": "/rest/OrderSuppliesConstants.PLUGIN_IDENTIFIER/materialRequirementCoverageReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-order-supplies/src/main/java/com/qcadoo/mes/orderSupplies/controllers/OrderSuppliesController.java"
+    },
+    {
+      "controller": "OrderTechnologicalProcessesAnalysisViewController",
+      "method": "getAnalysisView",
+      "path": "/rest/orderTechnologicalProcessesAnalysis",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisViewController.java"
+    },
+    {
+      "controller": "OrdersOFSPGController",
+      "method": "listOfProductionOrdersReport",
+      "path": "/rest/OrdersForSubproductsGenerationConstans.PLUGIN_IDENTIFIER/listOfProductionOrdersReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-orders-for-subproducts-generation/src/main/java/com/qcadoo/mes/ordersForSubproductsGeneration/controllers/OrdersOFSPGController.java"
+    },
+    {
+      "controller": "OrdersOrderController",
+      "method": "getTechnologiesParametersPageView",
+      "path": "/rest/planningParameters",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrdersOrderController.java"
+    },
+    {
+      "controller": "OrdersOrderController",
+      "method": "orderReportPdf",
+      "path": "/rest/OrdersConstants.PLUGIN_IDENTIFIER/ordersOrderReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrdersOrderController.java"
+    },
+    {
+      "controller": "OrdersOrderController",
+      "method": "ordersLabelReport",
+      "path": "/rest/OrdersConstants.PLUGIN_IDENTIFIER/ordersLabelReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrdersOrderController.java"
+    },
+    {
+      "controller": "PacksLabelsController",
+      "method": "masterOrderLabelsPdf",
+      "path": "/rest/OrdersConstants.PLUGIN_IDENTIFIER/packsLabels.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/PacksLabelsController.java"
+    },
+    {
+      "controller": "PalletNumberLookupController",
+      "method": "getLookupView",
+      "path": "/rest/palletNumber/lookup",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java"
+    },
+    {
+      "controller": "PalletNumbersController",
+      "method": "palletNumberHelperReportPdf",
+      "path": "/rest/BasicConstants.PLUGIN_IDENTIFIER/palletNumberHelperReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/PalletNumbersController.java"
+    },
+    {
+      "controller": "PalletNumbersController",
+      "method": "palletNumberReportPdf",
+      "path": "/rest/BasicConstants.PLUGIN_IDENTIFIER/palletNumberReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/PalletNumbersController.java"
+    },
+    {
+      "controller": "PalletNumbersController",
+      "method": "smallPalletNumberHelperReportPdf",
+      "path": "/rest/BasicConstants.PLUGIN_IDENTIFIER/smallPalletNumberHelperReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/PalletNumbersController.java"
+    },
+    {
+      "controller": "PalletNumbersController",
+      "method": "smallPalletNumberReportPdf",
+      "path": "/rest/BasicConstants.PLUGIN_IDENTIFIER/smallPalletNumberReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/PalletNumbersController.java"
+    },
+    {
+      "controller": "PlannedEventMultiUploadController",
+      "method": "getAttachment",
+      "path": "/rest/cmmsMachineParts/getAttachmentForPlannedEvent.html",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/PlannedEventMultiUploadController.java"
+    },
+    {
+      "controller": "PlannedEventsReportController",
+      "method": "generatePlannedEventsReport",
+      "path": "/rest/cmmsMachineParts/plannedEvents.xlsx",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/reports/PlannedEventsReportController.java"
+    },
+    {
+      "controller": "ProductDataMultiUploadController",
+      "method": "getAttachment",
+      "path": "/rest/productData/getAttachment.html",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/ProductDataMultiUploadController.java"
+    },
+    {
+      "controller": "ProductLookupController",
+      "method": "getLookupView",
+      "path": "/rest/product/lookup",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java"
+    },
+    {
+      "controller": "ProductMultiUploadController",
+      "method": "getAttachment",
+      "path": "/rest/basic/getAttachmentForProduct.html",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductMultiUploadController.java"
+    },
+    {
+      "controller": "ProductionBalanceAnalysisViewController",
+      "method": "getProductionBalanceAnalysisView",
+      "path": "/rest/productionBalanceAnalysis",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisViewController.java"
+    },
+    {
+      "controller": "ProductionCountingController",
+      "method": "getProductionAnalysisParametersPageView",
+      "path": "/rest/productionAnalysisParameters",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionCountingController.java"
+    },
+    {
+      "controller": "ProductionCountingController",
+      "method": "getProductionCountingParametersPageView",
+      "path": "/rest/productionCountingParameters",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionCountingController.java"
+    },
+    {
+      "controller": "ProductsAttributesViewController",
+      "method": "getProductsAttributesView",
+      "path": "/rest/productsAttributes",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductsAttributesViewController.java"
+    },
+    {
+      "controller": "ResourceLookupController",
+      "method": "getLookupView",
+      "path": "/rest/resource/lookup",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java"
+    },
+    {
+      "controller": "ResourcesAttributesViewController",
+      "method": "getResourcesAttributesView",
+      "path": "/rest/resourcesAttributes",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesViewController.java"
+    },
+    {
+      "controller": "StaffLabelsController",
+      "method": "productLabelReportPdf",
+      "path": "/rest/BasicConstants.PLUGIN_IDENTIFIER/productLabelReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/StaffLabelsController.java"
+    },
+    {
+      "controller": "StaffLabelsController",
+      "method": "productLabelsReportPdf",
+      "path": "/rest/BasicConstants.PLUGIN_IDENTIFIER/productLabelsReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/StaffLabelsController.java"
+    },
+    {
+      "controller": "StaffLabelsController",
+      "method": "staffLabelsReportPdf",
+      "path": "/rest/BasicConstants.PLUGIN_IDENTIFIER/staffLabelsReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/StaffLabelsController.java"
+    },
+    {
+      "controller": "StorageLocationLookupController",
+      "method": "getLookupView",
+      "path": "/rest/storageLocation/lookup",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java"
+    },
+    {
+      "controller": "StorageLocationNumbersController",
+      "method": "palletNumberHelperReportPdf",
+      "path": "/rest/MaterialFlowResourcesConstants.PLUGIN_IDENTIFIER/storageLocationNumberHelperReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/StorageLocationNumbersController.java"
+    },
+    {
+      "controller": "SubassemblyMultiUploadController",
+      "method": "getAttachment",
+      "path": "/rest/basic/getAttachmentForSubassembly.html",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/SubassemblyMultiUploadController.java"
+    },
+    {
+      "controller": "SupplyNegotiationsController",
+      "method": "offerReportPdf",
+      "path": "/rest/SupplyNegotiationsConstants.PLUGIN_IDENTIFIER/offerReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-supply-negotiations/src/main/java/com/qcadoo/mes/supplyNegotiations/controllers/SupplyNegotiationsController.java"
+    },
+    {
+      "controller": "SupplyNegotiationsController",
+      "method": "requestsForQuotationReportPdf",
+      "path": "/rest/SupplyNegotiationsConstants.PLUGIN_IDENTIFIER/requestsForQuotationReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-supply-negotiations/src/main/java/com/qcadoo/mes/supplyNegotiations/controllers/SupplyNegotiationsController.java"
+    },
+    {
+      "controller": "TechnologyConfiguratorController",
+      "method": "getDashboardView",
+      "path": "/rest/technologyConfigurator",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyConfiguratorController.java"
+    },
+    {
+      "controller": "TechnologyController",
+      "method": "getTechnologiesParametersPageView",
+      "path": "/rest/technologiesParameters",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/TechnologyController.java"
+    },
+    {
+      "controller": "TechnologyController",
+      "method": "technologiesReportPdf",
+      "path": "/rest/technologies/technologyDetailsReport.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/TechnologyController.java"
+    },
+    {
+      "controller": "TechnologyController",
+      "method": "technologiesReportXls",
+      "path": "/rest/technologies/technologyDetailsReport.xls",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/TechnologyController.java"
+    },
+    {
+      "controller": "TechnologyMultiUploadController",
+      "method": "getAttachment",
+      "path": "/rest/technologies/getAttachment.html",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyMultiUploadController.java"
+    },
+    {
+      "controller": "TimeUsageReportController",
+      "method": "generatePlannedEventsReport",
+      "path": "/rest/cmmsMachineParts/timeUsageReport.xls",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/reports/TimeUsageReportController.java"
+    },
+    {
+      "controller": "ToolMultiUploadController",
+      "method": "getAttachment",
+      "path": "/rest/cmmsMachineParts/getToolAttachment.html",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ToolMultiUploadController.java"
+    },
+    {
+      "controller": "TrackingOperationProductInComponentAdditionalInformationReportController",
+      "method": "generatePlannedEventsReport",
+      "path": "/rest/productionCounting/trackingOperationProductInComponentAdditionalInformationReport.xlsx",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/reports/trackingOperationProductInComponentAdditionalInformation/TrackingOperationProductInComponentAdditionalInformationReportController.java"
+    },
+    {
+      "controller": "UserBlockedController",
+      "method": "getUserBlockedView",
+      "path": "/rest/userBlocked",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/UserBlockedController.java"
+    },
+    {
+      "controller": "WarehouseMinimalStateController",
+      "method": "documentPdf",
+      "path": "/rest/WarehouseMinimalStateConstants.PLUGIN_IDENTIFIER/document.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-warehouse-minimal-state/src/main/java/com/qcadoo/mes/warehouseMinimalState/controllers/WarehouseMinimalStateController.java"
+    },
+    {
+      "controller": "WorkPlansController",
+      "method": "printAtachment",
+      "path": "/rest/workplans/printAtachment.pdf",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-work-plans/src/main/java/com/qcadoo/mes/workPlans/controller/WorkPlansController.java"
+    },
+    {
+      "controller": "WorkerCostsReportController",
+      "method": "generatePlannedEventsReport",
+      "path": "/rest/cmmsMachineParts/workerCosts.xls",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/reports/WorkerCostsReportController.java"
+    },
+    {
+      "controller": "WorkersLookupController",
+      "method": "getLookupView",
+      "path": "/rest/responsibleWorker/lookup",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java"
+    },
+    {
+      "controller": "WorkstationMultiUploadController",
+      "method": "getAttachment",
+      "path": "/rest/basic/getAttachment.html",
+      "reason": "no @ResponseBody - renders a JSP view, not a JSON payload",
+      "file": "mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/WorkstationMultiUploadController.java"
+    }
+  ],
+  "unresolved_types": [
+    {
+      "type": "AbstractDTO",
+      "context": "DataResponse.entities",
+      "reason": "no fields declared (interface or getter-only DTO)"
+    }
+  ],
+  "opaque_types": [
+    {
+      "type": "JSONObject",
+      "context": "EmployeePieceworkSettlementController.exportToCsv @RequestBody",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "JSONObject",
+      "context": "EmployeeWorkingTimeSettlementController.exportToCsv @RequestBody",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "JSONObject",
+      "context": "OperationDurationAnalysisController.exportToCsv @RequestBody",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "JSONObject",
+      "context": "OrderTechnologicalProcessesAnalysisController.exportToCsv @RequestBody",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "JSONObject",
+      "context": "ProductionBalanceAnalysisController.exportToCsv @RequestBody",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "ActionsController.gridConfig return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "AttributeLookupController.getConfigView return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "BasicLookupController.getConfigView return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "DocumentPositionDTO.attrs",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "DocumentPositionsAttributesController.getRecords return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "DocumentPositionsController.getUnitsForProduct return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "DocumentPositionsController.gridConfig return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "EmployeePieceworkSettlementController.exportToCsv return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "EmployeePieceworkSettlementController.getRecords return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "EmployeeWorkingTimeSettlementController.exportToCsv return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "EmployeeWorkingTimeSettlementController.getRecords return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "LinesProducedQuantitiesChartController.getData return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "OperationDurationAnalysisController.exportToCsv return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "OperationDurationAnalysisController.getRecords return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "OrderTechnologicalProcessesAnalysisController.exportToCsv return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "OrderTechnologicalProcessesAnalysisController.getRecords return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "ProductionBalanceAnalysisController.exportToCsv return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "ProductionBalanceAnalysisController.getRecords return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "ProductsAttributesController.getRecords return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "ResourceDTO.attrs",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    },
+    {
+      "type": "Object",
+      "context": "ResourcesAttributesController.getRecords return",
+      "reason": "type carries no static structure; serialised shape is free-form"
+    }
+  ],
+  "unbound_parameters": [
+    {
+      "source": "ActionsController.findAll",
+      "parameter": "actionForPlannedEventDto: ActionForPlannedEventDTO",
+      "path": "/rest/rest/actions/{id}"
+    },
+    {
+      "source": "AdvancedGenealogyMultiUploadController.upload",
+      "parameter": "request: MultipartHttpServletRequest",
+      "path": "/rest/advancedGenealogy/multiUploadFiles"
+    },
+    {
+      "source": "AttributeLookupController.getRecords",
+      "parameter": "record: AttributeDto",
+      "path": "/rest/attribute/{name}/records"
+    },
+    {
+      "source": "BasicLookupController.getRecords",
+      "parameter": "record: ActionDTO",
+      "path": "/rest/action/records"
+    },
+    {
+      "source": "BasicLookupController.getRecords",
+      "parameter": "record: BatchDTO",
+      "path": "/rest/batch/records"
+    },
+    {
+      "source": "BasicLookupController.getRecords",
+      "parameter": "record: PalletNumberDTO",
+      "path": "/rest/palletNumber/records"
+    },
+    {
+      "source": "BasicLookupController.getRecords",
+      "parameter": "record: ProductDTO",
+      "path": "/rest/product/records"
+    },
+    {
+      "source": "BasicLookupController.getRecords",
+      "parameter": "record: StorageLocationDTO",
+      "path": "/rest/storageLocation/records"
+    },
+    {
+      "source": "BasicLookupController.getRecords",
+      "parameter": "record: WorkerDTO",
+      "path": "/rest/responsibleWorker/records"
+    },
+    {
+      "source": "DeliveriesMultiUploadController.upload",
+      "parameter": "request: MultipartHttpServletRequest",
+      "path": "/rest/deliveries/multiUploadFiles"
+    },
+    {
+      "source": "DocumentPositionsController.findAll",
+      "parameter": "positionDTO: DocumentPositionDTO",
+      "path": "/rest/rest/documentPositions/{id}"
+    },
+    {
+      "source": "MachinePartMultiUploadController.upload",
+      "parameter": "request: MultipartHttpServletRequest",
+      "path": "/rest/cmmsMachineParts/multiUploadFiles"
+    },
+    {
+      "source": "MaintenanceEventMultiUploadController.upload",
+      "parameter": "request: MultipartHttpServletRequest",
+      "path": "/rest/cmmsMachineParts/multiUploadFilesForEvent"
+    },
+    {
+      "source": "OrderMultiUploadController.upload",
+      "parameter": "request: MultipartHttpServletRequest",
+      "path": "/rest/orders/multiUploadFilesForOrder"
+    },
+    {
+      "source": "PlannedEventMultiUploadController.upload",
+      "parameter": "request: MultipartHttpServletRequest",
+      "path": "/rest/cmmsMachineParts/multiUploadFilesForPlannedEvent"
+    },
+    {
+      "source": "ProductDataMultiUploadController.upload",
+      "parameter": "request: MultipartHttpServletRequest",
+      "path": "/rest/productData/multiUploadFiles"
+    },
+    {
+      "source": "ProductMultiUploadController.upload",
+      "parameter": "request: MultipartHttpServletRequest",
+      "path": "/rest/basic/multiUploadFilesForProduct"
+    },
+    {
+      "source": "ResourceLookupController.getRecords",
+      "parameter": "record: ResourceDTO",
+      "path": "/rest/resource/records"
+    },
+    {
+      "source": "SubassemblyMultiUploadController.upload",
+      "parameter": "request: MultipartHttpServletRequest",
+      "path": "/rest/basic/multiUploadFilesForSubassembly"
+    },
+    {
+      "source": "TechnologyMultiUploadController.technologiesUpload",
+      "parameter": "request: MultipartHttpServletRequest",
+      "path": "/rest/technologies/technologiesMultiUploadFiles"
+    },
+    {
+      "source": "TechnologyMultiUploadController.upload",
+      "parameter": "request: MultipartHttpServletRequest",
+      "path": "/rest/technologies/multiUploadFiles"
+    },
+    {
+      "source": "ToolMultiUploadController.upload",
+      "parameter": "request: MultipartHttpServletRequest",
+      "path": "/rest/cmmsMachineParts/multiUploadFilesForTool"
+    },
+    {
+      "source": "WorkstationMultiUploadController.upload",
+      "parameter": "request: MultipartHttpServletRequest",
+      "path": "/rest/basic/multiUploadFiles"
+    }
+  ],
+  "summaries_needing_curation": [
+    {
+      "source": "ActionsController.create",
+      "summary": "Create (ActionsController)"
+    },
+    {
+      "source": "ActionsController.delete",
+      "summary": "Delete (ActionsController)"
+    },
+    {
+      "source": "ActionsController.findAll",
+      "summary": "Find all (ActionsController)"
+    },
+    {
+      "source": "ActionsController.getActionsForObject",
+      "summary": "Get actions for object (ActionsController)"
+    },
+    {
+      "source": "ActionsController.getStates",
+      "summary": "Get states (ActionsController)"
+    },
+    {
+      "source": "ActionsController.getWorkers",
+      "summary": "Get workers (ActionsController)"
+    },
+    {
+      "source": "ActionsController.gridConfig",
+      "summary": "Grid config (ActionsController)"
+    },
+    {
+      "source": "ActionsController.update",
+      "summary": "Update (ActionsController)"
+    },
+    {
+      "source": "ActionsLookupController.getConfigView",
+      "summary": "Get config view (ActionsLookupController)"
+    },
+    {
+      "source": "ActionsLookupController.getRecords",
+      "summary": "Get records (ActionsLookupController)"
+    },
+    {
+      "source": "ActivityStreamController.getActivityStream",
+      "summary": "Get activity stream (ActivityStreamController)"
+    },
+    {
+      "source": "ActivityStreamController.markActivityAsViewed",
+      "summary": "Mark activity as viewed (ActivityStreamController)"
+    },
+    {
+      "source": "AdvancedGenealogyMultiUploadController.upload",
+      "summary": "Upload (AdvancedGenealogyMultiUploadController)"
+    },
+    {
+      "source": "AttributeLookupController.getConfigView",
+      "summary": "Get config view (AttributeLookupController)"
+    },
+    {
+      "source": "AttributeLookupController.getRecords",
+      "summary": "Get records (AttributeLookupController)"
+    },
+    {
+      "source": "BasicApiController.getAttributesByQuery",
+      "summary": "Get attributes by query (BasicApiController)"
+    },
+    {
+      "source": "BasicApiController.getCountries",
+      "summary": "Get countries (BasicApiController)"
+    },
+    {
+      "source": "BasicApiController.getCountriesByPage",
+      "summary": "Get countries by page (BasicApiController)"
+    },
+    {
+      "source": "BasicApiController.getFactories",
+      "summary": "Get factories (BasicApiController)"
+    },
+    {
+      "source": "BasicApiController.getFaultTypes",
+      "summary": "Get fault types (BasicApiController)"
+    },
+    {
+      "source": "BasicApiController.getPalletNumbersByQuery",
+      "summary": "Get pallet numbers by query (BasicApiController)"
+    },
+    {
+      "source": "BasicApiController.getProducts",
+      "summary": "Get products (BasicApiController)"
+    },
+    {
+      "source": "BasicApiController.getProductsByQuery",
+      "summary": "Get products by query (BasicApiController)"
+    },
+    {
+      "source": "BasicApiController.getProductsTypeahead",
+      "summary": "Get products typeahead (BasicApiController)"
+    },
+    {
+      "source": "BasicApiController.getSubassemblies",
+      "summary": "Get subassemblies (BasicApiController)"
+    },
+    {
+      "source": "BasicApiController.getTypeOfLoadUnits",
+      "summary": "Get type of load units (BasicApiController)"
+    },
+    {
+      "source": "BasicApiController.getUnits",
+      "summary": "Get units (BasicApiController)"
+    },
+    {
+      "source": "BasicApiController.getWorkstationTypes",
+      "summary": "Get workstation types (BasicApiController)"
+    },
+    {
+      "source": "BasicApiController.saveProduct",
+      "summary": "Save product (BasicApiController)"
+    },
+    {
+      "source": "BasicApiController.saveWorkstation",
+      "summary": "Save workstation (BasicApiController)"
+    },
+    {
+      "source": "BasicApiController.saveWorkstationType",
+      "summary": "Save workstation type (BasicApiController)"
+    },
+    {
+      "source": "BatchLookupController.getConfigView",
+      "summary": "Get config view (BatchLookupController)"
+    },
+    {
+      "source": "BatchLookupController.getRecords",
+      "summary": "Get records (BatchLookupController)"
+    },
+    {
+      "source": "DailyProductionChartController.getData",
+      "summary": "Get data (DailyProductionChartController)"
+    },
+    {
+      "source": "DashboardKanbanController.getOperationalTasksCompleted",
+      "summary": "Get operational tasks completed (DashboardKanbanController)"
+    },
+    {
+      "source": "DashboardKanbanController.getOperationalTasksInProgress",
+      "summary": "Get operational tasks in progress (DashboardKanbanController)"
+    },
+    {
+      "source": "DashboardKanbanController.getOperationalTasksPending",
+      "summary": "Get operational tasks pending (DashboardKanbanController)"
+    },
+    {
+      "source": "DeliveriesMultiUploadController.upload",
+      "summary": "Upload (DeliveriesMultiUploadController)"
+    },
+    {
+      "source": "DocumentPositionsAttributesController.getColumns",
+      "summary": "Get columns (DocumentPositionsAttributesController)"
+    },
+    {
+      "source": "DocumentPositionsAttributesController.getRecords",
+      "summary": "Get records (DocumentPositionsAttributesController)"
+    },
+    {
+      "source": "DocumentPositionsAttributesController.validate",
+      "summary": "Validate (DocumentPositionsAttributesController)"
+    },
+    {
+      "source": "DocumentPositionsController.create",
+      "summary": "Create (DocumentPositionsController)"
+    },
+    {
+      "source": "DocumentPositionsController.delete",
+      "summary": "Delete (DocumentPositionsController)"
+    },
+    {
+      "source": "DocumentPositionsController.findAll",
+      "summary": "Find all (DocumentPositionsController)"
+    },
+    {
+      "source": "DocumentPositionsController.getBatchForResource",
+      "summary": "Get batch for resource (DocumentPositionsController)"
+    },
+    {
+      "source": "DocumentPositionsController.getBatches",
+      "summary": "Get batches (DocumentPositionsController)"
+    },
+    {
+      "source": "DocumentPositionsController.getProductForProductNumber",
+      "summary": "Get product for product number (DocumentPositionsController)"
+    },
+    {
+      "source": "DocumentPositionsController.getProductFromLocation",
+      "summary": "Get product from location (DocumentPositionsController)"
+    },
+    {
+      "source": "DocumentPositionsController.getResourceForProduct",
+      "summary": "Get resource for product (DocumentPositionsController)"
+    },
+    {
+      "source": "DocumentPositionsController.getResources",
+      "summary": "Get resources (DocumentPositionsController)"
+    },
+    {
+      "source": "DocumentPositionsController.getStorageLocationForEmptyProduct",
+      "summary": "Get storage location for empty product (DocumentPositionsController)"
+    },
+    {
+      "source": "DocumentPositionsController.getStorageLocationForProductAndWarehouse",
+      "summary": "Get storage location for product and warehouse (DocumentPositionsController)"
+    },
+    {
+      "source": "DocumentPositionsController.getStorageLocations",
+      "summary": "Get storage locations (DocumentPositionsController)"
+    },
+    {
+      "source": "DocumentPositionsController.getTypeOfLoadUnitForLoadUnitNumber",
+      "summary": "Get type of load unit for load unit number (DocumentPositionsController)"
+    },
+    {
+      "source": "DocumentPositionsController.getUnitsForProduct",
+      "summary": "Get units for product (DocumentPositionsController)"
+    },
+    {
+      "source": "DocumentPositionsController.gridConfig",
+      "summary": "Grid config (DocumentPositionsController)"
+    },
+    {
+      "source": "DocumentPositionsController.update",
+      "summary": "Update (DocumentPositionsController)"
+    },
+    {
+      "source": "EmployeePieceworkSettlementController.exportToCsv",
+      "summary": "Export to csv (EmployeePieceworkSettlementController)"
+    },
+    {
+      "source": "EmployeePieceworkSettlementController.getColumns",
+      "summary": "Get columns (EmployeePieceworkSettlementController)"
+    },
+    {
+      "source": "EmployeePieceworkSettlementController.getRecords",
+      "summary": "Get records (EmployeePieceworkSettlementController)"
+    },
+    {
+      "source": "EmployeePieceworkSettlementController.validate",
+      "summary": "Validate (EmployeePieceworkSettlementController)"
+    },
+    {
+      "source": "EmployeeWorkingTimeSettlementController.exportToCsv",
+      "summary": "Export to csv (EmployeeWorkingTimeSettlementController)"
+    },
+    {
+      "source": "EmployeeWorkingTimeSettlementController.getColumns",
+      "summary": "Get columns (EmployeeWorkingTimeSettlementController)"
+    },
+    {
+      "source": "EmployeeWorkingTimeSettlementController.getRecords",
+      "summary": "Get records (EmployeeWorkingTimeSettlementController)"
+    },
+    {
+      "source": "EmployeeWorkingTimeSettlementController.validate",
+      "summary": "Validate (EmployeeWorkingTimeSettlementController)"
+    },
+    {
+      "source": "LinesProducedQuantitiesChartController.getData",
+      "summary": "Get data (LinesProducedQuantitiesChartController)"
+    },
+    {
+      "source": "LinesProducedQuantitiesChartController.validate",
+      "summary": "Validate (LinesProducedQuantitiesChartController)"
+    },
+    {
+      "source": "MachinePartMultiUploadController.upload",
+      "summary": "Upload (MachinePartMultiUploadController)"
+    },
+    {
+      "source": "MaintenanceEventMultiUploadController.upload",
+      "summary": "Upload (MaintenanceEventMultiUploadController)"
+    },
+    {
+      "source": "OperationDurationAnalysisController.exportToCsv",
+      "summary": "Export to csv (OperationDurationAnalysisController)"
+    },
+    {
+      "source": "OperationDurationAnalysisController.getColumns",
+      "summary": "Get columns (OperationDurationAnalysisController)"
+    },
+    {
+      "source": "OperationDurationAnalysisController.getRecords",
+      "summary": "Get records (OperationDurationAnalysisController)"
+    },
+    {
+      "source": "OperationDurationAnalysisController.validate",
+      "summary": "Validate (OperationDurationAnalysisController)"
+    },
+    {
+      "source": "OrderMultiUploadController.upload",
+      "summary": "Upload (OrderMultiUploadController)"
+    },
+    {
+      "source": "OrderTechnologicalProcessesAnalysisController.exportToCsv",
+      "summary": "Export to csv (OrderTechnologicalProcessesAnalysisController)"
+    },
+    {
+      "source": "OrderTechnologicalProcessesAnalysisController.getColumns",
+      "summary": "Get columns (OrderTechnologicalProcessesAnalysisController)"
+    },
+    {
+      "source": "OrderTechnologicalProcessesAnalysisController.getRecords",
+      "summary": "Get records (OrderTechnologicalProcessesAnalysisController)"
+    },
+    {
+      "source": "OrderTechnologicalProcessesAnalysisController.validate",
+      "summary": "Validate (OrderTechnologicalProcessesAnalysisController)"
+    },
+    {
+      "source": "OrdersApiController.createTechnology",
+      "summary": "Create technology (OrdersApiController)"
+    },
+    {
+      "source": "OrdersApiController.saveOrderWithOperationalTasks",
+      "summary": "Save order with operational tasks (OrdersApiController)"
+    },
+    {
+      "source": "PalletNumberLookupController.getConfigView",
+      "summary": "Get config view (PalletNumberLookupController)"
+    },
+    {
+      "source": "PalletNumberLookupController.getRecords",
+      "summary": "Get records (PalletNumberLookupController)"
+    },
+    {
+      "source": "PlannedEventMultiUploadController.upload",
+      "summary": "Upload (PlannedEventMultiUploadController)"
+    },
+    {
+      "source": "ProductDataMultiUploadController.upload",
+      "summary": "Upload (ProductDataMultiUploadController)"
+    },
+    {
+      "source": "ProductLookupController.getConfigView",
+      "summary": "Get config view (ProductLookupController)"
+    },
+    {
+      "source": "ProductLookupController.getRecords",
+      "summary": "Get records (ProductLookupController)"
+    },
+    {
+      "source": "ProductMultiUploadController.upload",
+      "summary": "Upload (ProductMultiUploadController)"
+    },
+    {
+      "source": "ProductionBalanceAnalysisController.exportToCsv",
+      "summary": "Export to csv (ProductionBalanceAnalysisController)"
+    },
+    {
+      "source": "ProductionBalanceAnalysisController.getColumns",
+      "summary": "Get columns (ProductionBalanceAnalysisController)"
+    },
+    {
+      "source": "ProductionBalanceAnalysisController.getRecords",
+      "summary": "Get records (ProductionBalanceAnalysisController)"
+    },
+    {
+      "source": "ProductionBalanceAnalysisController.validate",
+      "summary": "Validate (ProductionBalanceAnalysisController)"
+    },
+    {
+      "source": "ProductionLinesApiController.getProducts",
+      "summary": "Get products (ProductionLinesApiController)"
+    },
+    {
+      "source": "ProductionLinesApiController.getShiftWorkingDate",
+      "summary": "Get shift working date (ProductionLinesApiController)"
+    },
+    {
+      "source": "ProductionLinesApiController.getTechnologies",
+      "summary": "Get technologies (ProductionLinesApiController)"
+    },
+    {
+      "source": "ProductionLinesApiController.saveProduct",
+      "summary": "Save product (ProductionLinesApiController)"
+    },
+    {
+      "source": "ProductsAttributesController.getColumns",
+      "summary": "Get columns (ProductsAttributesController)"
+    },
+    {
+      "source": "ProductsAttributesController.getRecords",
+      "summary": "Get records (ProductsAttributesController)"
+    },
+    {
+      "source": "ProductsBySizeController.productsBySize",
+      "summary": "Products by size (ProductsBySizeController)"
+    },
+    {
+      "source": "ResourceLookupController.getConfigView",
+      "summary": "Get config view (ResourceLookupController)"
+    },
+    {
+      "source": "ResourceLookupController.getRecords",
+      "summary": "Get records (ResourceLookupController)"
+    },
+    {
+      "source": "ResourcesAttributesController.getColumns",
+      "summary": "Get columns (ResourcesAttributesController)"
+    },
+    {
+      "source": "ResourcesAttributesController.getRecords",
+      "summary": "Get records (ResourcesAttributesController)"
+    },
+    {
+      "source": "SalesPlanOrdersController.generateOrdersSalePlan",
+      "summary": "Generate orders sale plan (SalesPlanOrdersController)"
+    },
+    {
+      "source": "StorageLocationLookupController.getConfigView",
+      "summary": "Get config view (StorageLocationLookupController)"
+    },
+    {
+      "source": "StorageLocationLookupController.getRecords",
+      "summary": "Get records (StorageLocationLookupController)"
+    },
+    {
+      "source": "SubassemblyMultiUploadController.upload",
+      "summary": "Upload (SubassemblyMultiUploadController)"
+    },
+    {
+      "source": "TechnologyApiController.getOperations",
+      "summary": "Get operations (TechnologyApiController)"
+    },
+    {
+      "source": "TechnologyApiController.getProducts",
+      "summary": "Get products (TechnologyApiController)"
+    },
+    {
+      "source": "TechnologyApiController.getTechnologies",
+      "summary": "Get technologies (TechnologyApiController)"
+    },
+    {
+      "source": "TechnologyApiController.getTechnologyMaterials",
+      "summary": "Get technology materials (TechnologyApiController)"
+    },
+    {
+      "source": "TechnologyApiController.getTechnologyOperationMaterials",
+      "summary": "Get technology operation materials (TechnologyApiController)"
+    },
+    {
+      "source": "TechnologyApiController.getTechnologyProductionLine",
+      "summary": "Get technology production line (TechnologyApiController)"
+    },
+    {
+      "source": "TechnologyApiController.getWorkstations",
+      "summary": "Get workstations (TechnologyApiController) #4"
+    },
+    {
+      "source": "TechnologyApiController.getWorkstations",
+      "summary": "Get workstations (TechnologyApiController) #3"
+    },
+    {
+      "source": "TechnologyApiController.getWorkstations",
+      "summary": "Get workstations (TechnologyApiController) #1"
+    },
+    {
+      "source": "TechnologyApiController.getWorkstations",
+      "summary": "Get workstations (TechnologyApiController) #2"
+    },
+    {
+      "source": "TechnologyApiController.saveOperation",
+      "summary": "Save operation (TechnologyApiController)"
+    },
+    {
+      "source": "TechnologyConfiguratorController.getConfiguration",
+      "summary": "Get configuration (TechnologyConfiguratorController)"
+    },
+    {
+      "source": "TechnologyMultiUploadController.technologiesUpload",
+      "summary": "Technologies upload (TechnologyMultiUploadController)"
+    },
+    {
+      "source": "TechnologyMultiUploadController.upload",
+      "summary": "Upload (TechnologyMultiUploadController)"
+    },
+    {
+      "source": "ToolMultiUploadController.upload",
+      "summary": "Upload (ToolMultiUploadController)"
+    },
+    {
+      "source": "WorkersLookupController.getConfigView",
+      "summary": "Get config view (WorkersLookupController)"
+    },
+    {
+      "source": "WorkersLookupController.getRecords",
+      "summary": "Get records (WorkersLookupController)"
+    },
+    {
+      "source": "WorkstationMultiUploadController.upload",
+      "summary": "Upload (WorkstationMultiUploadController)"
+    }
+  ],
+  "path_conflicts": [],
+  "files_written": [
+    "mes-bdd-tests/tools/generated/qcadoo-advanced-genealogy.generated.openapi.yml",
+    "mes-bdd-tests/tools/generated/qcadoo-basic.generated.openapi.yml",
+    "mes-bdd-tests/tools/generated/qcadoo-cmms-machine-parts.generated.openapi.yml",
+    "mes-bdd-tests/tools/generated/qcadoo-deliveries.generated.openapi.yml",
+    "mes-bdd-tests/tools/generated/qcadoo-master-orders.generated.openapi.yml",
+    "mes-bdd-tests/tools/generated/qcadoo-material-flow-resources.generated.openapi.yml",
+    "mes-bdd-tests/tools/generated/qcadoo-mes-all.openapi.yml",
+    "mes-bdd-tests/tools/generated/qcadoo-orders.generated.openapi.yml",
+    "mes-bdd-tests/tools/generated/qcadoo-production-counting.generated.openapi.yml",
+    "mes-bdd-tests/tools/generated/qcadoo-production-lines.generated.openapi.yml",
+    "mes-bdd-tests/tools/generated/qcadoo-technologies.generated.openapi.yml"
+  ],
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/rest/action/config",
+      "controller": "ActionsLookupController",
+      "source": "BasicLookupController.getConfigView",
+      "inherited": true,
+      "produces": "application/json",
+      "module": "cmms-machine-parts",
+      "return_type": "Map<String, Object>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/action/records",
+      "controller": "ActionsLookupController",
+      "source": "BasicLookupController.getRecords",
+      "inherited": true,
+      "produces": "application/json",
+      "module": "cmms-machine-parts",
+      "return_type": "GridResponse<ActionDTO>",
+      "notes": [
+        "parameter 'record' (ActionDTO) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/rest/activityStream",
+      "controller": "ActivityStreamController",
+      "source": "ActivityStreamController.getActivityStream",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "List<ActivityDto>",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/activityStream/markAsViewed",
+      "controller": "ActivityStreamController",
+      "source": "ActivityStreamController.markActivityAsViewed",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/rest/advancedGenealogy/multiUploadFiles",
+      "controller": "AdvancedGenealogyMultiUploadController",
+      "source": "AdvancedGenealogyMultiUploadController.upload",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "advanced-genealogy",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)",
+        "parameter 'request' (MultipartHttpServletRequest) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/rest/attribute/{attr}",
+      "controller": "BasicApiController",
+      "source": "BasicApiController.getAttributesByQuery",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "DataResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/attribute/{name}/config",
+      "controller": "AttributeLookupController",
+      "source": "AttributeLookupController.getConfigView",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "Map<String, Object>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/attribute/{name}/records",
+      "controller": "AttributeLookupController",
+      "source": "AttributeLookupController.getRecords",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "GridResponse<AttributeDto>",
+      "notes": [
+        "parameter 'record' (AttributeDto) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/rest/basic/multiUploadFiles",
+      "controller": "WorkstationMultiUploadController",
+      "source": "WorkstationMultiUploadController.upload",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)",
+        "parameter 'request' (MultipartHttpServletRequest) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/rest/basic/multiUploadFilesForProduct",
+      "controller": "ProductMultiUploadController",
+      "source": "ProductMultiUploadController.upload",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)",
+        "parameter 'request' (MultipartHttpServletRequest) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/rest/basic/multiUploadFilesForSubassembly",
+      "controller": "SubassemblyMultiUploadController",
+      "source": "SubassemblyMultiUploadController.upload",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)",
+        "parameter 'request' (MultipartHttpServletRequest) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/rest/batch/config",
+      "controller": "BatchLookupController",
+      "source": "BasicLookupController.getConfigView",
+      "inherited": true,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "Map<String, Object>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/batch/records",
+      "controller": "BatchLookupController",
+      "source": "BasicLookupController.getRecords",
+      "inherited": true,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "GridResponse<BatchDTO>",
+      "notes": [
+        "parameter 'record' (BatchDTO) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/rest/cmmsMachineParts/multiUploadFiles",
+      "controller": "MachinePartMultiUploadController",
+      "source": "MachinePartMultiUploadController.upload",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "cmms-machine-parts",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)",
+        "parameter 'request' (MultipartHttpServletRequest) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/rest/cmmsMachineParts/multiUploadFilesForEvent",
+      "controller": "MaintenanceEventMultiUploadController",
+      "source": "MaintenanceEventMultiUploadController.upload",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "cmms-machine-parts",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)",
+        "parameter 'request' (MultipartHttpServletRequest) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/rest/cmmsMachineParts/multiUploadFilesForPlannedEvent",
+      "controller": "PlannedEventMultiUploadController",
+      "source": "PlannedEventMultiUploadController.upload",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "cmms-machine-parts",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)",
+        "parameter 'request' (MultipartHttpServletRequest) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/rest/cmmsMachineParts/multiUploadFilesForTool",
+      "controller": "ToolMultiUploadController",
+      "source": "ToolMultiUploadController.upload",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "cmms-machine-parts",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)",
+        "parameter 'request' (MultipartHttpServletRequest) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/rest/countries",
+      "controller": "BasicApiController",
+      "source": "BasicApiController.getCountries",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "CountriesResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/countriesByPage",
+      "controller": "BasicApiController",
+      "source": "BasicApiController.getCountriesByPage",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "CountriesGridResponse",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/createTechnology",
+      "controller": "OrdersApiController",
+      "source": "OrdersApiController.createTechnology",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "orders",
+      "return_type": "TechnologyCreationResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/dailyProductionChart/data",
+      "controller": "DailyProductionChartController",
+      "source": "DailyProductionChartController.getData",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "List<Long>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/dashboardKanban/operationalTasksCompleted",
+      "controller": "DashboardKanbanController",
+      "source": "DashboardKanbanController.getOperationalTasksCompleted",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "orders",
+      "return_type": "List<OperationalTaskHolder>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/dashboardKanban/operationalTasksInProgress",
+      "controller": "DashboardKanbanController",
+      "source": "DashboardKanbanController.getOperationalTasksInProgress",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "orders",
+      "return_type": "List<OperationalTaskHolder>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/dashboardKanban/operationalTasksPending",
+      "controller": "DashboardKanbanController",
+      "source": "DashboardKanbanController.getOperationalTasksPending",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "orders",
+      "return_type": "List<OperationalTaskHolder>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/dashboardKanban/ordersCompleted",
+      "controller": "DashboardKanbanController",
+      "source": "DashboardKanbanController.getOrdersCompleted",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "orders",
+      "return_type": "List<OrderHolder>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/dashboardKanban/ordersInProgress",
+      "controller": "DashboardKanbanController",
+      "source": "DashboardKanbanController.getOrdersInProgress",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "orders",
+      "return_type": "List<OrderHolder>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/dashboardKanban/ordersPending",
+      "controller": "DashboardKanbanController",
+      "source": "DashboardKanbanController.getOrdersPending",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "orders",
+      "return_type": "List<OrderHolder>",
+      "notes": []
+    },
+    {
+      "method": "PUT",
+      "path": "/rest/dashboardKanban/updateOrderState/{orderId}",
+      "controller": "DashboardKanbanController",
+      "source": "DashboardKanbanController.updateOrderState",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "orders",
+      "return_type": "OrderResponse",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/deliveries/multiUploadFiles",
+      "controller": "DeliveriesMultiUploadController",
+      "source": "DeliveriesMultiUploadController.upload",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "deliveries",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)",
+        "parameter 'request' (MultipartHttpServletRequest) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/rest/docPositionsAttributes/columns",
+      "controller": "DocumentPositionsAttributesController",
+      "source": "DocumentPositionsAttributesController.getColumns",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "List<ColumnDTO>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/docPositionsAttributes/records",
+      "controller": "DocumentPositionsAttributesController",
+      "source": "DocumentPositionsAttributesController.getRecords",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "List<Map<String, Object>>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/docPositionsAttributes/validate",
+      "controller": "DocumentPositionsAttributesController",
+      "source": "DocumentPositionsAttributesController.validate",
+      "inherited": false,
+      "produces": "text/plain",
+      "module": "material-flow-resources",
+      "return_type": "String",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/emplPieceworkSettlement/columns",
+      "controller": "EmployeePieceworkSettlementController",
+      "source": "EmployeePieceworkSettlementController.getColumns",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-counting",
+      "return_type": "List<ColumnDTO>",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/emplPieceworkSettlement/exportToCsv",
+      "controller": "EmployeePieceworkSettlementController",
+      "source": "EmployeePieceworkSettlementController.exportToCsv",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-counting",
+      "return_type": "Object",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/emplPieceworkSettlement/records",
+      "controller": "EmployeePieceworkSettlementController",
+      "source": "EmployeePieceworkSettlementController.getRecords",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-counting",
+      "return_type": "List<Map<String, Object>>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/emplPieceworkSettlement/validate",
+      "controller": "EmployeePieceworkSettlementController",
+      "source": "EmployeePieceworkSettlementController.validate",
+      "inherited": false,
+      "produces": "text/plain",
+      "module": "production-counting",
+      "return_type": "String",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/emplWorkingTimeSettlement/columns",
+      "controller": "EmployeeWorkingTimeSettlementController",
+      "source": "EmployeeWorkingTimeSettlementController.getColumns",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-counting",
+      "return_type": "List<ColumnDTO>",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/emplWorkingTimeSettlement/exportToCsv",
+      "controller": "EmployeeWorkingTimeSettlementController",
+      "source": "EmployeeWorkingTimeSettlementController.exportToCsv",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-counting",
+      "return_type": "Object",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/emplWorkingTimeSettlement/records",
+      "controller": "EmployeeWorkingTimeSettlementController",
+      "source": "EmployeeWorkingTimeSettlementController.getRecords",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-counting",
+      "return_type": "List<Map<String, Object>>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/emplWorkingTimeSettlement/validate",
+      "controller": "EmployeeWorkingTimeSettlementController",
+      "source": "EmployeeWorkingTimeSettlementController.validate",
+      "inherited": false,
+      "produces": "text/plain",
+      "module": "production-counting",
+      "return_type": "String",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/factories",
+      "controller": "BasicApiController",
+      "source": "BasicApiController.getFactories",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "FactoriesResponse",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/faultTypes",
+      "controller": "BasicApiController",
+      "source": "BasicApiController.getFaultTypes",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "FaultTypeResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/lProducedQuantitiesChart/data",
+      "controller": "LinesProducedQuantitiesChartController",
+      "source": "LinesProducedQuantitiesChartController.getData",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-counting",
+      "return_type": "Map<String, Object>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/lProducedQuantitiesChart/validate",
+      "controller": "LinesProducedQuantitiesChartController",
+      "source": "LinesProducedQuantitiesChartController.validate",
+      "inherited": false,
+      "produces": "text/plain",
+      "module": "production-counting",
+      "return_type": "String",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/masterOrders/generateOrdersSalePlan",
+      "controller": "SalesPlanOrdersController",
+      "source": "SalesPlanOrdersController.generateOrdersSalePlan",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "master-orders",
+      "return_type": "GenerateOrdersSalePlanResponse",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/masterOrders/productsBySize",
+      "controller": "ProductsBySizeController",
+      "source": "ProductsBySizeController.productsBySize",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "master-orders",
+      "return_type": "ProductsBySizeResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/operDurationAnalysis/columns",
+      "controller": "OperationDurationAnalysisController",
+      "source": "OperationDurationAnalysisController.getColumns",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-counting",
+      "return_type": "List<ColumnDTO>",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/operDurationAnalysis/exportToCsv",
+      "controller": "OperationDurationAnalysisController",
+      "source": "OperationDurationAnalysisController.exportToCsv",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-counting",
+      "return_type": "Object",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/operDurationAnalysis/records",
+      "controller": "OperationDurationAnalysisController",
+      "source": "OperationDurationAnalysisController.getRecords",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-counting",
+      "return_type": "List<Map<String, Object>>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/operDurationAnalysis/validate",
+      "controller": "OperationDurationAnalysisController",
+      "source": "OperationDurationAnalysisController.validate",
+      "inherited": false,
+      "produces": "text/plain",
+      "module": "production-counting",
+      "return_type": "String",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/operation",
+      "controller": "TechnologyApiController",
+      "source": "TechnologyApiController.saveOperation",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "technologies",
+      "return_type": "OperationResponse",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/operationalTasks",
+      "controller": "OrdersApiController",
+      "source": "OrdersApiController.saveOrderWithOperationalTasks",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "orders",
+      "return_type": "OrderCreationResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/operations",
+      "controller": "TechnologyApiController",
+      "source": "TechnologyApiController.getOperations",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "technologies",
+      "return_type": "OperationsResponse",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/order",
+      "controller": "OrdersApiController",
+      "source": "OrdersApiController.saveOrder",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "orders",
+      "return_type": "OrderCreationResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/orderTechnologicalProcessesAnalysis/columns",
+      "controller": "OrderTechnologicalProcessesAnalysisController",
+      "source": "OrderTechnologicalProcessesAnalysisController.getColumns",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "orders",
+      "return_type": "List<ColumnDTO>",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/orderTechnologicalProcessesAnalysis/exportToCsv",
+      "controller": "OrderTechnologicalProcessesAnalysisController",
+      "source": "OrderTechnologicalProcessesAnalysisController.exportToCsv",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "orders",
+      "return_type": "Object",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/orderTechnologicalProcessesAnalysis/records",
+      "controller": "OrderTechnologicalProcessesAnalysisController",
+      "source": "OrderTechnologicalProcessesAnalysisController.getRecords",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "orders",
+      "return_type": "List<Map<String, Object>>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/orderTechnologicalProcessesAnalysis/validate",
+      "controller": "OrderTechnologicalProcessesAnalysisController",
+      "source": "OrderTechnologicalProcessesAnalysisController.validate",
+      "inherited": false,
+      "produces": "text/plain",
+      "module": "orders",
+      "return_type": "String",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/orders/multiUploadFilesForOrder",
+      "controller": "OrderMultiUploadController",
+      "source": "OrderMultiUploadController.upload",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "orders",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)",
+        "parameter 'request' (MultipartHttpServletRequest) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/rest/palletNumber/config",
+      "controller": "PalletNumberLookupController",
+      "source": "BasicLookupController.getConfigView",
+      "inherited": true,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "Map<String, Object>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/palletNumber/records",
+      "controller": "PalletNumberLookupController",
+      "source": "BasicLookupController.getRecords",
+      "inherited": true,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "GridResponse<PalletNumberDTO>",
+      "notes": [
+        "parameter 'record' (PalletNumberDTO) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/rest/palletnumbers",
+      "controller": "BasicApiController",
+      "source": "BasicApiController.getPalletNumbersByQuery",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "DataResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/prodAttributes/columns",
+      "controller": "ProductsAttributesController",
+      "source": "ProductsAttributesController.getColumns",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "List<ColumnDTO>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/prodAttributes/records",
+      "controller": "ProductsAttributesController",
+      "source": "ProductsAttributesController.getRecords",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "List<Map<String, Object>>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/prodBalanceAnalysis/columns",
+      "controller": "ProductionBalanceAnalysisController",
+      "source": "ProductionBalanceAnalysisController.getColumns",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-counting",
+      "return_type": "List<ColumnDTO>",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/prodBalanceAnalysis/exportToCsv",
+      "controller": "ProductionBalanceAnalysisController",
+      "source": "ProductionBalanceAnalysisController.exportToCsv",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-counting",
+      "return_type": "Object",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/prodBalanceAnalysis/records",
+      "controller": "ProductionBalanceAnalysisController",
+      "source": "ProductionBalanceAnalysisController.getRecords",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-counting",
+      "return_type": "List<Map<String, Object>>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/prodBalanceAnalysis/validate",
+      "controller": "ProductionBalanceAnalysisController",
+      "source": "ProductionBalanceAnalysisController.validate",
+      "inherited": false,
+      "produces": "text/plain",
+      "module": "production-counting",
+      "return_type": "String",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/product",
+      "controller": "BasicApiController",
+      "source": "BasicApiController.saveProduct",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "ProductResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/product/config",
+      "controller": "ProductLookupController",
+      "source": "BasicLookupController.getConfigView",
+      "inherited": true,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "Map<String, Object>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/product/records",
+      "controller": "ProductLookupController",
+      "source": "BasicLookupController.getRecords",
+      "inherited": true,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "GridResponse<ProductDTO>",
+      "notes": [
+        "parameter 'record' (ProductDTO) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/rest/productData/multiUploadFiles",
+      "controller": "ProductDataMultiUploadController",
+      "source": "ProductDataMultiUploadController.upload",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "technologies",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)",
+        "parameter 'request' (MultipartHttpServletRequest) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/rest/productionLine",
+      "controller": "ProductionLinesApiController",
+      "source": "ProductionLinesApiController.saveProduct",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-lines",
+      "return_type": "ProductionLineResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/productionLine/{productionLineId}/shiftWorkingDate",
+      "controller": "ProductionLinesApiController",
+      "source": "ProductionLinesApiController.getShiftWorkingDate",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-lines",
+      "return_type": "ShiftWorkingDateResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/productionLines",
+      "controller": "ProductionLinesApiController",
+      "source": "ProductionLinesApiController.getTechnologies",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-lines",
+      "return_type": "ProductionLinesResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/productionLines/default",
+      "controller": "ProductionLinesApiController",
+      "source": "ProductionLinesApiController.getDefaultProductionLine",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-lines",
+      "return_type": "ProductionLineDto",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/productionLinesByPage",
+      "controller": "ProductionLinesApiController",
+      "source": "ProductionLinesApiController.getProducts",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "production-lines",
+      "return_type": "ProductionLinesGridResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/products",
+      "controller": "BasicApiController",
+      "source": "BasicApiController.getProductsByQuery",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "DataResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/productsByPage",
+      "controller": "BasicApiController",
+      "source": "BasicApiController.getProducts",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "ProductsGridResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/productsTypeahead",
+      "controller": "BasicApiController",
+      "source": "BasicApiController.getProductsTypeahead",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "DataResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/resAttributes/columns",
+      "controller": "ResourcesAttributesController",
+      "source": "ResourcesAttributesController.getColumns",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "List<ColumnDTO>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/resAttributes/records",
+      "controller": "ResourcesAttributesController",
+      "source": "ResourcesAttributesController.getRecords",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "List<Map<String, Object>>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/resource/config",
+      "controller": "ResourceLookupController",
+      "source": "BasicLookupController.getConfigView",
+      "inherited": true,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "Map<String, Object>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/resource/records",
+      "controller": "ResourceLookupController",
+      "source": "ResourceLookupController.getRecords",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "GridResponse<ResourceDTO>",
+      "notes": [
+        "parameter 'record' (ResourceDTO) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/rest/responsibleWorker/config",
+      "controller": "WorkersLookupController",
+      "source": "BasicLookupController.getConfigView",
+      "inherited": true,
+      "produces": "application/json",
+      "module": "cmms-machine-parts",
+      "return_type": "Map<String, Object>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/responsibleWorker/records",
+      "controller": "WorkersLookupController",
+      "source": "BasicLookupController.getRecords",
+      "inherited": true,
+      "produces": "application/json",
+      "module": "cmms-machine-parts",
+      "return_type": "GridResponse<WorkerDTO>",
+      "notes": [
+        "parameter 'record' (WorkerDTO) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/rest/rest/actions",
+      "controller": "ActionsController",
+      "source": "ActionsController.create",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "cmms-machine-parts",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/actions/actions",
+      "controller": "ActionsController",
+      "source": "ActionsController.getActionsForObject",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "cmms-machine-parts",
+      "return_type": "DataResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/actions/gridConfig/{id}",
+      "controller": "ActionsController",
+      "source": "ActionsController.gridConfig",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "cmms-machine-parts",
+      "return_type": "Map<String, Object>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/actions/states",
+      "controller": "ActionsController",
+      "source": "ActionsController.getStates",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "cmms-machine-parts",
+      "return_type": "List<Map<String, String>>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/actions/workers",
+      "controller": "ActionsController",
+      "source": "ActionsController.getWorkers",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "cmms-machine-parts",
+      "return_type": "DataResponse",
+      "notes": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/rest/rest/actions/{id}",
+      "controller": "ActionsController",
+      "source": "ActionsController.delete",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "cmms-machine-parts",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/actions/{id}",
+      "controller": "ActionsController",
+      "source": "ActionsController.findAll",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "cmms-machine-parts",
+      "return_type": "GridResponse<ActionForPlannedEventDTO>",
+      "notes": [
+        "parameter 'actionForPlannedEventDto' (ActionForPlannedEventDTO) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/rest/rest/actions/{id}",
+      "controller": "ActionsController",
+      "source": "ActionsController.update",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "cmms-machine-parts",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/rest/rest/documentPositions",
+      "controller": "DocumentPositionsController",
+      "source": "DocumentPositionsController.create",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/documentPositions/batch",
+      "controller": "DocumentPositionsController",
+      "source": "DocumentPositionsController.getBatches",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "DataResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/documentPositions/gridConfig/{id}",
+      "controller": "DocumentPositionsController",
+      "source": "DocumentPositionsController.gridConfig",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "Map<String, Object>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/documentPositions/product/{number}",
+      "controller": "DocumentPositionsController",
+      "source": "DocumentPositionsController.getProductForProductNumber",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "ProductDTO",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/documentPositions/productFromLocation",
+      "controller": "DocumentPositionsController",
+      "source": "DocumentPositionsController.getProductFromLocation",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "ProductDTO",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/documentPositions/resource",
+      "controller": "DocumentPositionsController",
+      "source": "DocumentPositionsController.getResourceForProduct",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "ResourceDTO",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/documentPositions/resourceByNumber/{document}/{resource}",
+      "controller": "DocumentPositionsController",
+      "source": "DocumentPositionsController.getBatchForResource",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "ResourceDTO",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/documentPositions/resources",
+      "controller": "DocumentPositionsController",
+      "source": "DocumentPositionsController.getResources",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "DataResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/documentPositions/storageLocation/{document}",
+      "controller": "DocumentPositionsController",
+      "source": "DocumentPositionsController.getStorageLocationForEmptyProduct",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "StorageLocationDTO",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/documentPositions/storageLocation/{product}/{document}",
+      "controller": "DocumentPositionsController",
+      "source": "DocumentPositionsController.getStorageLocationForProductAndWarehouse",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "StorageLocationDTO",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/documentPositions/storagelocations",
+      "controller": "DocumentPositionsController",
+      "source": "DocumentPositionsController.getStorageLocations",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "DataResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/documentPositions/typeOfLoadUnitByLoadUnit/{document}/{loadUnitNumber}",
+      "controller": "DocumentPositionsController",
+      "source": "DocumentPositionsController.getTypeOfLoadUnitForLoadUnitNumber",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "String",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/documentPositions/units/{number}",
+      "controller": "DocumentPositionsController",
+      "source": "DocumentPositionsController.getUnitsForProduct",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "Map<String, Object>",
+      "notes": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/rest/rest/documentPositions/{ids}",
+      "controller": "DocumentPositionsController",
+      "source": "DocumentPositionsController.delete",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/rest/rest/documentPositions/{id}",
+      "controller": "DocumentPositionsController",
+      "source": "DocumentPositionsController.findAll",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "GridResponse<DocumentPositionDTO>",
+      "notes": [
+        "parameter 'positionDTO' (DocumentPositionDTO) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/rest/rest/documentPositions/{id}",
+      "controller": "DocumentPositionsController",
+      "source": "DocumentPositionsController.update",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)",
+        "path variable 'id' present in the URI template but not bound by a @PathVariable parameter; typed as string"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/rest/storageLocation/config",
+      "controller": "StorageLocationLookupController",
+      "source": "BasicLookupController.getConfigView",
+      "inherited": true,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "Map<String, Object>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/storageLocation/records",
+      "controller": "StorageLocationLookupController",
+      "source": "BasicLookupController.getRecords",
+      "inherited": true,
+      "produces": "application/json",
+      "module": "material-flow-resources",
+      "return_type": "GridResponse<StorageLocationDTO>",
+      "notes": [
+        "parameter 'record' (StorageLocationDTO) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/rest/subassemblies/{workstationId}",
+      "controller": "BasicApiController",
+      "source": "BasicApiController.getSubassemblies",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "SubassembliesResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/technologies",
+      "controller": "TechnologyApiController",
+      "source": "TechnologyApiController.getTechnologies",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "technologies",
+      "return_type": "TechnologiesResponse",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/technologies/multiUploadFiles",
+      "controller": "TechnologyMultiUploadController",
+      "source": "TechnologyMultiUploadController.upload",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "technologies",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)",
+        "parameter 'request' (MultipartHttpServletRequest) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/rest/technologies/technologiesMultiUploadFiles",
+      "controller": "TechnologyMultiUploadController",
+      "source": "TechnologyMultiUploadController.technologiesUpload",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "technologies",
+      "return_type": "void",
+      "notes": [
+        "no 'produces' declared; assumed application/json (Spring content negotiation with Jackson on the classpath)",
+        "parameter 'request' (MultipartHttpServletRequest) has no binding annotation; Spring binds it as a @ModelAttribute from the query string - its individual fields are not modelled"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/rest/technologiesByPage",
+      "controller": "TechnologyApiController",
+      "source": "TechnologyApiController.getProducts",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "technologies",
+      "return_type": "TechnologiesGridResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/technology/{technologyId}/materials",
+      "controller": "TechnologyApiController",
+      "source": "TechnologyApiController.getTechnologyMaterials",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "technologies",
+      "return_type": "List<MaterialDto>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/technology/{technologyId}/operationMaterials",
+      "controller": "TechnologyApiController",
+      "source": "TechnologyApiController.getTechnologyOperationMaterials",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "technologies",
+      "return_type": "List<OperationMaterialDto>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/technology/{technologyId}/productionLine",
+      "controller": "TechnologyApiController",
+      "source": "TechnologyApiController.getTechnologyProductionLine",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "technologies",
+      "return_type": "ProductionLineDto",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/technologyConfigurator/configuration",
+      "controller": "TechnologyConfiguratorController",
+      "source": "TechnologyConfiguratorController.getConfiguration",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "technologies",
+      "return_type": "TechnologyConfigurationDto",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/typeOfLoadUnits",
+      "controller": "BasicApiController",
+      "source": "BasicApiController.getTypeOfLoadUnits",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "List<Map<String, String>>",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/units",
+      "controller": "BasicApiController",
+      "source": "BasicApiController.getUnits",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "List<Map<String, String>>",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/workstation",
+      "controller": "BasicApiController",
+      "source": "BasicApiController.saveWorkstation",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "WorkstationResponse",
+      "notes": []
+    },
+    {
+      "method": "POST",
+      "path": "/rest/workstationType",
+      "controller": "BasicApiController",
+      "source": "BasicApiController.saveWorkstationType",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "WorkstationResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/workstationTypes",
+      "controller": "BasicApiController",
+      "source": "BasicApiController.getWorkstationTypes",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "basic",
+      "return_type": "WorkstationTypesResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/workstationTypesByPage",
+      "controller": "TechnologyApiController",
+      "source": "TechnologyApiController.getWorkstations",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "technologies",
+      "return_type": "WorkstationTypesGridResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/workstationTypesByQuery",
+      "controller": "TechnologyApiController",
+      "source": "TechnologyApiController.getWorkstations",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "technologies",
+      "return_type": "WorkstationTypesResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/workstations",
+      "controller": "TechnologyApiController",
+      "source": "TechnologyApiController.getWorkstations",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "technologies",
+      "return_type": "WorkstationsResponse",
+      "notes": []
+    },
+    {
+      "method": "GET",
+      "path": "/rest/workstationsByPage",
+      "controller": "TechnologyApiController",
+      "source": "TechnologyApiController.getWorkstations",
+      "inherited": false,
+      "produces": "application/json",
+      "module": "technologies",
+      "return_type": "WorkstationsGridResponse",
+      "notes": []
+    }
+  ],
+  "parse_failures": {}
+}
