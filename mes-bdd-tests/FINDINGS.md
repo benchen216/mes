@@ -3,7 +3,7 @@
 本文件記錄**實際把 qcadoo 跑起來、並讓 SpecFormula 打到它**之後驗證出來的事實。
 與推測明確區分:每一條都標註了證據來源。
 
-最後更新:2026-08-04
+最後更新:2026-08-05
 
 ---
 
@@ -246,6 +246,86 @@ REST 傳入的 `typeOfProductionRecording` 就會被靜默忽略。**
 
 ---
 
+## OpenAPI spec 可以從原始碼靜態生成(已驗證)
+
+Spring 3.2 跑不動 springdoc(需 Spring 5+)或 springfox 2.x(需 Spring 4+),
+但**靜態 AST 解析可行**,產出已驗證能直接餵給 SpecFormula。
+
+工具在 `tools/`,產出在 `tools/generated/`。
+
+| 指標 | 數字 |
+|---|---|
+| 掃描 controller | 79 |
+| 產出端點 | **130**(手寫版只有 6) |
+| 產出 schema | 77 |
+| 排除端點(無 `@ResponseBody`,回 JSP) | 75 |
+| `produces = APPLICATION_JSON_VALUE` 覆蓋 | **92 / 92,無遺漏** |
+
+### 必須用 AST 解析,不能用正規表示式
+
+有三個 regex 原理上處理不了的情況:
+
+1. **7 個 controller 自己沒宣告任何端點**,全部繼承自泛型基底 `BasicLookupController<R>`。
+   逐檔 regex 會漏掉 13 個真實端點。
+2. **override 辨識**:`ResourceLookupController.getRecords(..., ResourceDTO)` 覆寫
+   `BasicLookupController.getRecords(..., R)`,要認出來必須代入型別變數 —— 否則
+   同一個路徑會重複產出 3 次。
+3. **泛型具體化**:`GridResponse<R>` → `GridResponse<ProductDTO>` 需要解析子類別的型別引數。
+
+用 `javalang` 解析 80/80 個 controller、2949/2949 個原始碼檔,零失敗。
+
+### 與手寫版的等價性驗證(我獨立跑的)
+
+把手寫的 `qcadoo-orders.openapi.yml` **完全移除**,只放生成的
+`qcadoo-orders.generated.openapi.yml` + `qcadoo-production-lines.generated.openapi.yml`,
+跑全部 13 條 scenario:
+
+```
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 7
+BUILD SUCCESS
+```
+
+生成的 spec 是手寫版的**功能等價替代品**。
+
+### 兩個值得注意的發現
+
+**`/rest/rest/` 是真的,不是 bug。** `ActionsController` 與 `DocumentPositionsController`
+的 class 層 `@RequestMapping` 自己就寫了 `/rest`,加上 DispatcherServlet 的 `/rest/*`
+掛載點,實際路徑是 `/rest/rest/actions`。前端 JS 可交叉驗證
+(`gridOptions.js:555` 呼叫 `/rest/rest/documentPositions/resourceByNumber/...`)。
+
+**`servers[].url` 的處理**:手寫版同時設了 `servers: /rest` 與 `/rest/...` 路徑,
+嚴格的 OpenAPI client 會解讀成 `/rest/rest/...`。生成器把 `/rest` 直接烘進 path key、
+`servers` 設為 `/`,對 SpecFormula 與符合規範的工具都正確。
+
+### ⚠️ 換 spec 時要清 target
+
+`target/test-classes/specs/` 的舊副本不會自動移除,classpath 上會同時看到新舊兩份,
+導致 `[SPEC_API_OPERATION_DUPLICATE] 重複的 API operation summary`。
+換檔後要 `rm -rf target/test-classes/specs`。
+
+**SpecFormula 要求 summary 全域唯一** —— 這也意味著 130 個端點的 summary 不能有任何重複。
+
+### 已知限制(生成器)
+
+1. **20 個端點沒寫 `produces`,被假設為 JSON**(其中 12 個是回傳 `void` 的
+   `multiUploadFiles`,真正的回應由 servlet 直接寫出)。每個都在 `description` 標了 `NOTE:`。
+2. **`@ModelAttribute` 式 query 綁定未展開**(23 個參數)。
+3. **只建模 200 回應** —— qcadoo 常以 200 + payload 內 `code=ERROR` 表達業務失敗。
+4. **26 處不透明 payload**:`java.lang.Object`(21)、`org.json.JSONObject`(5)。
+5. **未產出 `.html` 後綴形式** —— `web.xml` 也映射 `*.html`,部分前端 JS 用後綴形式。
+6. **無 security scheme**(form login 設定在 XML,不在標註裡)。
+7. **忽略 Jackson 標註**(`@JsonIgnore`、`@JsonProperty`)。
+
+### 人工需要補的
+
+**124 個 summary** 是主要工作(已 curate 6 個)。加進 `tools/summaries.yml` 即可,
+key 可用宣告類別 —— 一筆就能覆蓋 7 個泛型繼承者。
+
+其次是 `OrderHolder.state` 這類值域封閉的 string 欄位的 enum(原始碼裡沒有這個資訊)。
+
+---
+
 ## 尚未解決的問題
 
 ### 1. 狀態變更失敗時 REST 回應是 405 而非錯誤 JSON
@@ -313,11 +393,11 @@ BDD 測試若要驗證失敗路徑,只能透過資料庫斷言,不能靠 HTTP �
 
 ```
 mvn -f mes-bdd-tests/pom.xml test -Dcucumber.filter.tags="@mvp"
-→ Tests run: 20, Failures: 0, Errors: 0, Skipped: 7
+→ Tests run: 19, Failures: 0, Errors: 0, Skipped: 0
 → BUILD SUCCESS
 ```
 
-**13 個 scenario 全部對執行中的 qcadoo 實例跑綠**:
+**19 個 scenario 全部對執行中的 qcadoo 實例跑綠**:
 
 | Feature | Scenario | 類型 |
 |---|---|---|
@@ -334,6 +414,12 @@ mvn -f mes-bdd-tests/pom.xml test -Dcucumber.filter.tags="@mvp"
 | 看板訂單查詢 | 起訖日皆為今天的訂單會出現 | **邊界**(date_trunc 到天) |
 | 訂單建立 | 帶完整資料建立訂單會自動推進到已接受 | **寫入**正例 |
 | 訂單建立 | 沒有起訖日的訂單建得起來但停在待處理 | **寫入**反例 |
+| 訂單狀態流轉 | 已接受的訂單可以推進到進行中 | **狀態機**正例 |
+| 訂單狀態流轉 | 沒有產出的進行中訂單不能完成 | **狀態機**反例 |
+| 訂單狀態流轉 | 有產出的進行中訂單可以完成 | **狀態機**正例 |
+| 技術規範查詢 | 可以依關鍵字與產品查到技術規範 | 正例 |
+| 技術規範查詢 | 不存在的關鍵字查不到技術規範 | 反例 |
+| 技術規範查詢 | 可以取得系統內建的單位清單 | 環境健檢 |
 
 涵蓋 `getOrdersQuery()` 的三條規則,每條都有正例 + 反例,日期規則另有邊界例
 —— 符合 Spec-by-Example 要求。

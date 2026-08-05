@@ -45,14 +45,14 @@ servers:
 paths:
   /rest/productionLine:
     post:
-      summary: Save product (ProductionLinesApiController)
+      summary: 建立生產線
       description: 'Generated from `ProductionLinesApiController.saveProduct()` in `mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java`.
 
         '
       operationId: saveProduct
       tags:
         - ProductionLines
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java
       x-source-method: ProductionLinesApiController.saveProduct:86
       requestBody:
@@ -70,14 +70,14 @@ paths:
                 $ref: '#/components/schemas/ProductionLineResponse'
   /rest/productionLine/{productionLineId}/shiftWorkingDate:
     get:
-      summary: Get shift working date (ProductionLinesApiController)
+      summary: 查詢生產線的班別工作日
       description: 'Generated from `ProductionLinesApiController.getShiftWorkingDate()` in `mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java`.
 
         '
       operationId: getShiftWorkingDate
       tags:
         - ProductionLines
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java
       x-source-method: ProductionLinesApiController.getShiftWorkingDate:65
       parameters:
@@ -102,14 +102,14 @@ paths:
                 $ref: '#/components/schemas/ShiftWorkingDateResponse'
   /rest/productionLines:
     get:
-      summary: Get technologies (ProductionLinesApiController)
+      summary: 查詢生產線
       description: 'Generated from `ProductionLinesApiController.getTechnologies()` in `mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java`.
 
         '
       operationId: getTechnologies
       tags:
         - ProductionLines
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java
       x-source-method: ProductionLinesApiController.getTechnologies:53
       parameters:
@@ -146,14 +146,14 @@ paths:
                 $ref: '#/components/schemas/ProductionLineDto'
   /rest/productionLinesByPage:
     get:
-      summary: Get products (ProductionLinesApiController)
+      summary: 分頁查詢生產線
       description: 'Generated from `ProductionLinesApiController.getProducts()` in `mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java`.
 
         '
       operationId: getProducts
       tags:
         - ProductionLines
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-lines/src/main/java/com/qcadoo/mes/productionLines/controller/ProductionLinesApiController.java
       x-source-method: ProductionLinesApiController.getProducts:77
       parameters:

@@ -23,17 +23,51 @@ qcadoo 的三步登入流程、CSRF 機制、以及已驗證/已排除的技術�
 | qcadoo 可建置、可啟動、可登入 | ✅ 已驗證 |
 | REST 端點可透過 HTTP 觸發真實業務邏輯 | ✅ 已驗證(狀態機留下稽核記錄) |
 | SpecFormula 能連上 qcadoo 資料庫讀寫 | ✅ 已驗證 |
-| **有 BDD scenario 對真實 qcadoo 跑出綠燈** | ✅ **13 個 scenario 全綠**(`@mvp`) |
+| **有 BDD scenario 對真實 qcadoo 跑出綠燈** | ✅ **19 個 scenario 全綠**(`@mvp`) |
+| OpenAPI spec 覆蓋端點數 | **130**(從原始碼靜態生成) |
 
 ```
-mvn -f mes-bdd-tests/pom.xml test -Dcucumber.filter.tags="@mvp"
-→ Tests run: 20, Failures: 0, Errors: 0, Skipped: 7
+mvn -f mes-bdd-tests/pom.xml test
+→ Tests run: 19, Failures: 0, Errors: 0, Skipped: 0
 → BUILD SUCCESS
 ```
 
-涵蓋 `mes-plugins-orders` 與 `mes-plugins-production-lines` 兩個 plugin,
-每條業務規則都有正例 + 反例,日期規則另有邊界例。
+全部 scenario 都需要執行中的 qcadoo —— 沒有「不碰 qcadoo 也能綠」的測試。
+早期那支 `資料層驗證.feature` 已刪除:它對 Testcontainer 的空白資料庫做讀寫,
+classpath 上沒有任何 qcadoo 程式碼,綠燈不代表 qcadoo 有任何行為正確。
+
+涵蓋 `mes-plugins-orders`、`mes-plugins-production-lines`、
+`mes-plugins-technologies`、`mes-plugins-basic` 四個 plugin,
+含查詢與寫入操作。每條業務規則都有正例 + 反例,日期規則另有邊界例。
 已用負向對照驗證不是空殼綠燈,詳見 [FINDINGS.md](FINDINGS.md)。
+
+## OpenAPI spec 從原始碼生成
+
+`specs/api/qcadoo-mes-all.openapi.yml` **不是手寫的**,由
+`tools/generate_openapi.py` 靜態解析 Java 原始碼產出(130 個端點、77 個 schema)。
+
+```bash
+# 修改 summary 後重新產生
+python3 mes-bdd-tests/tools/generate_openapi.py
+cp mes-bdd-tests/tools/generated/qcadoo-mes-all.openapi.yml \
+   mes-bdd-tests/src/test/resources/specs/api/
+rm -rf mes-bdd-tests/target/test-classes/specs   # ⚠️ 舊副本不清會 summary 重複
+```
+
+SpecFormula 靠 `summary` 比對 operation,而 Java 原始碼沒有這個資訊。
+人工校正表在 `tools/summaries.yml`,key 是 `ClassName.methodName`,
+解析優先序為「具體 controller → 宣告類別」。
+
+**用宣告類別當 key 有槓桿** —— 目前 40 筆設定覆蓋 51 個端點,其中:
+
+```yaml
+BasicLookupController.getConfigView: 查詢 lookup 欄位設定   # 一筆覆蓋 7 個 controller
+BasicLookupController.getRecords: 查詢 lookup 資料列        # 一筆覆蓋 6 個
+```
+
+尚有 79 個端點是英文佔位符,多為分析/CSV 匯出類,要測時再補即可。
+
+手寫版保留在 `docs/reference/qcadoo-orders.handwritten.openapi.yml` 供對照。
 
 > **寫反例 scenario 時注意**:`with JSON: []` 是 hollow assertion,永遠會過。
 > 要用 `| [0].number | &isNull |`。詳見 FINDINGS.md 對應章節。
@@ -140,9 +174,11 @@ mes-bdd-tests/
         ├── specs/data/seed-reference-data.sql   參考資料(刻意不受 TRUNCATE 影響)
         ├── specs/data/entity_to_table_mapping.yml
         └── features/
-            ├── 看板訂單查詢.feature              11 條:狀態/active/日期區間
+            ├── 看板訂單查詢.feature              10 條:狀態/active/日期區間
+            ├── 訂單狀態流轉.feature              3 條:狀態機(核心業務邏輯)
             ├── 訂單建立.feature                  2 條:寫入操作
-            └── 生產線查詢.feature                1 條:跨 plugin + 環境健檢
+            ├── 技術規範查詢.feature              3 條:跨 plugin 查詢
+            └── 生產線查詢.feature                1 條:環境健檢
 ```
 
 ## 建置過程中踩到的坑

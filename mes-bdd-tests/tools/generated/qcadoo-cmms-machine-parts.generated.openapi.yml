@@ -45,7 +45,7 @@ servers:
 paths:
   /rest/action/config:
     get:
-      summary: Get config view (ActionsLookupController)
+      summary: '查詢 lookup 欄位設定 #1'
       description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
 
 
@@ -55,7 +55,7 @@ paths:
       operationId: actionsLookupControllerGetConfigView
       tags:
         - CmmsMachineParts
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
       x-source-method: BasicLookupController.getConfigView:44
       responses:
@@ -68,7 +68,7 @@ paths:
                 additionalProperties: true
   /rest/action/records:
     get:
-      summary: Get records (ActionsLookupController)
+      summary: '查詢 lookup 資料列 #1'
       description: 'Generated from `BasicLookupController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
 
 
@@ -82,7 +82,7 @@ paths:
       operationId: actionsLookupControllerGetRecords
       tags:
         - CmmsMachineParts
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
       x-source-method: BasicLookupController.getRecords:27
       parameters:
@@ -217,7 +217,7 @@ paths:
           description: Empty response body
   /rest/responsibleWorker/config:
     get:
-      summary: Get config view (WorkersLookupController)
+      summary: '查詢 lookup 欄位設定 #2'
       description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
 
 
@@ -227,7 +227,7 @@ paths:
       operationId: workersLookupControllerGetConfigView
       tags:
         - CmmsMachineParts
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
       x-source-method: BasicLookupController.getConfigView:44
       responses:
@@ -240,7 +240,7 @@ paths:
                 additionalProperties: true
   /rest/responsibleWorker/records:
     get:
-      summary: Get records (WorkersLookupController)
+      summary: '查詢 lookup 資料列 #2'
       description: 'Generated from `BasicLookupController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
 
 
@@ -254,7 +254,7 @@ paths:
       operationId: workersLookupControllerGetRecords
       tags:
         - CmmsMachineParts
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
       x-source-method: BasicLookupController.getRecords:27
       parameters:

@@ -1,28 +1,80 @@
-# Curated operation summaries for the generated OpenAPI specs.
+# 生成 OpenAPI spec 的 operation summary 人工校正表。
 #
-# SpecFormula matches operations by their `summary` string, so summaries are the
-# part of the spec that actually needs human words. The Java sources carry none,
-# so the generator emits a placeholder like
+# 為什麼需要這個檔:
+#   SpecFormula 的 feature step 是用 `summary` 字串比對 operation 的,
+#   而 Java 原始碼裡沒有這個資訊。生成器會產出英文佔位符,例如
+#       Get orders pending (DashboardKanbanController)
+#   並標記 x-summary-source: generated。此處填入的值會覆蓋它。
 #
-#     Get orders pending (DashboardKanbanController)
+# key 格式:ClassName.methodName
 #
-# and marks it `x-summary-source: generated`.
+# 解析優先序(emit.py:168-172):
+#   1. 具體 @Controller 類別
+#   2. 宣告類別  ← 一筆即可覆蓋所有繼承者
 #
-# Add an entry below, keyed by `ClassName.methodName`, to replace one. The key may
-# name either the declaring class (useful for endpoints inherited from
-# `BasicLookupController`) or the concrete `@Controller` class.
+# 槓桿範例:BasicLookupController.getConfigView 一筆覆蓋 7 個 lookup controller
+#   (Actions / Batch / PalletNumber / Product / Resource / StorageLocation / Workers)
 #
-# After editing, regenerate:
+# ⚠️ 多載方法無法用 key 區分
+#   TechnologyApiController.getWorkstations 對應 4 個不同路徑
+#   (workstations / workstationsByPage / workstationTypesByQuery / workstationTypesByPage)。
+#   key 只有 class.method,分不出來 —— 填一筆會讓 4 個端點拿到同一個值,
+#   接著被 ensure_unique_summaries() 加上 #1~#4 後綴。
+#   語意上無法區分,因此**刻意留給生成器**。
+#   要測這類端點時,請直接改生成後的 YAML,或先重構 Java 端的方法名。
+#
+# 修改後重新產生:
 #     python3 mes-bdd-tests/tools/generate_openapi.py
-#
-# Entries below are transcribed from the hand-written, SpecFormula-verified spec
-# at mes-bdd-tests/src/test/resources/specs/api/qcadoo-orders.openapi.yml so that
-# the generated spec can be dropped in without rewriting existing feature steps.
 
 summaries:
+
+  # ── 高槓桿:泛型基底(一筆覆蓋 7 / 6 個端點)──────────────────
+  BasicLookupController.getConfigView: 查詢 lookup 欄位設定
+  BasicLookupController.getRecords: 查詢 lookup 資料列
+
+  # ── 訂單(mes-plugins-orders)────────────────────────────
   OrdersApiController.saveOrder: 建立訂單
-  DashboardKanbanController.updateOrderState: 推進訂單狀態
+  OrdersApiController.saveOrderWithOperationalTasks: 建立訂單並產生工序任務
+  OrdersApiController.createTechnology: 建立技術規範
   DashboardKanbanController.getOrdersPending: 查詢待處理訂單
   DashboardKanbanController.getOrdersInProgress: 查詢進行中訂單
   DashboardKanbanController.getOrdersCompleted: 查詢已完成訂單
+  DashboardKanbanController.updateOrderState: 推進訂單狀態
+  DashboardKanbanController.getOperationalTasksPending: 查詢待處理工序任務
+  DashboardKanbanController.getOperationalTasksInProgress: 查詢進行中工序任務
+  DashboardKanbanController.getOperationalTasksCompleted: 查詢已完成工序任務
+
+  # ── 技術規範(mes-plugins-technologies)───────────────────
+  TechnologyApiController.getTechnologies: 查詢技術規範
+  TechnologyApiController.getProducts: 分頁查詢技術規範
+  TechnologyApiController.getOperations: 查詢作業
+  TechnologyApiController.saveOperation: 建立作業
+  TechnologyApiController.getTechnologyMaterials: 查詢技術規範的物料
+  TechnologyApiController.getTechnologyOperationMaterials: 查詢技術規範的作業物料
+  TechnologyApiController.getTechnologyProductionLine: 查詢技術規範的生產線
+  # 註:getWorkstations 為多載,見上方說明,刻意不校正
+
+  # ── 生產線(mes-plugins-production-lines)─────────────────
   ProductionLinesApiController.getDefaultProductionLine: 查詢預設生產線
+  ProductionLinesApiController.getTechnologies: 查詢生產線
+  ProductionLinesApiController.getProducts: 分頁查詢生產線
+  ProductionLinesApiController.saveProduct: 建立生產線
+  ProductionLinesApiController.getShiftWorkingDate: 查詢生產線的班別工作日
+
+  # ── 基礎資料(mes-plugins-basic)──────────────────────────
+  BasicApiController.getProductsByQuery: 依關鍵字查詢產品
+  BasicApiController.getProducts: 分頁查詢產品
+  BasicApiController.getProductsTypeahead: 產品自動完成
+  BasicApiController.saveProduct: 建立產品
+  BasicApiController.getUnits: 查詢單位
+  BasicApiController.getCountries: 查詢國家
+  BasicApiController.getCountriesByPage: 分頁查詢國家
+  BasicApiController.getFactories: 查詢廠區
+  BasicApiController.getWorkstationTypes: 查詢工作站類型
+  BasicApiController.saveWorkstation: 建立工作站
+  BasicApiController.saveWorkstationType: 建立工作站類型
+  BasicApiController.getSubassemblies: 查詢工作站的次組件
+  BasicApiController.getFaultTypes: 查詢故障類型
+  BasicApiController.getPalletNumbersByQuery: 依關鍵字查詢棧板號
+  BasicApiController.getTypeOfLoadUnits: 查詢裝載單位類型
+  BasicApiController.getAttributesByQuery: 依關鍵字查詢屬性

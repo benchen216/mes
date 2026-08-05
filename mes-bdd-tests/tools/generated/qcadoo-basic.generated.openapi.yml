@@ -94,14 +94,14 @@ paths:
           description: Empty response body
   /rest/attribute/{attr}:
     get:
-      summary: Get attributes by query (BasicApiController)
+      summary: 依關鍵字查詢屬性
       description: 'Generated from `BasicApiController.getAttributesByQuery()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
 
         '
       operationId: getAttributesByQuery
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
       x-source-method: BasicApiController.getAttributesByQuery:229
       parameters:
@@ -193,14 +193,14 @@ paths:
           description: Empty response body
   /rest/countries:
     get:
-      summary: Get countries (BasicApiController)
+      summary: 查詢國家
       description: 'Generated from `BasicApiController.getCountries()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
 
         '
       operationId: getCountries
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
       x-source-method: BasicApiController.getCountries:183
       parameters:
@@ -218,14 +218,14 @@ paths:
                 $ref: '#/components/schemas/CountriesResponse'
   /rest/countriesByPage:
     get:
-      summary: Get countries by page (BasicApiController)
+      summary: 分頁查詢國家
       description: 'Generated from `BasicApiController.getCountriesByPage()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
 
         '
       operationId: getCountriesByPage
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
       x-source-method: BasicApiController.getCountriesByPage:174
       parameters:
@@ -287,14 +287,14 @@ paths:
                   format: int64
   /rest/factories:
     get:
-      summary: Get factories (BasicApiController)
+      summary: 查詢廠區
       description: 'Generated from `BasicApiController.getFactories()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
 
         '
       operationId: getFactories
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
       x-source-method: BasicApiController.getFactories:68
       responses:
@@ -306,14 +306,14 @@ paths:
                 $ref: '#/components/schemas/FactoriesResponse'
   /rest/faultTypes:
     post:
-      summary: Get fault types (BasicApiController)
+      summary: 查詢故障類型
       description: 'Generated from `BasicApiController.getFaultTypes()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
 
         '
       operationId: getFaultTypes
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
       x-source-method: BasicApiController.getFaultTypes:74
       requestBody:
@@ -331,7 +331,7 @@ paths:
                 $ref: '#/components/schemas/FaultTypeResponse'
   /rest/palletNumber/config:
     get:
-      summary: Get config view (PalletNumberLookupController)
+      summary: '查詢 lookup 欄位設定 #1'
       description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
 
 
@@ -341,7 +341,7 @@ paths:
       operationId: palletNumberLookupControllerGetConfigView
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
       x-source-method: BasicLookupController.getConfigView:44
       responses:
@@ -354,7 +354,7 @@ paths:
                 additionalProperties: true
   /rest/palletNumber/records:
     get:
-      summary: Get records (PalletNumberLookupController)
+      summary: '查詢 lookup 資料列 #1'
       description: 'Generated from `BasicLookupController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
 
 
@@ -368,7 +368,7 @@ paths:
       operationId: palletNumberLookupControllerGetRecords
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
       x-source-method: BasicLookupController.getRecords:27
       parameters:
@@ -411,14 +411,14 @@ paths:
                 $ref: '#/components/schemas/GridResponsePalletNumberDTO'
   /rest/palletnumbers:
     get:
-      summary: Get pallet numbers by query (BasicApiController)
+      summary: 依關鍵字查詢棧板號
       description: 'Generated from `BasicApiController.getPalletNumbersByQuery()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
 
         '
       operationId: getPalletNumbersByQuery
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
       x-source-method: BasicApiController.getPalletNumbersByQuery:223
       parameters:
@@ -479,14 +479,14 @@ paths:
                   additionalProperties: true
   /rest/product:
     post:
-      summary: Save product (BasicApiController)
+      summary: 建立產品
       description: 'Generated from `BasicApiController.saveProduct()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
 
         '
       operationId: saveProduct
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
       x-source-method: BasicApiController.saveProduct:189
       requestBody:
@@ -504,7 +504,7 @@ paths:
                 $ref: '#/components/schemas/ProductResponse'
   /rest/product/config:
     get:
-      summary: Get config view (ProductLookupController)
+      summary: '查詢 lookup 欄位設定 #2'
       description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
 
 
@@ -514,7 +514,7 @@ paths:
       operationId: productLookupControllerGetConfigView
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
       x-source-method: BasicLookupController.getConfigView:44
       responses:
@@ -527,7 +527,7 @@ paths:
                 additionalProperties: true
   /rest/product/records:
     get:
-      summary: Get records (ProductLookupController)
+      summary: '查詢 lookup 資料列 #2'
       description: 'Generated from `BasicLookupController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
 
 
@@ -541,7 +541,7 @@ paths:
       operationId: productLookupControllerGetRecords
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
       x-source-method: BasicLookupController.getRecords:27
       parameters:
@@ -584,14 +584,14 @@ paths:
                 $ref: '#/components/schemas/GridResponseProductDTO'
   /rest/products:
     get:
-      summary: Get products by query (BasicApiController)
+      summary: 依關鍵字查詢產品
       description: 'Generated from `BasicApiController.getProductsByQuery()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
 
         '
       operationId: getProductsByQuery
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
       x-source-method: BasicApiController.getProductsByQuery:152
       parameters:
@@ -609,14 +609,14 @@ paths:
                 $ref: '#/components/schemas/DataResponse'
   /rest/productsByPage:
     get:
-      summary: Get products (BasicApiController)
+      summary: 分頁查詢產品
       description: 'Generated from `BasicApiController.getProducts()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
 
         '
       operationId: getProducts
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
       x-source-method: BasicApiController.getProducts:164
       parameters:
@@ -656,14 +656,14 @@ paths:
                 $ref: '#/components/schemas/ProductsGridResponse'
   /rest/productsTypeahead:
     get:
-      summary: Get products typeahead (BasicApiController)
+      summary: 產品自動完成
       description: 'Generated from `BasicApiController.getProductsTypeahead()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
 
         '
       operationId: getProductsTypeahead
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
       x-source-method: BasicApiController.getProductsTypeahead:158
       parameters:
@@ -681,14 +681,14 @@ paths:
                 $ref: '#/components/schemas/DataResponse'
   /rest/subassemblies/{workstationId}:
     get:
-      summary: Get subassemblies (BasicApiController)
+      summary: 查詢工作站的次組件
       description: 'Generated from `BasicApiController.getSubassemblies()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
 
         '
       operationId: getSubassemblies
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
       x-source-method: BasicApiController.getSubassemblies:80
       parameters:
@@ -707,14 +707,14 @@ paths:
                 $ref: '#/components/schemas/SubassembliesResponse'
   /rest/typeOfLoadUnits:
     get:
-      summary: Get type of load units (BasicApiController)
+      summary: 查詢裝載單位類型
       description: 'Generated from `BasicApiController.getTypeOfLoadUnits()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
 
         '
       operationId: getTypeOfLoadUnits
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
       x-source-method: BasicApiController.getTypeOfLoadUnits:246
       responses:
@@ -730,14 +730,14 @@ paths:
                     type: string
   /rest/units:
     get:
-      summary: Get units (BasicApiController)
+      summary: 查詢單位
       description: 'Generated from `BasicApiController.getUnits()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
 
         '
       operationId: getUnits
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
       x-source-method: BasicApiController.getUnits:240
       responses:
@@ -753,14 +753,14 @@ paths:
                     type: string
   /rest/workstation:
     post:
-      summary: Save workstation (BasicApiController)
+      summary: 建立工作站
       description: 'Generated from `BasicApiController.saveWorkstation()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
 
         '
       operationId: saveWorkstation
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
       x-source-method: BasicApiController.saveWorkstation:86
       requestBody:
@@ -778,14 +778,14 @@ paths:
                 $ref: '#/components/schemas/WorkstationResponse'
   /rest/workstationType:
     post:
-      summary: Save workstation type (BasicApiController)
+      summary: 建立工作站類型
       description: 'Generated from `BasicApiController.saveWorkstationType()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
 
         '
       operationId: saveWorkstationType
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
       x-source-method: BasicApiController.saveWorkstationType:119
       requestBody:
@@ -803,14 +803,14 @@ paths:
                 $ref: '#/components/schemas/WorkstationResponse'
   /rest/workstationTypes:
     get:
-      summary: Get workstation types (BasicApiController)
+      summary: 查詢工作站類型
       description: 'Generated from `BasicApiController.getWorkstationTypes()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java`.
 
         '
       operationId: getWorkstationTypes
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicApiController.java
       x-source-method: BasicApiController.getWorkstationTypes:62
       responses:

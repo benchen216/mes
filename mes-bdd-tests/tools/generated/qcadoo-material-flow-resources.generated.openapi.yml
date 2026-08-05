@@ -130,7 +130,7 @@ paths:
                 $ref: '#/components/schemas/GridResponseAttributeDto'
   /rest/batch/config:
     get:
-      summary: Get config view (BatchLookupController)
+      summary: '查詢 lookup 欄位設定 #1'
       description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
 
 
@@ -140,7 +140,7 @@ paths:
       operationId: batchLookupControllerGetConfigView
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
       x-source-method: BasicLookupController.getConfigView:44
       responses:
@@ -153,7 +153,7 @@ paths:
                 additionalProperties: true
   /rest/batch/records:
     get:
-      summary: Get records (BatchLookupController)
+      summary: '查詢 lookup 資料列 #1'
       description: 'Generated from `BasicLookupController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
 
 
@@ -167,7 +167,7 @@ paths:
       operationId: batchLookupControllerGetRecords
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
       x-source-method: BasicLookupController.getRecords:27
       parameters:
@@ -337,7 +337,7 @@ paths:
                   additionalProperties: true
   /rest/resource/config:
     get:
-      summary: Get config view (ResourceLookupController)
+      summary: '查詢 lookup 欄位設定 #2'
       description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
 
 
@@ -347,7 +347,7 @@ paths:
       operationId: resourceLookupControllerGetConfigView
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
       x-source-method: BasicLookupController.getConfigView:44
       responses:
@@ -934,7 +934,7 @@ paths:
           description: Empty response body
   /rest/storageLocation/config:
     get:
-      summary: Get config view (StorageLocationLookupController)
+      summary: '查詢 lookup 欄位設定 #3'
       description: 'Generated from `BasicLookupController.getConfigView()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
 
 
@@ -944,7 +944,7 @@ paths:
       operationId: storageLocationLookupControllerGetConfigView
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
       x-source-method: BasicLookupController.getConfigView:44
       responses:
@@ -957,7 +957,7 @@ paths:
                 additionalProperties: true
   /rest/storageLocation/records:
     get:
-      summary: Get records (StorageLocationLookupController)
+      summary: '查詢 lookup 資料列 #2'
       description: 'Generated from `BasicLookupController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java`.
 
 
@@ -971,7 +971,7 @@ paths:
       operationId: storageLocationLookupControllerGetRecords
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/BasicLookupController.java
       x-source-method: BasicLookupController.getRecords:27
       parameters:

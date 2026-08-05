@@ -5,8 +5,8 @@
     "endpoints_excluded": 75,
     "inherited_endpoints": 13,
     "schemas_generated": 77,
-    "summaries_generated": 124,
-    "summaries_curated": 6,
+    "summaries_generated": 79,
+    "summaries_curated": 51,
     "unresolved_types": 1,
     "opaque_type_uses": 26,
     "unbound_parameters": 23,
@@ -854,14 +854,6 @@
       "summary": "Update (ActionsController)"
     },
     {
-      "source": "ActionsLookupController.getConfigView",
-      "summary": "Get config view (ActionsLookupController)"
-    },
-    {
-      "source": "ActionsLookupController.getRecords",
-      "summary": "Get records (ActionsLookupController)"
-    },
-    {
       "source": "ActivityStreamController.getActivityStream",
       "summary": "Get activity stream (ActivityStreamController)"
     },
@@ -882,92 +874,8 @@
       "summary": "Get records (AttributeLookupController)"
     },
     {
-      "source": "BasicApiController.getAttributesByQuery",
-      "summary": "Get attributes by query (BasicApiController)"
-    },
-    {
-      "source": "BasicApiController.getCountries",
-      "summary": "Get countries (BasicApiController)"
-    },
-    {
-      "source": "BasicApiController.getCountriesByPage",
-      "summary": "Get countries by page (BasicApiController)"
-    },
-    {
-      "source": "BasicApiController.getFactories",
-      "summary": "Get factories (BasicApiController)"
-    },
-    {
-      "source": "BasicApiController.getFaultTypes",
-      "summary": "Get fault types (BasicApiController)"
-    },
-    {
-      "source": "BasicApiController.getPalletNumbersByQuery",
-      "summary": "Get pallet numbers by query (BasicApiController)"
-    },
-    {
-      "source": "BasicApiController.getProducts",
-      "summary": "Get products (BasicApiController)"
-    },
-    {
-      "source": "BasicApiController.getProductsByQuery",
-      "summary": "Get products by query (BasicApiController)"
-    },
-    {
-      "source": "BasicApiController.getProductsTypeahead",
-      "summary": "Get products typeahead (BasicApiController)"
-    },
-    {
-      "source": "BasicApiController.getSubassemblies",
-      "summary": "Get subassemblies (BasicApiController)"
-    },
-    {
-      "source": "BasicApiController.getTypeOfLoadUnits",
-      "summary": "Get type of load units (BasicApiController)"
-    },
-    {
-      "source": "BasicApiController.getUnits",
-      "summary": "Get units (BasicApiController)"
-    },
-    {
-      "source": "BasicApiController.getWorkstationTypes",
-      "summary": "Get workstation types (BasicApiController)"
-    },
-    {
-      "source": "BasicApiController.saveProduct",
-      "summary": "Save product (BasicApiController)"
-    },
-    {
-      "source": "BasicApiController.saveWorkstation",
-      "summary": "Save workstation (BasicApiController)"
-    },
-    {
-      "source": "BasicApiController.saveWorkstationType",
-      "summary": "Save workstation type (BasicApiController)"
-    },
-    {
-      "source": "BatchLookupController.getConfigView",
-      "summary": "Get config view (BatchLookupController)"
-    },
-    {
-      "source": "BatchLookupController.getRecords",
-      "summary": "Get records (BatchLookupController)"
-    },
-    {
       "source": "DailyProductionChartController.getData",
       "summary": "Get data (DailyProductionChartController)"
-    },
-    {
-      "source": "DashboardKanbanController.getOperationalTasksCompleted",
-      "summary": "Get operational tasks completed (DashboardKanbanController)"
-    },
-    {
-      "source": "DashboardKanbanController.getOperationalTasksInProgress",
-      "summary": "Get operational tasks in progress (DashboardKanbanController)"
-    },
-    {
-      "source": "DashboardKanbanController.getOperationalTasksPending",
-      "summary": "Get operational tasks pending (DashboardKanbanController)"
     },
     {
       "source": "DeliveriesMultiUploadController.upload",
@@ -1134,36 +1042,12 @@
       "summary": "Validate (OrderTechnologicalProcessesAnalysisController)"
     },
     {
-      "source": "OrdersApiController.createTechnology",
-      "summary": "Create technology (OrdersApiController)"
-    },
-    {
-      "source": "OrdersApiController.saveOrderWithOperationalTasks",
-      "summary": "Save order with operational tasks (OrdersApiController)"
-    },
-    {
-      "source": "PalletNumberLookupController.getConfigView",
-      "summary": "Get config view (PalletNumberLookupController)"
-    },
-    {
-      "source": "PalletNumberLookupController.getRecords",
-      "summary": "Get records (PalletNumberLookupController)"
-    },
-    {
       "source": "PlannedEventMultiUploadController.upload",
       "summary": "Upload (PlannedEventMultiUploadController)"
     },
     {
       "source": "ProductDataMultiUploadController.upload",
       "summary": "Upload (ProductDataMultiUploadController)"
-    },
-    {
-      "source": "ProductLookupController.getConfigView",
-      "summary": "Get config view (ProductLookupController)"
-    },
-    {
-      "source": "ProductLookupController.getRecords",
-      "summary": "Get records (ProductLookupController)"
     },
     {
       "source": "ProductMultiUploadController.upload",
@@ -1186,22 +1070,6 @@
       "summary": "Validate (ProductionBalanceAnalysisController)"
     },
     {
-      "source": "ProductionLinesApiController.getProducts",
-      "summary": "Get products (ProductionLinesApiController)"
-    },
-    {
-      "source": "ProductionLinesApiController.getShiftWorkingDate",
-      "summary": "Get shift working date (ProductionLinesApiController)"
-    },
-    {
-      "source": "ProductionLinesApiController.getTechnologies",
-      "summary": "Get technologies (ProductionLinesApiController)"
-    },
-    {
-      "source": "ProductionLinesApiController.saveProduct",
-      "summary": "Save product (ProductionLinesApiController)"
-    },
-    {
       "source": "ProductsAttributesController.getColumns",
       "summary": "Get columns (ProductsAttributesController)"
     },
@@ -1212,10 +1080,6 @@
     {
       "source": "ProductsBySizeController.productsBySize",
       "summary": "Products by size (ProductsBySizeController)"
-    },
-    {
-      "source": "ResourceLookupController.getConfigView",
-      "summary": "Get config view (ResourceLookupController)"
     },
     {
       "source": "ResourceLookupController.getRecords",
@@ -1234,40 +1098,8 @@
       "summary": "Generate orders sale plan (SalesPlanOrdersController)"
     },
     {
-      "source": "StorageLocationLookupController.getConfigView",
-      "summary": "Get config view (StorageLocationLookupController)"
-    },
-    {
-      "source": "StorageLocationLookupController.getRecords",
-      "summary": "Get records (StorageLocationLookupController)"
-    },
-    {
       "source": "SubassemblyMultiUploadController.upload",
       "summary": "Upload (SubassemblyMultiUploadController)"
-    },
-    {
-      "source": "TechnologyApiController.getOperations",
-      "summary": "Get operations (TechnologyApiController)"
-    },
-    {
-      "source": "TechnologyApiController.getProducts",
-      "summary": "Get products (TechnologyApiController)"
-    },
-    {
-      "source": "TechnologyApiController.getTechnologies",
-      "summary": "Get technologies (TechnologyApiController)"
-    },
-    {
-      "source": "TechnologyApiController.getTechnologyMaterials",
-      "summary": "Get technology materials (TechnologyApiController)"
-    },
-    {
-      "source": "TechnologyApiController.getTechnologyOperationMaterials",
-      "summary": "Get technology operation materials (TechnologyApiController)"
-    },
-    {
-      "source": "TechnologyApiController.getTechnologyProductionLine",
-      "summary": "Get technology production line (TechnologyApiController)"
     },
     {
       "source": "TechnologyApiController.getWorkstations",
@@ -1286,10 +1118,6 @@
       "summary": "Get workstations (TechnologyApiController) #2"
     },
     {
-      "source": "TechnologyApiController.saveOperation",
-      "summary": "Save operation (TechnologyApiController)"
-    },
-    {
       "source": "TechnologyConfiguratorController.getConfiguration",
       "summary": "Get configuration (TechnologyConfiguratorController)"
     },
@@ -1304,14 +1132,6 @@
     {
       "source": "ToolMultiUploadController.upload",
       "summary": "Upload (ToolMultiUploadController)"
-    },
-    {
-      "source": "WorkersLookupController.getConfigView",
-      "summary": "Get config view (WorkersLookupController)"
-    },
-    {
-      "source": "WorkersLookupController.getRecords",
-      "summary": "Get records (WorkersLookupController)"
     },
     {
       "source": "WorkstationMultiUploadController.upload",

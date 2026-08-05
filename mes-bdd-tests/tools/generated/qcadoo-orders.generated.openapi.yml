@@ -45,14 +45,14 @@ servers:
 paths:
   /rest/createTechnology:
     post:
-      summary: Create technology (OrdersApiController)
+      summary: 建立技術規範
       description: 'Generated from `OrdersApiController.createTechnology()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrdersApiController.java`.
 
         '
       operationId: createTechnology
       tags:
         - Orders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrdersApiController.java
       x-source-method: OrdersApiController.createTechnology:39
       requestBody:
@@ -70,14 +70,14 @@ paths:
                 $ref: '#/components/schemas/TechnologyCreationResponse'
   /rest/dashboardKanban/operationalTasksCompleted:
     get:
-      summary: Get operational tasks completed (DashboardKanbanController)
+      summary: 查詢已完成工序任務
       description: 'Generated from `DashboardKanbanController.getOperationalTasksCompleted()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java`.
 
         '
       operationId: getOperationalTasksCompleted
       tags:
         - Orders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java
       x-source-method: DashboardKanbanController.getOperationalTasksCompleted:84
       responses:
@@ -91,14 +91,14 @@ paths:
                   $ref: '#/components/schemas/OperationalTaskHolder'
   /rest/dashboardKanban/operationalTasksInProgress:
     get:
-      summary: Get operational tasks in progress (DashboardKanbanController)
+      summary: 查詢進行中工序任務
       description: 'Generated from `DashboardKanbanController.getOperationalTasksInProgress()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java`.
 
         '
       operationId: getOperationalTasksInProgress
       tags:
         - Orders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java
       x-source-method: DashboardKanbanController.getOperationalTasksInProgress:78
       responses:
@@ -112,14 +112,14 @@ paths:
                   $ref: '#/components/schemas/OperationalTaskHolder'
   /rest/dashboardKanban/operationalTasksPending:
     get:
-      summary: Get operational tasks pending (DashboardKanbanController)
+      summary: 查詢待處理工序任務
       description: 'Generated from `DashboardKanbanController.getOperationalTasksPending()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java`.
 
         '
       operationId: getOperationalTasksPending
       tags:
         - Orders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/DashboardKanbanController.java
       x-source-method: DashboardKanbanController.getOperationalTasksPending:72
       responses:
@@ -222,14 +222,14 @@ paths:
                 $ref: '#/components/schemas/OrderResponse'
   /rest/operationalTasks:
     post:
-      summary: Save order with operational tasks (OrdersApiController)
+      summary: 建立訂單並產生工序任務
       description: 'Generated from `OrdersApiController.saveOrderWithOperationalTasks()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrdersApiController.java`.
 
         '
       operationId: saveOrderWithOperationalTasks
       tags:
         - Orders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrdersApiController.java
       x-source-method: OrdersApiController.saveOrderWithOperationalTasks:33
       requestBody:

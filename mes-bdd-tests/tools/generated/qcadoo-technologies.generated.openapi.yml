@@ -45,14 +45,14 @@ servers:
 paths:
   /rest/operation:
     post:
-      summary: Save operation (TechnologyApiController)
+      summary: 建立作業
       description: 'Generated from `TechnologyApiController.saveOperation()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
 
         '
       operationId: saveOperation
       tags:
         - Technologies
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
       x-source-method: TechnologyApiController.saveOperation:128
       requestBody:
@@ -70,14 +70,14 @@ paths:
                 $ref: '#/components/schemas/OperationResponse'
   /rest/operations:
     get:
-      summary: Get operations (TechnologyApiController)
+      summary: 查詢作業
       description: 'Generated from `TechnologyApiController.getOperations()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
 
         '
       operationId: getOperations
       tags:
         - Technologies
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
       x-source-method: TechnologyApiController.getOperations:53
       responses:
@@ -112,14 +112,14 @@ paths:
           description: Empty response body
   /rest/technologies:
     get:
-      summary: Get technologies (TechnologyApiController)
+      summary: 查詢技術規範
       description: 'Generated from `TechnologyApiController.getTechnologies()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
 
         '
       operationId: getTechnologies
       tags:
         - Technologies
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
       x-source-method: TechnologyApiController.getTechnologies:59
       parameters:
@@ -201,14 +201,14 @@ paths:
           description: Empty response body
   /rest/technologiesByPage:
     get:
-      summary: Get products (TechnologyApiController)
+      summary: 分頁查詢技術規範
       description: 'Generated from `TechnologyApiController.getProducts()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
 
         '
       operationId: getProducts
       tags:
         - Technologies
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
       x-source-method: TechnologyApiController.getProducts:118
       parameters:
@@ -260,14 +260,14 @@ paths:
                 $ref: '#/components/schemas/TechnologiesGridResponse'
   /rest/technology/{technologyId}/materials:
     get:
-      summary: Get technology materials (TechnologyApiController)
+      summary: 查詢技術規範的物料
       description: 'Generated from `TechnologyApiController.getTechnologyMaterials()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
 
         '
       operationId: getTechnologyMaterials
       tags:
         - Technologies
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
       x-source-method: TechnologyApiController.getTechnologyMaterials:67
       parameters:
@@ -288,14 +288,14 @@ paths:
                   $ref: '#/components/schemas/MaterialDto'
   /rest/technology/{technologyId}/operationMaterials:
     get:
-      summary: Get technology operation materials (TechnologyApiController)
+      summary: 查詢技術規範的作業物料
       description: 'Generated from `TechnologyApiController.getTechnologyOperationMaterials()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
 
         '
       operationId: getTechnologyOperationMaterials
       tags:
         - Technologies
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
       x-source-method: TechnologyApiController.getTechnologyOperationMaterials:106
       parameters:
@@ -316,14 +316,14 @@ paths:
                   $ref: '#/components/schemas/OperationMaterialDto'
   /rest/technology/{technologyId}/productionLine:
     get:
-      summary: Get technology production line (TechnologyApiController)
+      summary: 查詢技術規範的生產線
       description: 'Generated from `TechnologyApiController.getTechnologyProductionLine()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java`.
 
         '
       operationId: getTechnologyProductionLine
       tags:
         - Technologies
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyApiController.java
       x-source-method: TechnologyApiController.getTechnologyProductionLine:112
       parameters:
