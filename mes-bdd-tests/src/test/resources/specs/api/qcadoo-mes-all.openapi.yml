@@ -125,14 +125,14 @@ paths:
                 $ref: '#/components/schemas/GridResponseActionDTO'
   /rest/activityStream:
     get:
-      summary: Get activity stream (ActivityStreamController)
+      summary: 查詢活動串流
       description: 'Generated from `ActivityStreamController.getActivityStream()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/activityStream/controllers/ActivityStreamController.java`.
 
         '
       operationId: getActivityStream
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/activityStream/controllers/ActivityStreamController.java
       x-source-method: ActivityStreamController.getActivityStream:25
       responses:
@@ -146,7 +146,7 @@ paths:
                   $ref: '#/components/schemas/ActivityDto'
   /rest/activityStream/markAsViewed:
     post:
-      summary: Mark activity as viewed (ActivityStreamController)
+      summary: 標記活動為已讀
       description: 'Generated from `ActivityStreamController.markActivityAsViewed()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/activityStream/controllers/ActivityStreamController.java`.
 
 
@@ -157,7 +157,7 @@ paths:
       operationId: markActivityAsViewed
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/activityStream/controllers/ActivityStreamController.java
       x-source-method: ActivityStreamController.markActivityAsViewed:31
       requestBody:
@@ -174,7 +174,7 @@ paths:
           description: Empty response body
   /rest/advancedGenealogy/multiUploadFiles:
     post:
-      summary: Upload (AdvancedGenealogyMultiUploadController)
+      summary: 上傳批次追溯附件
       description: 'Generated from `AdvancedGenealogyMultiUploadController.upload()` in `mes-plugins/mes-plugins-advanced-genealogy/src/main/java/com/qcadoo/mes/advancedGenealogy/AdvancedGenealogyMultiUploadController.java`.
 
 
@@ -189,7 +189,7 @@ paths:
       operationId: advancedGenealogyMultiUploadControllerUpload
       tags:
         - AdvancedGenealogy
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-advanced-genealogy/src/main/java/com/qcadoo/mes/advancedGenealogy/AdvancedGenealogyMultiUploadController.java
       x-source-method: AdvancedGenealogyMultiUploadController.upload:73
       responses:
@@ -227,14 +227,14 @@ paths:
                 $ref: '#/components/schemas/DataResponse'
   /rest/attribute/{name}/config:
     get:
-      summary: Get config view (AttributeLookupController)
+      summary: 查詢屬性 lookup 欄位設定
       description: 'Generated from `AttributeLookupController.getConfigView()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java`.
 
         '
       operationId: attributeLookupControllerGetConfigView
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java
       x-source-method: AttributeLookupController.getConfigView:57
       parameters:
@@ -253,7 +253,7 @@ paths:
                 additionalProperties: true
   /rest/attribute/{name}/records:
     get:
-      summary: Get records (AttributeLookupController)
+      summary: 查詢屬性 lookup 資料列
       description: 'Generated from `AttributeLookupController.getRecords()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java`.
 
 
@@ -264,7 +264,7 @@ paths:
       operationId: attributeLookupControllerGetRecords
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java
       x-source-method: AttributeLookupController.getRecords:36
       parameters:
@@ -312,7 +312,7 @@ paths:
                 $ref: '#/components/schemas/GridResponseAttributeDto'
   /rest/basic/multiUploadFiles:
     post:
-      summary: Upload (WorkstationMultiUploadController)
+      summary: 上傳工作站附件
       description: 'Generated from `WorkstationMultiUploadController.upload()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/WorkstationMultiUploadController.java`.
 
 
@@ -327,7 +327,7 @@ paths:
       operationId: workstationMultiUploadControllerUpload
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/WorkstationMultiUploadController.java
       x-source-method: WorkstationMultiUploadController.upload:67
       responses:
@@ -335,7 +335,7 @@ paths:
           description: Empty response body
   /rest/basic/multiUploadFilesForProduct:
     post:
-      summary: Upload (ProductMultiUploadController)
+      summary: 上傳產品附件
       description: 'Generated from `ProductMultiUploadController.upload()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductMultiUploadController.java`.
 
 
@@ -350,7 +350,7 @@ paths:
       operationId: productMultiUploadControllerUpload
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductMultiUploadController.java
       x-source-method: ProductMultiUploadController.upload:72
       responses:
@@ -358,7 +358,7 @@ paths:
           description: Empty response body
   /rest/basic/multiUploadFilesForSubassembly:
     post:
-      summary: Upload (SubassemblyMultiUploadController)
+      summary: 上傳次組件附件
       description: 'Generated from `SubassemblyMultiUploadController.upload()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/SubassemblyMultiUploadController.java`.
 
 
@@ -373,7 +373,7 @@ paths:
       operationId: subassemblyMultiUploadControllerUpload
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/SubassemblyMultiUploadController.java
       x-source-method: SubassemblyMultiUploadController.upload:68
       responses:
@@ -461,7 +461,7 @@ paths:
                 $ref: '#/components/schemas/GridResponseBatchDTO'
   /rest/cmmsMachineParts/multiUploadFiles:
     post:
-      summary: Upload (MachinePartMultiUploadController)
+      summary: 上傳機台零件附件
       description: 'Generated from `MachinePartMultiUploadController.upload()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/MachinePartMultiUploadController.java`.
 
 
@@ -476,7 +476,7 @@ paths:
       operationId: machinePartMultiUploadControllerUpload
       tags:
         - CmmsMachineParts
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/MachinePartMultiUploadController.java
       x-source-method: MachinePartMultiUploadController.upload:67
       responses:
@@ -484,7 +484,7 @@ paths:
           description: Empty response body
   /rest/cmmsMachineParts/multiUploadFilesForEvent:
     post:
-      summary: Upload (MaintenanceEventMultiUploadController)
+      summary: 上傳維護事件附件
       description: 'Generated from `MaintenanceEventMultiUploadController.upload()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/MaintenanceEventMultiUploadController.java`.
 
 
@@ -499,7 +499,7 @@ paths:
       operationId: maintenanceEventMultiUploadControllerUpload
       tags:
         - CmmsMachineParts
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/MaintenanceEventMultiUploadController.java
       x-source-method: MaintenanceEventMultiUploadController.upload:67
       responses:
@@ -507,7 +507,7 @@ paths:
           description: Empty response body
   /rest/cmmsMachineParts/multiUploadFilesForPlannedEvent:
     post:
-      summary: Upload (PlannedEventMultiUploadController)
+      summary: 上傳計畫事件附件
       description: 'Generated from `PlannedEventMultiUploadController.upload()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/PlannedEventMultiUploadController.java`.
 
 
@@ -522,7 +522,7 @@ paths:
       operationId: plannedEventMultiUploadControllerUpload
       tags:
         - CmmsMachineParts
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/PlannedEventMultiUploadController.java
       x-source-method: PlannedEventMultiUploadController.upload:72
       responses:
@@ -530,7 +530,7 @@ paths:
           description: Empty response body
   /rest/cmmsMachineParts/multiUploadFilesForTool:
     post:
-      summary: Upload (ToolMultiUploadController)
+      summary: 上傳工具附件
       description: 'Generated from `ToolMultiUploadController.upload()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ToolMultiUploadController.java`.
 
 
@@ -545,7 +545,7 @@ paths:
       operationId: toolMultiUploadControllerUpload
       tags:
         - CmmsMachineParts
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ToolMultiUploadController.java
       x-source-method: ToolMultiUploadController.upload:67
       responses:
@@ -650,14 +650,14 @@ paths:
                 $ref: '#/components/schemas/TechnologyCreationResponse'
   /rest/dailyProductionChart/data:
     get:
-      summary: Get data (DailyProductionChartController)
+      summary: 查詢每日產量圖表資料
       description: 'Generated from `DailyProductionChartController.getData()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/DailyProductionChartController.java`.
 
         '
       operationId: dailyProductionChartControllerGetData
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/DailyProductionChartController.java
       x-source-method: DailyProductionChartController.getData:22
       responses:
@@ -824,7 +824,7 @@ paths:
                 $ref: '#/components/schemas/OrderResponse'
   /rest/deliveries/multiUploadFiles:
     post:
-      summary: Upload (DeliveriesMultiUploadController)
+      summary: 上傳交貨附件
       description: 'Generated from `DeliveriesMultiUploadController.upload()` in `mes-plugins/mes-plugins-deliveries/src/main/java/com/qcadoo/mes/deliveries/controllers/DeliveriesMultiUploadController.java`.
 
 
@@ -839,7 +839,7 @@ paths:
       operationId: deliveriesMultiUploadControllerUpload
       tags:
         - Deliveries
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-deliveries/src/main/java/com/qcadoo/mes/deliveries/controllers/DeliveriesMultiUploadController.java
       x-source-method: DeliveriesMultiUploadController.upload:67
       responses:
@@ -847,14 +847,14 @@ paths:
           description: Empty response body
   /rest/docPositionsAttributes/columns:
     get:
-      summary: Get columns (DocumentPositionsAttributesController)
+      summary: 查詢單據明細屬性欄位設定
       description: 'Generated from `DocumentPositionsAttributesController.getColumns()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java`.
 
         '
       operationId: documentPositionsAttributesControllerGetColumns
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java
       x-source-method: DocumentPositionsAttributesController.getColumns:27
       responses:
@@ -868,14 +868,14 @@ paths:
                   $ref: '#/components/schemas/ColumnDTO'
   /rest/docPositionsAttributes/records:
     get:
-      summary: Get records (DocumentPositionsAttributesController)
+      summary: 查詢單據明細屬性資料列
       description: 'Generated from `DocumentPositionsAttributesController.getRecords()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java`.
 
         '
       operationId: documentPositionsAttributesControllerGetRecords
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java
       x-source-method: DocumentPositionsAttributesController.getRecords:39
       parameters:
@@ -901,14 +901,14 @@ paths:
                   additionalProperties: true
   /rest/docPositionsAttributes/validate:
     get:
-      summary: Validate (DocumentPositionsAttributesController)
+      summary: 驗證單據明細屬性查詢條件
       description: 'Generated from `DocumentPositionsAttributesController.validate()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java`.
 
         '
       operationId: documentPositionsAttributesControllerValidate
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java
       x-source-method: DocumentPositionsAttributesController.validate:33
       parameters:
@@ -931,14 +931,14 @@ paths:
                 type: string
   /rest/emplPieceworkSettlement/columns:
     get:
-      summary: Get columns (EmployeePieceworkSettlementController)
+      summary: 查詢員工計件結算欄位設定
       description: 'Generated from `EmployeePieceworkSettlementController.getColumns()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java`.
 
         '
       operationId: employeePieceworkSettlementControllerGetColumns
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java
       x-source-method: EmployeePieceworkSettlementController.getColumns:30
       responses:
@@ -952,14 +952,14 @@ paths:
                   $ref: '#/components/schemas/ColumnDTO'
   /rest/emplPieceworkSettlement/exportToCsv:
     post:
-      summary: Export to csv (EmployeePieceworkSettlementController)
+      summary: 匯出員工計件結算 CSV
       description: 'Generated from `EmployeePieceworkSettlementController.exportToCsv()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java`.
 
         '
       operationId: employeePieceworkSettlementControllerExportToCsv
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java
       x-source-method: EmployeePieceworkSettlementController.exportToCsv:52
       requestBody:
@@ -977,14 +977,14 @@ paths:
                 type: object
   /rest/emplPieceworkSettlement/records:
     get:
-      summary: Get records (EmployeePieceworkSettlementController)
+      summary: 查詢員工計件結算資料列
       description: 'Generated from `EmployeePieceworkSettlementController.getRecords()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java`.
 
         '
       operationId: employeePieceworkSettlementControllerGetRecords
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java
       x-source-method: EmployeePieceworkSettlementController.getRecords:42
       parameters:
@@ -1010,14 +1010,14 @@ paths:
                   additionalProperties: true
   /rest/emplPieceworkSettlement/validate:
     get:
-      summary: Validate (EmployeePieceworkSettlementController)
+      summary: 驗證員工計件結算查詢條件
       description: 'Generated from `EmployeePieceworkSettlementController.validate()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java`.
 
         '
       operationId: employeePieceworkSettlementControllerValidate
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java
       x-source-method: EmployeePieceworkSettlementController.validate:36
       parameters:
@@ -1040,14 +1040,14 @@ paths:
                 type: string
   /rest/emplWorkingTimeSettlement/columns:
     get:
-      summary: Get columns (EmployeeWorkingTimeSettlementController)
+      summary: 查詢員工工時結算欄位設定
       description: 'Generated from `EmployeeWorkingTimeSettlementController.getColumns()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java`.
 
         '
       operationId: employeeWorkingTimeSettlementControllerGetColumns
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java
       x-source-method: EmployeeWorkingTimeSettlementController.getColumns:35
       responses:
@@ -1061,14 +1061,14 @@ paths:
                   $ref: '#/components/schemas/ColumnDTO'
   /rest/emplWorkingTimeSettlement/exportToCsv:
     post:
-      summary: Export to csv (EmployeeWorkingTimeSettlementController)
+      summary: 匯出員工工時結算 CSV
       description: 'Generated from `EmployeeWorkingTimeSettlementController.exportToCsv()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java`.
 
         '
       operationId: employeeWorkingTimeSettlementControllerExportToCsv
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java
       x-source-method: EmployeeWorkingTimeSettlementController.exportToCsv:57
       requestBody:
@@ -1086,14 +1086,14 @@ paths:
                 type: object
   /rest/emplWorkingTimeSettlement/records:
     get:
-      summary: Get records (EmployeeWorkingTimeSettlementController)
+      summary: 查詢員工工時結算資料列
       description: 'Generated from `EmployeeWorkingTimeSettlementController.getRecords()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java`.
 
         '
       operationId: employeeWorkingTimeSettlementControllerGetRecords
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java
       x-source-method: EmployeeWorkingTimeSettlementController.getRecords:47
       parameters:
@@ -1119,14 +1119,14 @@ paths:
                   additionalProperties: true
   /rest/emplWorkingTimeSettlement/validate:
     get:
-      summary: Validate (EmployeeWorkingTimeSettlementController)
+      summary: 驗證員工工時結算查詢條件
       description: 'Generated from `EmployeeWorkingTimeSettlementController.validate()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java`.
 
         '
       operationId: employeeWorkingTimeSettlementControllerValidate
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java
       x-source-method: EmployeeWorkingTimeSettlementController.validate:41
       parameters:
@@ -1193,14 +1193,14 @@ paths:
                 $ref: '#/components/schemas/FaultTypeResponse'
   /rest/lProducedQuantitiesChart/data:
     get:
-      summary: Get data (LinesProducedQuantitiesChartController)
+      summary: 查詢生產線產量圖表資料
       description: 'Generated from `LinesProducedQuantitiesChartController.getData()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/LinesProducedQuantitiesChartController.java`.
 
         '
       operationId: linesProducedQuantitiesChartControllerGetData
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/LinesProducedQuantitiesChartController.java
       x-source-method: LinesProducedQuantitiesChartController.getData:32
       parameters:
@@ -1224,14 +1224,14 @@ paths:
                 additionalProperties: true
   /rest/lProducedQuantitiesChart/validate:
     get:
-      summary: Validate (LinesProducedQuantitiesChartController)
+      summary: 驗證生產線產量圖表查詢條件
       description: 'Generated from `LinesProducedQuantitiesChartController.validate()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/LinesProducedQuantitiesChartController.java`.
 
         '
       operationId: linesProducedQuantitiesChartControllerValidate
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/LinesProducedQuantitiesChartController.java
       x-source-method: LinesProducedQuantitiesChartController.validate:26
       parameters:
@@ -1254,14 +1254,14 @@ paths:
                 type: string
   /rest/masterOrders/generateOrdersSalePlan:
     post:
-      summary: Generate orders sale plan (SalesPlanOrdersController)
+      summary: 依銷售計畫產生訂單
       description: 'Generated from `SalesPlanOrdersController.generateOrdersSalePlan()` in `mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/orders/SalesPlanOrdersController.java`.
 
         '
       operationId: generateOrdersSalePlan
       tags:
         - MasterOrders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/orders/SalesPlanOrdersController.java
       x-source-method: SalesPlanOrdersController.generateOrdersSalePlan:56
       requestBody:
@@ -1279,14 +1279,14 @@ paths:
                 $ref: '#/components/schemas/GenerateOrdersSalePlanResponse'
   /rest/masterOrders/productsBySize:
     post:
-      summary: Products by size (ProductsBySizeController)
+      summary: 依尺寸產生產品清單
       description: 'Generated from `ProductsBySizeController.productsBySize()` in `mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/productBySize/ProductsBySizeController.java`.
 
         '
       operationId: productsBySize
       tags:
         - MasterOrders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/productBySize/ProductsBySizeController.java
       x-source-method: ProductsBySizeController.productsBySize:41
       requestBody:
@@ -1304,14 +1304,14 @@ paths:
                 $ref: '#/components/schemas/ProductsBySizeResponse'
   /rest/operDurationAnalysis/columns:
     get:
-      summary: Get columns (OperationDurationAnalysisController)
+      summary: 查詢作業工時分析欄位設定
       description: 'Generated from `OperationDurationAnalysisController.getColumns()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java`.
 
         '
       operationId: operationDurationAnalysisControllerGetColumns
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java
       x-source-method: OperationDurationAnalysisController.getColumns:35
       responses:
@@ -1325,14 +1325,14 @@ paths:
                   $ref: '#/components/schemas/ColumnDTO'
   /rest/operDurationAnalysis/exportToCsv:
     post:
-      summary: Export to csv (OperationDurationAnalysisController)
+      summary: 匯出作業工時分析 CSV
       description: 'Generated from `OperationDurationAnalysisController.exportToCsv()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java`.
 
         '
       operationId: operationDurationAnalysisControllerExportToCsv
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java
       x-source-method: OperationDurationAnalysisController.exportToCsv:57
       requestBody:
@@ -1350,14 +1350,14 @@ paths:
                 type: object
   /rest/operDurationAnalysis/records:
     get:
-      summary: Get records (OperationDurationAnalysisController)
+      summary: 查詢作業工時分析資料列
       description: 'Generated from `OperationDurationAnalysisController.getRecords()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java`.
 
         '
       operationId: operationDurationAnalysisControllerGetRecords
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java
       x-source-method: OperationDurationAnalysisController.getRecords:47
       parameters:
@@ -1383,14 +1383,14 @@ paths:
                   additionalProperties: true
   /rest/operDurationAnalysis/validate:
     get:
-      summary: Validate (OperationDurationAnalysisController)
+      summary: 驗證作業工時分析查詢條件
       description: 'Generated from `OperationDurationAnalysisController.validate()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java`.
 
         '
       operationId: operationDurationAnalysisControllerValidate
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java
       x-source-method: OperationDurationAnalysisController.validate:41
       parameters:
@@ -1507,14 +1507,14 @@ paths:
                 $ref: '#/components/schemas/OrderCreationResponse'
   /rest/orderTechnologicalProcessesAnalysis/columns:
     get:
-      summary: Get columns (OrderTechnologicalProcessesAnalysisController)
+      summary: 查詢訂單製程分析欄位設定
       description: 'Generated from `OrderTechnologicalProcessesAnalysisController.getColumns()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java`.
 
         '
       operationId: orderTechnologicalProcessesAnalysisControllerGetColumns
       tags:
         - Orders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java
       x-source-method: OrderTechnologicalProcessesAnalysisController.getColumns:35
       responses:
@@ -1528,14 +1528,14 @@ paths:
                   $ref: '#/components/schemas/ColumnDTO'
   /rest/orderTechnologicalProcessesAnalysis/exportToCsv:
     post:
-      summary: Export to csv (OrderTechnologicalProcessesAnalysisController)
+      summary: 匯出訂單製程分析 CSV
       description: 'Generated from `OrderTechnologicalProcessesAnalysisController.exportToCsv()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java`.
 
         '
       operationId: orderTechnologicalProcessesAnalysisControllerExportToCsv
       tags:
         - Orders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java
       x-source-method: OrderTechnologicalProcessesAnalysisController.exportToCsv:58
       requestBody:
@@ -1553,14 +1553,14 @@ paths:
                 type: object
   /rest/orderTechnologicalProcessesAnalysis/records:
     get:
-      summary: Get records (OrderTechnologicalProcessesAnalysisController)
+      summary: 查詢訂單製程分析資料列
       description: 'Generated from `OrderTechnologicalProcessesAnalysisController.getRecords()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java`.
 
         '
       operationId: orderTechnologicalProcessesAnalysisControllerGetRecords
       tags:
         - Orders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java
       x-source-method: OrderTechnologicalProcessesAnalysisController.getRecords:47
       parameters:
@@ -1586,14 +1586,14 @@ paths:
                   additionalProperties: true
   /rest/orderTechnologicalProcessesAnalysis/validate:
     get:
-      summary: Validate (OrderTechnologicalProcessesAnalysisController)
+      summary: 驗證訂單製程分析查詢條件
       description: 'Generated from `OrderTechnologicalProcessesAnalysisController.validate()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java`.
 
         '
       operationId: orderTechnologicalProcessesAnalysisControllerValidate
       tags:
         - Orders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java
       x-source-method: OrderTechnologicalProcessesAnalysisController.validate:41
       parameters:
@@ -1616,7 +1616,7 @@ paths:
                 type: string
   /rest/orders/multiUploadFilesForOrder:
     post:
-      summary: Upload (OrderMultiUploadController)
+      summary: 上傳訂單附件
       description: 'Generated from `OrderMultiUploadController.upload()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderMultiUploadController.java`.
 
 
@@ -1631,7 +1631,7 @@ paths:
       operationId: orderMultiUploadControllerUpload
       tags:
         - Orders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderMultiUploadController.java
       x-source-method: OrderMultiUploadController.upload:72
       responses:
@@ -1744,14 +1744,14 @@ paths:
                 $ref: '#/components/schemas/DataResponse'
   /rest/prodAttributes/columns:
     get:
-      summary: Get columns (ProductsAttributesController)
+      summary: 查詢產品屬性欄位設定
       description: 'Generated from `ProductsAttributesController.getColumns()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductsAttributesController.java`.
 
         '
       operationId: productsAttributesControllerGetColumns
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductsAttributesController.java
       x-source-method: ProductsAttributesController.getColumns:26
       responses:
@@ -1765,14 +1765,14 @@ paths:
                   $ref: '#/components/schemas/ColumnDTO'
   /rest/prodAttributes/records:
     get:
-      summary: Get records (ProductsAttributesController)
+      summary: 查詢產品屬性資料列
       description: 'Generated from `ProductsAttributesController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductsAttributesController.java`.
 
         '
       operationId: productsAttributesControllerGetRecords
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductsAttributesController.java
       x-source-method: ProductsAttributesController.getRecords:32
       responses:
@@ -1787,14 +1787,14 @@ paths:
                   additionalProperties: true
   /rest/prodBalanceAnalysis/columns:
     get:
-      summary: Get columns (ProductionBalanceAnalysisController)
+      summary: 查詢生產平衡分析欄位設定
       description: 'Generated from `ProductionBalanceAnalysisController.getColumns()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java`.
 
         '
       operationId: productionBalanceAnalysisControllerGetColumns
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java
       x-source-method: ProductionBalanceAnalysisController.getColumns:35
       responses:
@@ -1808,14 +1808,14 @@ paths:
                   $ref: '#/components/schemas/ColumnDTO'
   /rest/prodBalanceAnalysis/exportToCsv:
     post:
-      summary: Export to csv (ProductionBalanceAnalysisController)
+      summary: 匯出生產平衡分析 CSV
       description: 'Generated from `ProductionBalanceAnalysisController.exportToCsv()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java`.
 
         '
       operationId: productionBalanceAnalysisControllerExportToCsv
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java
       x-source-method: ProductionBalanceAnalysisController.exportToCsv:57
       requestBody:
@@ -1833,14 +1833,14 @@ paths:
                 type: object
   /rest/prodBalanceAnalysis/records:
     get:
-      summary: Get records (ProductionBalanceAnalysisController)
+      summary: 查詢生產平衡分析資料列
       description: 'Generated from `ProductionBalanceAnalysisController.getRecords()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java`.
 
         '
       operationId: productionBalanceAnalysisControllerGetRecords
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java
       x-source-method: ProductionBalanceAnalysisController.getRecords:47
       parameters:
@@ -1866,14 +1866,14 @@ paths:
                   additionalProperties: true
   /rest/prodBalanceAnalysis/validate:
     get:
-      summary: Validate (ProductionBalanceAnalysisController)
+      summary: 驗證生產平衡分析查詢條件
       description: 'Generated from `ProductionBalanceAnalysisController.validate()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java`.
 
         '
       operationId: productionBalanceAnalysisControllerValidate
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java
       x-source-method: ProductionBalanceAnalysisController.validate:41
       parameters:
@@ -2001,7 +2001,7 @@ paths:
                 $ref: '#/components/schemas/GridResponseProductDTO'
   /rest/productData/multiUploadFiles:
     post:
-      summary: Upload (ProductDataMultiUploadController)
+      summary: 上傳產品資料附件
       description: 'Generated from `ProductDataMultiUploadController.upload()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/ProductDataMultiUploadController.java`.
 
 
@@ -2016,7 +2016,7 @@ paths:
       operationId: productDataMultiUploadControllerUpload
       tags:
         - Technologies
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/ProductDataMultiUploadController.java
       x-source-method: ProductDataMultiUploadController.upload:78
       responses:
@@ -2269,14 +2269,14 @@ paths:
                 $ref: '#/components/schemas/DataResponse'
   /rest/resAttributes/columns:
     get:
-      summary: Get columns (ResourcesAttributesController)
+      summary: 查詢資源屬性欄位設定
       description: 'Generated from `ResourcesAttributesController.getColumns()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesController.java`.
 
         '
       operationId: resourcesAttributesControllerGetColumns
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesController.java
       x-source-method: ResourcesAttributesController.getColumns:26
       responses:
@@ -2290,14 +2290,14 @@ paths:
                   $ref: '#/components/schemas/ColumnDTO'
   /rest/resAttributes/records:
     get:
-      summary: Get records (ResourcesAttributesController)
+      summary: 查詢資源屬性資料列
       description: 'Generated from `ResourcesAttributesController.getRecords()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesController.java`.
 
         '
       operationId: resourcesAttributesControllerGetRecords
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesController.java
       x-source-method: ResourcesAttributesController.getRecords:32
       responses:
@@ -2335,7 +2335,7 @@ paths:
                 additionalProperties: true
   /rest/resource/records:
     get:
-      summary: Get records (ResourceLookupController)
+      summary: 查詢資源 lookup 資料列
       description: 'Generated from `ResourceLookupController.getRecords()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/batch/ResourceLookupController.java`.
 
 
@@ -2346,7 +2346,7 @@ paths:
       operationId: resourceLookupControllerGetRecords
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/batch/ResourceLookupController.java
       x-source-method: ResourceLookupController.getRecords:38
       parameters:
@@ -2469,7 +2469,7 @@ paths:
                 $ref: '#/components/schemas/GridResponseWorkerDTO'
   /rest/rest/actions:
     put:
-      summary: Create (ActionsController)
+      summary: 建立維護行動
       description: 'Generated from `ActionsController.create()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
 
 
@@ -2480,7 +2480,7 @@ paths:
       operationId: actionsControllerCreate
       tags:
         - CmmsMachineParts
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
       x-source-method: ActionsController.create:49
       requestBody:
@@ -2494,14 +2494,14 @@ paths:
           description: Empty response body
   /rest/rest/actions/actions:
     get:
-      summary: Get actions for object (ActionsController)
+      summary: 查詢物件的維護行動
       description: 'Generated from `ActionsController.getActionsForObject()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
 
         '
       operationId: getActionsForObject
       tags:
         - CmmsMachineParts
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
       x-source-method: ActionsController.getActionsForObject:73
       parameters:
@@ -2525,14 +2525,14 @@ paths:
                 $ref: '#/components/schemas/DataResponse'
   /rest/rest/actions/gridConfig/{id}:
     get:
-      summary: Grid config (ActionsController)
+      summary: 查詢維護行動表格設定
       description: 'Generated from `ActionsController.gridConfig()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
 
         '
       operationId: actionsControllerGridConfig
       tags:
         - CmmsMachineParts
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
       x-source-method: ActionsController.gridConfig:31
       parameters:
@@ -2552,14 +2552,14 @@ paths:
                 additionalProperties: true
   /rest/rest/actions/states:
     get:
-      summary: Get states (ActionsController)
+      summary: 查詢維護行動狀態
       description: 'Generated from `ActionsController.getStates()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
 
         '
       operationId: getStates
       tags:
         - CmmsMachineParts
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
       x-source-method: ActionsController.getStates:67
       responses:
@@ -2575,14 +2575,14 @@ paths:
                     type: string
   /rest/rest/actions/workers:
     get:
-      summary: Get workers (ActionsController)
+      summary: 查詢維護人員
       description: 'Generated from `ActionsController.getWorkers()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
 
         '
       operationId: getWorkers
       tags:
         - CmmsMachineParts
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
       x-source-method: ActionsController.getWorkers:79
       parameters:
@@ -2600,7 +2600,7 @@ paths:
                 $ref: '#/components/schemas/DataResponse'
   /rest/rest/actions/{id}:
     get:
-      summary: Find all (ActionsController)
+      summary: 查詢維護行動
       description: 'Generated from `ActionsController.findAll()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
 
 
@@ -2611,7 +2611,7 @@ paths:
       operationId: actionsControllerFindAll
       tags:
         - CmmsMachineParts
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
       x-source-method: ActionsController.findAll:40
       parameters:
@@ -2652,7 +2652,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GridResponseActionForPlannedEventDTO'
     delete:
-      summary: Delete (ActionsController)
+      summary: 刪除維護行動
       description: 'Generated from `ActionsController.delete()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
 
 
@@ -2663,7 +2663,7 @@ paths:
       operationId: actionsControllerDelete
       tags:
         - CmmsMachineParts
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
       x-source-method: ActionsController.delete:55
       parameters:
@@ -2677,7 +2677,7 @@ paths:
         '200':
           description: Empty response body
     put:
-      summary: Update (ActionsController)
+      summary: 更新維護行動
       description: 'Generated from `ActionsController.update()` in `mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java`.
 
 
@@ -2688,7 +2688,7 @@ paths:
       operationId: actionsControllerUpdate
       tags:
         - CmmsMachineParts
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-cmms-machine-parts/src/main/java/com/qcadoo/mes/cmmsMachineParts/controller/ActionsController.java
       x-source-method: ActionsController.update:61
       parameters:
@@ -2709,7 +2709,7 @@ paths:
           description: Empty response body
   /rest/rest/documentPositions:
     put:
-      summary: Create (DocumentPositionsController)
+      summary: 建立單據明細
       description: 'Generated from `DocumentPositionsController.create()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
 
@@ -2720,7 +2720,7 @@ paths:
       operationId: documentPositionsControllerCreate
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.create:65
       requestBody:
@@ -2734,14 +2734,14 @@ paths:
           description: Empty response body
   /rest/rest/documentPositions/batch:
     get:
-      summary: Get batches (DocumentPositionsController)
+      summary: 查詢批號
       description: 'Generated from `DocumentPositionsController.getBatches()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: getBatches
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getBatches:90
       parameters:
@@ -2764,14 +2764,14 @@ paths:
                 $ref: '#/components/schemas/DataResponse'
   /rest/rest/documentPositions/gridConfig/{id}:
     get:
-      summary: Grid config (DocumentPositionsController)
+      summary: 查詢單據明細表格設定
       description: 'Generated from `DocumentPositionsController.gridConfig()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: documentPositionsControllerGridConfig
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.gridConfig:157
       parameters:
@@ -2791,14 +2791,14 @@ paths:
                 additionalProperties: true
   /rest/rest/documentPositions/product/{number}:
     get:
-      summary: Get product for product number (DocumentPositionsController)
+      summary: 依產品編號查詢產品
       description: 'Generated from `DocumentPositionsController.getProductForProductNumber()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: getProductForProductNumber
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getProductForProductNumber:57
       parameters:
@@ -2816,14 +2816,14 @@ paths:
                 $ref: '#/components/schemas/ProductDTO'
   /rest/rest/documentPositions/productFromLocation:
     get:
-      summary: Get product from location (DocumentPositionsController)
+      summary: 查詢庫位上的產品
       description: 'Generated from `DocumentPositionsController.getProductFromLocation()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: getProductFromLocation
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getProductFromLocation:151
       parameters:
@@ -2847,14 +2847,14 @@ paths:
                 $ref: '#/components/schemas/ProductDTO'
   /rest/rest/documentPositions/resource:
     get:
-      summary: Get resource for product (DocumentPositionsController)
+      summary: 查詢產品對應的資源
       description: 'Generated from `DocumentPositionsController.getResourceForProduct()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: getResourceForProduct
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getResourceForProduct:112
       parameters:
@@ -2889,14 +2889,14 @@ paths:
                 $ref: '#/components/schemas/ResourceDTO'
   /rest/rest/documentPositions/resourceByNumber/{document}/{resource}:
     get:
-      summary: Get batch for resource (DocumentPositionsController)
+      summary: 依資源編號查詢批號
       description: 'Generated from `DocumentPositionsController.getBatchForResource()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: getBatchForResource
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getBatchForResource:135
       parameters:
@@ -2920,14 +2920,14 @@ paths:
                 $ref: '#/components/schemas/ResourceDTO'
   /rest/rest/documentPositions/resources:
     get:
-      summary: Get resources (DocumentPositionsController)
+      summary: 查詢資源清單
       description: 'Generated from `DocumentPositionsController.getResources()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: getResources
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getResources:123
       parameters:
@@ -2967,7 +2967,7 @@ paths:
                 $ref: '#/components/schemas/DataResponse'
   /rest/rest/documentPositions/storageLocation/{document}:
     get:
-      summary: Get storage location for empty product (DocumentPositionsController)
+      summary: 查詢空產品的儲位
       description: 'Generated from `DocumentPositionsController.getStorageLocationForEmptyProduct()` in
         `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
@@ -2975,7 +2975,7 @@ paths:
       operationId: getStorageLocationForEmptyProduct
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getStorageLocationForEmptyProduct:96
       parameters:
@@ -2993,7 +2993,7 @@ paths:
                 $ref: '#/components/schemas/StorageLocationDTO'
   /rest/rest/documentPositions/storageLocation/{product}/{document}:
     get:
-      summary: Get storage location for product and warehouse (DocumentPositionsController)
+      summary: 依產品與倉庫查詢儲位
       description: 'Generated from `DocumentPositionsController.getStorageLocationForProductAndWarehouse()`
         in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
@@ -3001,7 +3001,7 @@ paths:
       operationId: getStorageLocationForProductAndWarehouse
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getStorageLocationForProductAndWarehouse:102
       parameters:
@@ -3024,14 +3024,14 @@ paths:
                 $ref: '#/components/schemas/StorageLocationDTO'
   /rest/rest/documentPositions/storagelocations:
     get:
-      summary: Get storage locations (DocumentPositionsController)
+      summary: 查詢儲位清單
       description: 'Generated from `DocumentPositionsController.getStorageLocations()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: getStorageLocations
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getStorageLocations:83
       parameters:
@@ -3059,7 +3059,7 @@ paths:
                 $ref: '#/components/schemas/DataResponse'
   /rest/rest/documentPositions/typeOfLoadUnitByLoadUnit/{document}/{loadUnitNumber}:
     get:
-      summary: Get type of load unit for load unit number (DocumentPositionsController)
+      summary: 依裝載單位編號查詢類型
       description: 'Generated from `DocumentPositionsController.getTypeOfLoadUnitForLoadUnitNumber()`
         in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
@@ -3067,7 +3067,7 @@ paths:
       operationId: getTypeOfLoadUnitForLoadUnitNumber
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getTypeOfLoadUnitForLoadUnitNumber:143
       parameters:
@@ -3091,14 +3091,14 @@ paths:
                 type: string
   /rest/rest/documentPositions/units/{number}:
     get:
-      summary: Get units for product (DocumentPositionsController)
+      summary: 查詢產品的計量單位
       description: 'Generated from `DocumentPositionsController.getUnitsForProduct()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: getUnitsForProduct
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getUnitsForProduct:49
       parameters:
@@ -3117,7 +3117,7 @@ paths:
                 additionalProperties: true
   /rest/rest/documentPositions/{ids}:
     delete:
-      summary: Delete (DocumentPositionsController)
+      summary: 刪除單據明細
       description: 'Generated from `DocumentPositionsController.delete()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
 
@@ -3128,7 +3128,7 @@ paths:
       operationId: documentPositionsControllerDelete
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.delete:71
       parameters:
@@ -3142,7 +3142,7 @@ paths:
           description: Empty response body
   /rest/rest/documentPositions/{id}:
     get:
-      summary: Find all (DocumentPositionsController)
+      summary: 查詢單據明細
       description: 'Generated from `DocumentPositionsController.findAll()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
 
@@ -3153,7 +3153,7 @@ paths:
       operationId: documentPositionsControllerFindAll
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.findAll:37
       parameters:
@@ -3194,7 +3194,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GridResponseDocumentPositionDTO'
     put:
-      summary: Update (DocumentPositionsController)
+      summary: 更新單據明細
       description: 'Generated from `DocumentPositionsController.update()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
 
@@ -3209,7 +3209,7 @@ paths:
       operationId: documentPositionsControllerUpdate
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.update:77
       parameters:
@@ -3378,7 +3378,7 @@ paths:
                 $ref: '#/components/schemas/TechnologiesResponse'
   /rest/technologies/multiUploadFiles:
     post:
-      summary: Upload (TechnologyMultiUploadController)
+      summary: 上傳技術規範附件
       description: 'Generated from `TechnologyMultiUploadController.upload()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyMultiUploadController.java`.
 
 
@@ -3393,7 +3393,7 @@ paths:
       operationId: technologyMultiUploadControllerUpload
       tags:
         - Technologies
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyMultiUploadController.java
       x-source-method: TechnologyMultiUploadController.upload:77
       responses:
@@ -3401,7 +3401,7 @@ paths:
           description: Empty response body
   /rest/technologies/technologiesMultiUploadFiles:
     post:
-      summary: Technologies upload (TechnologyMultiUploadController)
+      summary: 批次上傳技術規範附件
       description: 'Generated from `TechnologyMultiUploadController.technologiesUpload()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyMultiUploadController.java`.
 
 
@@ -3416,7 +3416,7 @@ paths:
       operationId: technologiesUpload
       tags:
         - Technologies
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyMultiUploadController.java
       x-source-method: TechnologyMultiUploadController.technologiesUpload:102
       responses:
@@ -3565,14 +3565,14 @@ paths:
                 $ref: '#/components/schemas/ProductionLineDto'
   /rest/technologyConfigurator/configuration:
     get:
-      summary: Get configuration (TechnologyConfiguratorController)
+      summary: 查詢技術規範配置
       description: 'Generated from `TechnologyConfiguratorController.getConfiguration()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyConfiguratorController.java`.
 
         '
       operationId: getConfiguration
       tags:
         - Technologies
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyConfiguratorController.java
       x-source-method: TechnologyConfiguratorController.getConfiguration:51
       responses:

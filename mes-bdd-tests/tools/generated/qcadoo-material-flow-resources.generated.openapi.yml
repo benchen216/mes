@@ -45,14 +45,14 @@ servers:
 paths:
   /rest/attribute/{name}/config:
     get:
-      summary: Get config view (AttributeLookupController)
+      summary: 查詢屬性 lookup 欄位設定
       description: 'Generated from `AttributeLookupController.getConfigView()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java`.
 
         '
       operationId: attributeLookupControllerGetConfigView
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java
       x-source-method: AttributeLookupController.getConfigView:57
       parameters:
@@ -71,7 +71,7 @@ paths:
                 additionalProperties: true
   /rest/attribute/{name}/records:
     get:
-      summary: Get records (AttributeLookupController)
+      summary: 查詢屬性 lookup 資料列
       description: 'Generated from `AttributeLookupController.getRecords()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java`.
 
 
@@ -82,7 +82,7 @@ paths:
       operationId: attributeLookupControllerGetRecords
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/AttributeLookupController.java
       x-source-method: AttributeLookupController.getRecords:36
       parameters:
@@ -210,14 +210,14 @@ paths:
                 $ref: '#/components/schemas/GridResponseBatchDTO'
   /rest/docPositionsAttributes/columns:
     get:
-      summary: Get columns (DocumentPositionsAttributesController)
+      summary: 查詢單據明細屬性欄位設定
       description: 'Generated from `DocumentPositionsAttributesController.getColumns()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java`.
 
         '
       operationId: documentPositionsAttributesControllerGetColumns
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java
       x-source-method: DocumentPositionsAttributesController.getColumns:27
       responses:
@@ -231,14 +231,14 @@ paths:
                   $ref: '#/components/schemas/ColumnDTO'
   /rest/docPositionsAttributes/records:
     get:
-      summary: Get records (DocumentPositionsAttributesController)
+      summary: 查詢單據明細屬性資料列
       description: 'Generated from `DocumentPositionsAttributesController.getRecords()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java`.
 
         '
       operationId: documentPositionsAttributesControllerGetRecords
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java
       x-source-method: DocumentPositionsAttributesController.getRecords:39
       parameters:
@@ -264,14 +264,14 @@ paths:
                   additionalProperties: true
   /rest/docPositionsAttributes/validate:
     get:
-      summary: Validate (DocumentPositionsAttributesController)
+      summary: 驗證單據明細屬性查詢條件
       description: 'Generated from `DocumentPositionsAttributesController.validate()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java`.
 
         '
       operationId: validate
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsAttributesController.java
       x-source-method: DocumentPositionsAttributesController.validate:33
       parameters:
@@ -294,14 +294,14 @@ paths:
                 type: string
   /rest/resAttributes/columns:
     get:
-      summary: Get columns (ResourcesAttributesController)
+      summary: 查詢資源屬性欄位設定
       description: 'Generated from `ResourcesAttributesController.getColumns()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesController.java`.
 
         '
       operationId: resourcesAttributesControllerGetColumns
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesController.java
       x-source-method: ResourcesAttributesController.getColumns:26
       responses:
@@ -315,14 +315,14 @@ paths:
                   $ref: '#/components/schemas/ColumnDTO'
   /rest/resAttributes/records:
     get:
-      summary: Get records (ResourcesAttributesController)
+      summary: 查詢資源屬性資料列
       description: 'Generated from `ResourcesAttributesController.getRecords()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesController.java`.
 
         '
       operationId: resourcesAttributesControllerGetRecords
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/ResourcesAttributesController.java
       x-source-method: ResourcesAttributesController.getRecords:32
       responses:
@@ -360,7 +360,7 @@ paths:
                 additionalProperties: true
   /rest/resource/records:
     get:
-      summary: Get records (ResourceLookupController)
+      summary: 查詢資源 lookup 資料列
       description: 'Generated from `ResourceLookupController.getRecords()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/batch/ResourceLookupController.java`.
 
 
@@ -371,7 +371,7 @@ paths:
       operationId: resourceLookupControllerGetRecords
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/batch/ResourceLookupController.java
       x-source-method: ResourceLookupController.getRecords:38
       parameters:
@@ -414,7 +414,7 @@ paths:
                 $ref: '#/components/schemas/GridResponseResourceDTO'
   /rest/rest/documentPositions:
     put:
-      summary: Create (DocumentPositionsController)
+      summary: 建立單據明細
       description: 'Generated from `DocumentPositionsController.create()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
 
@@ -425,7 +425,7 @@ paths:
       operationId: create
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.create:65
       requestBody:
@@ -439,14 +439,14 @@ paths:
           description: Empty response body
   /rest/rest/documentPositions/batch:
     get:
-      summary: Get batches (DocumentPositionsController)
+      summary: 查詢批號
       description: 'Generated from `DocumentPositionsController.getBatches()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: getBatches
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getBatches:90
       parameters:
@@ -469,14 +469,14 @@ paths:
                 $ref: '#/components/schemas/DataResponse'
   /rest/rest/documentPositions/gridConfig/{id}:
     get:
-      summary: Grid config (DocumentPositionsController)
+      summary: 查詢單據明細表格設定
       description: 'Generated from `DocumentPositionsController.gridConfig()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: gridConfig
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.gridConfig:157
       parameters:
@@ -496,14 +496,14 @@ paths:
                 additionalProperties: true
   /rest/rest/documentPositions/product/{number}:
     get:
-      summary: Get product for product number (DocumentPositionsController)
+      summary: 依產品編號查詢產品
       description: 'Generated from `DocumentPositionsController.getProductForProductNumber()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: getProductForProductNumber
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getProductForProductNumber:57
       parameters:
@@ -521,14 +521,14 @@ paths:
                 $ref: '#/components/schemas/ProductDTO'
   /rest/rest/documentPositions/productFromLocation:
     get:
-      summary: Get product from location (DocumentPositionsController)
+      summary: 查詢庫位上的產品
       description: 'Generated from `DocumentPositionsController.getProductFromLocation()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: getProductFromLocation
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getProductFromLocation:151
       parameters:
@@ -552,14 +552,14 @@ paths:
                 $ref: '#/components/schemas/ProductDTO'
   /rest/rest/documentPositions/resource:
     get:
-      summary: Get resource for product (DocumentPositionsController)
+      summary: 查詢產品對應的資源
       description: 'Generated from `DocumentPositionsController.getResourceForProduct()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: getResourceForProduct
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getResourceForProduct:112
       parameters:
@@ -594,14 +594,14 @@ paths:
                 $ref: '#/components/schemas/ResourceDTO'
   /rest/rest/documentPositions/resourceByNumber/{document}/{resource}:
     get:
-      summary: Get batch for resource (DocumentPositionsController)
+      summary: 依資源編號查詢批號
       description: 'Generated from `DocumentPositionsController.getBatchForResource()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: getBatchForResource
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getBatchForResource:135
       parameters:
@@ -625,14 +625,14 @@ paths:
                 $ref: '#/components/schemas/ResourceDTO'
   /rest/rest/documentPositions/resources:
     get:
-      summary: Get resources (DocumentPositionsController)
+      summary: 查詢資源清單
       description: 'Generated from `DocumentPositionsController.getResources()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: getResources
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getResources:123
       parameters:
@@ -672,7 +672,7 @@ paths:
                 $ref: '#/components/schemas/DataResponse'
   /rest/rest/documentPositions/storageLocation/{document}:
     get:
-      summary: Get storage location for empty product (DocumentPositionsController)
+      summary: 查詢空產品的儲位
       description: 'Generated from `DocumentPositionsController.getStorageLocationForEmptyProduct()` in
         `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
@@ -680,7 +680,7 @@ paths:
       operationId: getStorageLocationForEmptyProduct
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getStorageLocationForEmptyProduct:96
       parameters:
@@ -698,7 +698,7 @@ paths:
                 $ref: '#/components/schemas/StorageLocationDTO'
   /rest/rest/documentPositions/storageLocation/{product}/{document}:
     get:
-      summary: Get storage location for product and warehouse (DocumentPositionsController)
+      summary: 依產品與倉庫查詢儲位
       description: 'Generated from `DocumentPositionsController.getStorageLocationForProductAndWarehouse()`
         in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
@@ -706,7 +706,7 @@ paths:
       operationId: getStorageLocationForProductAndWarehouse
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getStorageLocationForProductAndWarehouse:102
       parameters:
@@ -729,14 +729,14 @@ paths:
                 $ref: '#/components/schemas/StorageLocationDTO'
   /rest/rest/documentPositions/storagelocations:
     get:
-      summary: Get storage locations (DocumentPositionsController)
+      summary: 查詢儲位清單
       description: 'Generated from `DocumentPositionsController.getStorageLocations()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: getStorageLocations
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getStorageLocations:83
       parameters:
@@ -764,7 +764,7 @@ paths:
                 $ref: '#/components/schemas/DataResponse'
   /rest/rest/documentPositions/typeOfLoadUnitByLoadUnit/{document}/{loadUnitNumber}:
     get:
-      summary: Get type of load unit for load unit number (DocumentPositionsController)
+      summary: 依裝載單位編號查詢類型
       description: 'Generated from `DocumentPositionsController.getTypeOfLoadUnitForLoadUnitNumber()`
         in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
@@ -772,7 +772,7 @@ paths:
       operationId: getTypeOfLoadUnitForLoadUnitNumber
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getTypeOfLoadUnitForLoadUnitNumber:143
       parameters:
@@ -796,14 +796,14 @@ paths:
                 type: string
   /rest/rest/documentPositions/units/{number}:
     get:
-      summary: Get units for product (DocumentPositionsController)
+      summary: 查詢產品的計量單位
       description: 'Generated from `DocumentPositionsController.getUnitsForProduct()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
         '
       operationId: getUnitsForProduct
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.getUnitsForProduct:49
       parameters:
@@ -822,7 +822,7 @@ paths:
                 additionalProperties: true
   /rest/rest/documentPositions/{ids}:
     delete:
-      summary: Delete (DocumentPositionsController)
+      summary: 刪除單據明細
       description: 'Generated from `DocumentPositionsController.delete()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
 
@@ -833,7 +833,7 @@ paths:
       operationId: delete
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.delete:71
       parameters:
@@ -847,7 +847,7 @@ paths:
           description: Empty response body
   /rest/rest/documentPositions/{id}:
     get:
-      summary: Find all (DocumentPositionsController)
+      summary: 查詢單據明細
       description: 'Generated from `DocumentPositionsController.findAll()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
 
@@ -858,7 +858,7 @@ paths:
       operationId: findAll
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.findAll:37
       parameters:
@@ -899,7 +899,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GridResponseDocumentPositionDTO'
     put:
-      summary: Update (DocumentPositionsController)
+      summary: 更新單據明細
       description: 'Generated from `DocumentPositionsController.update()` in `mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java`.
 
 
@@ -914,7 +914,7 @@ paths:
       operationId: update
       tags:
         - MaterialFlowResources
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-material-flow-resources/src/main/java/com/qcadoo/mes/materialFlowResources/controllers/DocumentPositionsController.java
       x-source-method: DocumentPositionsController.update:77
       parameters:

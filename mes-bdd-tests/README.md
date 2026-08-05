@@ -23,12 +23,12 @@ qcadoo 的三步登入流程、CSRF 機制、以及已驗證/已排除的技術�
 | qcadoo 可建置、可啟動、可登入 | ✅ 已驗證 |
 | REST 端點可透過 HTTP 觸發真實業務邏輯 | ✅ 已驗證(狀態機留下稽核記錄) |
 | SpecFormula 能連上 qcadoo 資料庫讀寫 | ✅ 已驗證 |
-| **有 BDD scenario 對真實 qcadoo 跑出綠燈** | ✅ **19 個 scenario 全綠**(`@mvp`) |
+| **有 BDD scenario 對真實 qcadoo 跑出綠燈** | ✅ **22 個 scenario 全綠**(`@mvp`) |
 | OpenAPI spec 覆蓋端點數 | **130**(從原始碼靜態生成) |
 
 ```
 mvn -f mes-bdd-tests/pom.xml test
-→ Tests run: 19, Failures: 0, Errors: 0, Skipped: 0
+→ Tests run: 22, Failures: 0, Errors: 0, Skipped: 0
 → BUILD SUCCESS
 ```
 
@@ -58,14 +58,24 @@ SpecFormula 靠 `summary` 比對 operation,而 Java 原始碼沒有這個資訊�
 人工校正表在 `tools/summaries.yml`,key 是 `ClassName.methodName`,
 解析優先序為「具體 controller → 宣告類別」。
 
-**用宣告類別當 key 有槓桿** —— 目前 40 筆設定覆蓋 51 個端點,其中:
+**用宣告類別當 key 有槓桿**:
 
 ```yaml
 BasicLookupController.getConfigView: 查詢 lookup 欄位設定   # 一筆覆蓋 7 個 controller
 BasicLookupController.getRecords: 查詢 lookup 資料列        # 一筆覆蓋 6 個
 ```
 
-尚有 79 個端點是英文佔位符,多為分析/CSV 匯出類,要測時再補即可。
+目前 **115 筆設定覆蓋 126 / 130 個端點(96%)**。
+
+剩下 4 個未校正的是 `TechnologyApiController.getWorkstations` 的多載 ——
+同一個方法名對應 4 條不同路徑,而 key 只有 `class.method`,**分不出來**。
+填一筆會讓 4 個端點拿到同值,再被 `ensure_unique_summaries()` 加上
+`#1`~`#4` 後綴,語意上仍無法區分。要測這類端點得直接改生成後的 YAML,
+或先重構 Java 端的方法名。
+
+**分析報表類無法用槓桿**:6 個分析 controller 都有
+`getColumns` / `getRecords` / `validate` / `exportToCsv` 四件組,
+但**沒有共同基底類別** —— 各自獨立宣告同名方法,只能逐筆補。
 
 手寫版保留在 `docs/reference/qcadoo-orders.handwritten.openapi.yml` 供對照。
 
@@ -178,6 +188,7 @@ mes-bdd-tests/
             ├── 訂單狀態流轉.feature              3 條:狀態機(核心業務邏輯)
             ├── 訂單建立.feature                  2 條:寫入操作
             ├── 技術規範查詢.feature              3 條:跨 plugin 查詢
+            ├── 分析報表欄位.feature              3 條:驗證新補的 summary 可用
             └── 生產線查詢.feature                1 條:環境健檢
 ```
 

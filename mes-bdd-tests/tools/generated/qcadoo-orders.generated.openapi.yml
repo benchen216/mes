@@ -272,14 +272,14 @@ paths:
                 $ref: '#/components/schemas/OrderCreationResponse'
   /rest/orderTechnologicalProcessesAnalysis/columns:
     get:
-      summary: Get columns (OrderTechnologicalProcessesAnalysisController)
+      summary: 查詢訂單製程分析欄位設定
       description: 'Generated from `OrderTechnologicalProcessesAnalysisController.getColumns()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java`.
 
         '
       operationId: getColumns
       tags:
         - Orders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java
       x-source-method: OrderTechnologicalProcessesAnalysisController.getColumns:35
       responses:
@@ -293,14 +293,14 @@ paths:
                   $ref: '#/components/schemas/ColumnDTO'
   /rest/orderTechnologicalProcessesAnalysis/exportToCsv:
     post:
-      summary: Export to csv (OrderTechnologicalProcessesAnalysisController)
+      summary: 匯出訂單製程分析 CSV
       description: 'Generated from `OrderTechnologicalProcessesAnalysisController.exportToCsv()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java`.
 
         '
       operationId: exportToCsv
       tags:
         - Orders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java
       x-source-method: OrderTechnologicalProcessesAnalysisController.exportToCsv:58
       requestBody:
@@ -318,14 +318,14 @@ paths:
                 type: object
   /rest/orderTechnologicalProcessesAnalysis/records:
     get:
-      summary: Get records (OrderTechnologicalProcessesAnalysisController)
+      summary: 查詢訂單製程分析資料列
       description: 'Generated from `OrderTechnologicalProcessesAnalysisController.getRecords()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java`.
 
         '
       operationId: getRecords
       tags:
         - Orders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java
       x-source-method: OrderTechnologicalProcessesAnalysisController.getRecords:47
       parameters:
@@ -351,14 +351,14 @@ paths:
                   additionalProperties: true
   /rest/orderTechnologicalProcessesAnalysis/validate:
     get:
-      summary: Validate (OrderTechnologicalProcessesAnalysisController)
+      summary: 驗證訂單製程分析查詢條件
       description: 'Generated from `OrderTechnologicalProcessesAnalysisController.validate()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java`.
 
         '
       operationId: validate
       tags:
         - Orders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderTechnologicalProcessesAnalysisController.java
       x-source-method: OrderTechnologicalProcessesAnalysisController.validate:41
       parameters:
@@ -381,7 +381,7 @@ paths:
                 type: string
   /rest/orders/multiUploadFilesForOrder:
     post:
-      summary: Upload (OrderMultiUploadController)
+      summary: 上傳訂單附件
       description: 'Generated from `OrderMultiUploadController.upload()` in `mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderMultiUploadController.java`.
 
 
@@ -396,7 +396,7 @@ paths:
       operationId: upload
       tags:
         - Orders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-orders/src/main/java/com/qcadoo/mes/orders/controllers/OrderMultiUploadController.java
       x-source-method: OrderMultiUploadController.upload:72
       responses:

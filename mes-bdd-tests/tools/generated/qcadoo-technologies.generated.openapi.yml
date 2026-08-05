@@ -89,7 +89,7 @@ paths:
                 $ref: '#/components/schemas/OperationsResponse'
   /rest/productData/multiUploadFiles:
     post:
-      summary: Upload (ProductDataMultiUploadController)
+      summary: 上傳產品資料附件
       description: 'Generated from `ProductDataMultiUploadController.upload()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/ProductDataMultiUploadController.java`.
 
 
@@ -104,7 +104,7 @@ paths:
       operationId: productDataMultiUploadControllerUpload
       tags:
         - Technologies
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/ProductDataMultiUploadController.java
       x-source-method: ProductDataMultiUploadController.upload:78
       responses:
@@ -155,7 +155,7 @@ paths:
                 $ref: '#/components/schemas/TechnologiesResponse'
   /rest/technologies/multiUploadFiles:
     post:
-      summary: Upload (TechnologyMultiUploadController)
+      summary: 上傳技術規範附件
       description: 'Generated from `TechnologyMultiUploadController.upload()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyMultiUploadController.java`.
 
 
@@ -170,7 +170,7 @@ paths:
       operationId: technologyMultiUploadControllerUpload
       tags:
         - Technologies
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyMultiUploadController.java
       x-source-method: TechnologyMultiUploadController.upload:77
       responses:
@@ -178,7 +178,7 @@ paths:
           description: Empty response body
   /rest/technologies/technologiesMultiUploadFiles:
     post:
-      summary: Technologies upload (TechnologyMultiUploadController)
+      summary: 批次上傳技術規範附件
       description: 'Generated from `TechnologyMultiUploadController.technologiesUpload()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyMultiUploadController.java`.
 
 
@@ -193,7 +193,7 @@ paths:
       operationId: technologiesUpload
       tags:
         - Technologies
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyMultiUploadController.java
       x-source-method: TechnologyMultiUploadController.technologiesUpload:102
       responses:
@@ -342,14 +342,14 @@ paths:
                 $ref: '#/components/schemas/ProductionLineDto'
   /rest/technologyConfigurator/configuration:
     get:
-      summary: Get configuration (TechnologyConfiguratorController)
+      summary: 查詢技術規範配置
       description: 'Generated from `TechnologyConfiguratorController.getConfiguration()` in `mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyConfiguratorController.java`.
 
         '
       operationId: getConfiguration
       tags:
         - Technologies
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-technologies/src/main/java/com/qcadoo/mes/technologies/controller/TechnologyConfiguratorController.java
       x-source-method: TechnologyConfiguratorController.getConfiguration:51
       responses:

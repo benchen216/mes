@@ -45,7 +45,7 @@ servers:
 paths:
   /rest/deliveries/multiUploadFiles:
     post:
-      summary: Upload (DeliveriesMultiUploadController)
+      summary: 上傳交貨附件
       description: 'Generated from `DeliveriesMultiUploadController.upload()` in `mes-plugins/mes-plugins-deliveries/src/main/java/com/qcadoo/mes/deliveries/controllers/DeliveriesMultiUploadController.java`.
 
 
@@ -60,7 +60,7 @@ paths:
       operationId: upload
       tags:
         - Deliveries
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-deliveries/src/main/java/com/qcadoo/mes/deliveries/controllers/DeliveriesMultiUploadController.java
       x-source-method: DeliveriesMultiUploadController.upload:67
       responses:

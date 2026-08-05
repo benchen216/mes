@@ -45,14 +45,14 @@ servers:
 paths:
   /rest/activityStream:
     get:
-      summary: Get activity stream (ActivityStreamController)
+      summary: 查詢活動串流
       description: 'Generated from `ActivityStreamController.getActivityStream()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/activityStream/controllers/ActivityStreamController.java`.
 
         '
       operationId: getActivityStream
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/activityStream/controllers/ActivityStreamController.java
       x-source-method: ActivityStreamController.getActivityStream:25
       responses:
@@ -66,7 +66,7 @@ paths:
                   $ref: '#/components/schemas/ActivityDto'
   /rest/activityStream/markAsViewed:
     post:
-      summary: Mark activity as viewed (ActivityStreamController)
+      summary: 標記活動為已讀
       description: 'Generated from `ActivityStreamController.markActivityAsViewed()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/activityStream/controllers/ActivityStreamController.java`.
 
 
@@ -77,7 +77,7 @@ paths:
       operationId: markActivityAsViewed
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/activityStream/controllers/ActivityStreamController.java
       x-source-method: ActivityStreamController.markActivityAsViewed:31
       requestBody:
@@ -124,7 +124,7 @@ paths:
                 $ref: '#/components/schemas/DataResponse'
   /rest/basic/multiUploadFiles:
     post:
-      summary: Upload (WorkstationMultiUploadController)
+      summary: 上傳工作站附件
       description: 'Generated from `WorkstationMultiUploadController.upload()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/WorkstationMultiUploadController.java`.
 
 
@@ -139,7 +139,7 @@ paths:
       operationId: workstationMultiUploadControllerUpload
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/WorkstationMultiUploadController.java
       x-source-method: WorkstationMultiUploadController.upload:67
       responses:
@@ -147,7 +147,7 @@ paths:
           description: Empty response body
   /rest/basic/multiUploadFilesForProduct:
     post:
-      summary: Upload (ProductMultiUploadController)
+      summary: 上傳產品附件
       description: 'Generated from `ProductMultiUploadController.upload()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductMultiUploadController.java`.
 
 
@@ -162,7 +162,7 @@ paths:
       operationId: productMultiUploadControllerUpload
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductMultiUploadController.java
       x-source-method: ProductMultiUploadController.upload:72
       responses:
@@ -170,7 +170,7 @@ paths:
           description: Empty response body
   /rest/basic/multiUploadFilesForSubassembly:
     post:
-      summary: Upload (SubassemblyMultiUploadController)
+      summary: 上傳次組件附件
       description: 'Generated from `SubassemblyMultiUploadController.upload()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/SubassemblyMultiUploadController.java`.
 
 
@@ -185,7 +185,7 @@ paths:
       operationId: subassemblyMultiUploadControllerUpload
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/SubassemblyMultiUploadController.java
       x-source-method: SubassemblyMultiUploadController.upload:68
       responses:
@@ -265,14 +265,14 @@ paths:
                 $ref: '#/components/schemas/CountriesGridResponse'
   /rest/dailyProductionChart/data:
     get:
-      summary: Get data (DailyProductionChartController)
+      summary: 查詢每日產量圖表資料
       description: 'Generated from `DailyProductionChartController.getData()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/DailyProductionChartController.java`.
 
         '
       operationId: getData
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/DailyProductionChartController.java
       x-source-method: DailyProductionChartController.getData:22
       responses:
@@ -436,14 +436,14 @@ paths:
                 $ref: '#/components/schemas/DataResponse'
   /rest/prodAttributes/columns:
     get:
-      summary: Get columns (ProductsAttributesController)
+      summary: 查詢產品屬性欄位設定
       description: 'Generated from `ProductsAttributesController.getColumns()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductsAttributesController.java`.
 
         '
       operationId: getColumns
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductsAttributesController.java
       x-source-method: ProductsAttributesController.getColumns:26
       responses:
@@ -457,14 +457,14 @@ paths:
                   $ref: '#/components/schemas/ColumnDTO'
   /rest/prodAttributes/records:
     get:
-      summary: Get records (ProductsAttributesController)
+      summary: 查詢產品屬性資料列
       description: 'Generated from `ProductsAttributesController.getRecords()` in `mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductsAttributesController.java`.
 
         '
       operationId: productsAttributesControllerGetRecords
       tags:
         - Basic
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-basic/src/main/java/com/qcadoo/mes/basic/controllers/ProductsAttributesController.java
       x-source-method: ProductsAttributesController.getRecords:32
       responses:

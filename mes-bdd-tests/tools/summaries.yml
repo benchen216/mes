@@ -78,3 +78,97 @@ summaries:
   BasicApiController.getPalletNumbersByQuery: 依關鍵字查詢棧板號
   BasicApiController.getTypeOfLoadUnits: 查詢裝載單位類型
   BasicApiController.getAttributesByQuery: 依關鍵字查詢屬性
+
+  # ── 分析 / 報表類(columns / records / validate / exportToCsv 四件組)──
+  DocumentPositionsAttributesController.getColumns: 查詢單據明細屬性欄位設定
+  DocumentPositionsAttributesController.getRecords: 查詢單據明細屬性資料列
+  DocumentPositionsAttributesController.validate: 驗證單據明細屬性查詢條件
+
+  EmployeePieceworkSettlementController.getColumns: 查詢員工計件結算欄位設定
+  EmployeePieceworkSettlementController.getRecords: 查詢員工計件結算資料列
+  EmployeePieceworkSettlementController.validate: 驗證員工計件結算查詢條件
+  EmployeePieceworkSettlementController.exportToCsv: 匯出員工計件結算 CSV
+
+  EmployeeWorkingTimeSettlementController.getColumns: 查詢員工工時結算欄位設定
+  EmployeeWorkingTimeSettlementController.getRecords: 查詢員工工時結算資料列
+  EmployeeWorkingTimeSettlementController.validate: 驗證員工工時結算查詢條件
+  EmployeeWorkingTimeSettlementController.exportToCsv: 匯出員工工時結算 CSV
+
+  OperationDurationAnalysisController.getColumns: 查詢作業工時分析欄位設定
+  OperationDurationAnalysisController.getRecords: 查詢作業工時分析資料列
+  OperationDurationAnalysisController.validate: 驗證作業工時分析查詢條件
+  OperationDurationAnalysisController.exportToCsv: 匯出作業工時分析 CSV
+
+  OrderTechnologicalProcessesAnalysisController.getColumns: 查詢訂單製程分析欄位設定
+  OrderTechnologicalProcessesAnalysisController.getRecords: 查詢訂單製程分析資料列
+  OrderTechnologicalProcessesAnalysisController.validate: 驗證訂單製程分析查詢條件
+  OrderTechnologicalProcessesAnalysisController.exportToCsv: 匯出訂單製程分析 CSV
+
+  ProductionBalanceAnalysisController.getColumns: 查詢生產平衡分析欄位設定
+  ProductionBalanceAnalysisController.getRecords: 查詢生產平衡分析資料列
+  ProductionBalanceAnalysisController.validate: 驗證生產平衡分析查詢條件
+  ProductionBalanceAnalysisController.exportToCsv: 匯出生產平衡分析 CSV
+
+  ProductsAttributesController.getColumns: 查詢產品屬性欄位設定
+  ProductsAttributesController.getRecords: 查詢產品屬性資料列
+
+  ResourcesAttributesController.getColumns: 查詢資源屬性欄位設定
+  ResourcesAttributesController.getRecords: 查詢資源屬性資料列
+
+  # ── 圖表 ──────────────────────────────────────────────
+  LinesProducedQuantitiesChartController.getData: 查詢生產線產量圖表資料
+  LinesProducedQuantitiesChartController.validate: 驗證生產線產量圖表查詢條件
+  DailyProductionChartController.getData: 查詢每日產量圖表資料
+
+  # ── 倉儲單據明細(material-flow-resources)────────────────
+  DocumentPositionsController.findAll: 查詢單據明細
+  DocumentPositionsController.create: 建立單據明細
+  DocumentPositionsController.update: 更新單據明細
+  DocumentPositionsController.delete: 刪除單據明細
+  DocumentPositionsController.gridConfig: 查詢單據明細表格設定
+  DocumentPositionsController.getBatches: 查詢批號
+  DocumentPositionsController.getProductForProductNumber: 依產品編號查詢產品
+  DocumentPositionsController.getProductFromLocation: 查詢庫位上的產品
+  DocumentPositionsController.getResourceForProduct: 查詢產品對應的資源
+  DocumentPositionsController.getResources: 查詢資源清單
+  DocumentPositionsController.getBatchForResource: 依資源編號查詢批號
+  DocumentPositionsController.getStorageLocationForEmptyProduct: 查詢空產品的儲位
+  DocumentPositionsController.getStorageLocationForProductAndWarehouse: 依產品與倉庫查詢儲位
+  DocumentPositionsController.getStorageLocations: 查詢儲位清單
+  DocumentPositionsController.getTypeOfLoadUnitForLoadUnitNumber: 依裝載單位編號查詢類型
+  DocumentPositionsController.getUnitsForProduct: 查詢產品的計量單位
+
+  # ── 設備維護行動(cmms-machine-parts)────────────────────
+  ActionsController.findAll: 查詢維護行動
+  ActionsController.create: 建立維護行動
+  ActionsController.update: 更新維護行動
+  ActionsController.delete: 刪除維護行動
+  ActionsController.gridConfig: 查詢維護行動表格設定
+  ActionsController.getActionsForObject: 查詢物件的維護行動
+  ActionsController.getStates: 查詢維護行動狀態
+  ActionsController.getWorkers: 查詢維護人員
+
+  # ── 其他查詢 ──────────────────────────────────────────
+  ActivityStreamController.getActivityStream: 查詢活動串流
+  ActivityStreamController.markActivityAsViewed: 標記活動為已讀
+  AttributeLookupController.getConfigView: 查詢屬性 lookup 欄位設定
+  AttributeLookupController.getRecords: 查詢屬性 lookup 資料列
+  ResourceLookupController.getRecords: 查詢資源 lookup 資料列
+  TechnologyConfiguratorController.getConfiguration: 查詢技術規範配置
+  ProductsBySizeController.productsBySize: 依尺寸產生產品清單
+  SalesPlanOrdersController.generateOrdersSalePlan: 依銷售計畫產生訂單
+
+  # ── 附件上傳(各模組共用 upload 方法名,但無共同基底)──────
+  OrderMultiUploadController.upload: 上傳訂單附件
+  TechnologyMultiUploadController.upload: 上傳技術規範附件
+  TechnologyMultiUploadController.technologiesUpload: 批次上傳技術規範附件
+  ProductMultiUploadController.upload: 上傳產品附件
+  ProductDataMultiUploadController.upload: 上傳產品資料附件
+  SubassemblyMultiUploadController.upload: 上傳次組件附件
+  WorkstationMultiUploadController.upload: 上傳工作站附件
+  DeliveriesMultiUploadController.upload: 上傳交貨附件
+  AdvancedGenealogyMultiUploadController.upload: 上傳批次追溯附件
+  MachinePartMultiUploadController.upload: 上傳機台零件附件
+  MaintenanceEventMultiUploadController.upload: 上傳維護事件附件
+  PlannedEventMultiUploadController.upload: 上傳計畫事件附件
+  ToolMultiUploadController.upload: 上傳工具附件

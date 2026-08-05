@@ -45,7 +45,7 @@ servers:
 paths:
   /rest/advancedGenealogy/multiUploadFiles:
     post:
-      summary: Upload (AdvancedGenealogyMultiUploadController)
+      summary: 上傳批次追溯附件
       description: 'Generated from `AdvancedGenealogyMultiUploadController.upload()` in `mes-plugins/mes-plugins-advanced-genealogy/src/main/java/com/qcadoo/mes/advancedGenealogy/AdvancedGenealogyMultiUploadController.java`.
 
 
@@ -60,7 +60,7 @@ paths:
       operationId: upload
       tags:
         - AdvancedGenealogy
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-advanced-genealogy/src/main/java/com/qcadoo/mes/advancedGenealogy/AdvancedGenealogyMultiUploadController.java
       x-source-method: AdvancedGenealogyMultiUploadController.upload:73
       responses:

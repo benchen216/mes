@@ -45,14 +45,14 @@ servers:
 paths:
   /rest/emplPieceworkSettlement/columns:
     get:
-      summary: Get columns (EmployeePieceworkSettlementController)
+      summary: 查詢員工計件結算欄位設定
       description: 'Generated from `EmployeePieceworkSettlementController.getColumns()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java`.
 
         '
       operationId: employeePieceworkSettlementControllerGetColumns
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java
       x-source-method: EmployeePieceworkSettlementController.getColumns:30
       responses:
@@ -66,14 +66,14 @@ paths:
                   $ref: '#/components/schemas/ColumnDTO'
   /rest/emplPieceworkSettlement/exportToCsv:
     post:
-      summary: Export to csv (EmployeePieceworkSettlementController)
+      summary: 匯出員工計件結算 CSV
       description: 'Generated from `EmployeePieceworkSettlementController.exportToCsv()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java`.
 
         '
       operationId: employeePieceworkSettlementControllerExportToCsv
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java
       x-source-method: EmployeePieceworkSettlementController.exportToCsv:52
       requestBody:
@@ -91,14 +91,14 @@ paths:
                 type: object
   /rest/emplPieceworkSettlement/records:
     get:
-      summary: Get records (EmployeePieceworkSettlementController)
+      summary: 查詢員工計件結算資料列
       description: 'Generated from `EmployeePieceworkSettlementController.getRecords()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java`.
 
         '
       operationId: employeePieceworkSettlementControllerGetRecords
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java
       x-source-method: EmployeePieceworkSettlementController.getRecords:42
       parameters:
@@ -124,14 +124,14 @@ paths:
                   additionalProperties: true
   /rest/emplPieceworkSettlement/validate:
     get:
-      summary: Validate (EmployeePieceworkSettlementController)
+      summary: 驗證員工計件結算查詢條件
       description: 'Generated from `EmployeePieceworkSettlementController.validate()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java`.
 
         '
       operationId: employeePieceworkSettlementControllerValidate
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeePieceworkSettlementController.java
       x-source-method: EmployeePieceworkSettlementController.validate:36
       parameters:
@@ -154,14 +154,14 @@ paths:
                 type: string
   /rest/emplWorkingTimeSettlement/columns:
     get:
-      summary: Get columns (EmployeeWorkingTimeSettlementController)
+      summary: 查詢員工工時結算欄位設定
       description: 'Generated from `EmployeeWorkingTimeSettlementController.getColumns()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java`.
 
         '
       operationId: employeeWorkingTimeSettlementControllerGetColumns
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java
       x-source-method: EmployeeWorkingTimeSettlementController.getColumns:35
       responses:
@@ -175,14 +175,14 @@ paths:
                   $ref: '#/components/schemas/ColumnDTO'
   /rest/emplWorkingTimeSettlement/exportToCsv:
     post:
-      summary: Export to csv (EmployeeWorkingTimeSettlementController)
+      summary: 匯出員工工時結算 CSV
       description: 'Generated from `EmployeeWorkingTimeSettlementController.exportToCsv()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java`.
 
         '
       operationId: employeeWorkingTimeSettlementControllerExportToCsv
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java
       x-source-method: EmployeeWorkingTimeSettlementController.exportToCsv:57
       requestBody:
@@ -200,14 +200,14 @@ paths:
                 type: object
   /rest/emplWorkingTimeSettlement/records:
     get:
-      summary: Get records (EmployeeWorkingTimeSettlementController)
+      summary: 查詢員工工時結算資料列
       description: 'Generated from `EmployeeWorkingTimeSettlementController.getRecords()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java`.
 
         '
       operationId: employeeWorkingTimeSettlementControllerGetRecords
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java
       x-source-method: EmployeeWorkingTimeSettlementController.getRecords:47
       parameters:
@@ -233,14 +233,14 @@ paths:
                   additionalProperties: true
   /rest/emplWorkingTimeSettlement/validate:
     get:
-      summary: Validate (EmployeeWorkingTimeSettlementController)
+      summary: 驗證員工工時結算查詢條件
       description: 'Generated from `EmployeeWorkingTimeSettlementController.validate()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java`.
 
         '
       operationId: employeeWorkingTimeSettlementControllerValidate
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/EmployeeWorkingTimeSettlementController.java
       x-source-method: EmployeeWorkingTimeSettlementController.validate:41
       parameters:
@@ -263,14 +263,14 @@ paths:
                 type: string
   /rest/lProducedQuantitiesChart/data:
     get:
-      summary: Get data (LinesProducedQuantitiesChartController)
+      summary: 查詢生產線產量圖表資料
       description: 'Generated from `LinesProducedQuantitiesChartController.getData()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/LinesProducedQuantitiesChartController.java`.
 
         '
       operationId: getData
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/LinesProducedQuantitiesChartController.java
       x-source-method: LinesProducedQuantitiesChartController.getData:32
       parameters:
@@ -294,14 +294,14 @@ paths:
                 additionalProperties: true
   /rest/lProducedQuantitiesChart/validate:
     get:
-      summary: Validate (LinesProducedQuantitiesChartController)
+      summary: 驗證生產線產量圖表查詢條件
       description: 'Generated from `LinesProducedQuantitiesChartController.validate()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/LinesProducedQuantitiesChartController.java`.
 
         '
       operationId: linesProducedQuantitiesChartControllerValidate
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/LinesProducedQuantitiesChartController.java
       x-source-method: LinesProducedQuantitiesChartController.validate:26
       parameters:
@@ -324,14 +324,14 @@ paths:
                 type: string
   /rest/operDurationAnalysis/columns:
     get:
-      summary: Get columns (OperationDurationAnalysisController)
+      summary: 查詢作業工時分析欄位設定
       description: 'Generated from `OperationDurationAnalysisController.getColumns()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java`.
 
         '
       operationId: operationDurationAnalysisControllerGetColumns
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java
       x-source-method: OperationDurationAnalysisController.getColumns:35
       responses:
@@ -345,14 +345,14 @@ paths:
                   $ref: '#/components/schemas/ColumnDTO'
   /rest/operDurationAnalysis/exportToCsv:
     post:
-      summary: Export to csv (OperationDurationAnalysisController)
+      summary: 匯出作業工時分析 CSV
       description: 'Generated from `OperationDurationAnalysisController.exportToCsv()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java`.
 
         '
       operationId: operationDurationAnalysisControllerExportToCsv
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java
       x-source-method: OperationDurationAnalysisController.exportToCsv:57
       requestBody:
@@ -370,14 +370,14 @@ paths:
                 type: object
   /rest/operDurationAnalysis/records:
     get:
-      summary: Get records (OperationDurationAnalysisController)
+      summary: 查詢作業工時分析資料列
       description: 'Generated from `OperationDurationAnalysisController.getRecords()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java`.
 
         '
       operationId: operationDurationAnalysisControllerGetRecords
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java
       x-source-method: OperationDurationAnalysisController.getRecords:47
       parameters:
@@ -403,14 +403,14 @@ paths:
                   additionalProperties: true
   /rest/operDurationAnalysis/validate:
     get:
-      summary: Validate (OperationDurationAnalysisController)
+      summary: 驗證作業工時分析查詢條件
       description: 'Generated from `OperationDurationAnalysisController.validate()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java`.
 
         '
       operationId: operationDurationAnalysisControllerValidate
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/OperationDurationAnalysisController.java
       x-source-method: OperationDurationAnalysisController.validate:41
       parameters:
@@ -433,14 +433,14 @@ paths:
                 type: string
   /rest/prodBalanceAnalysis/columns:
     get:
-      summary: Get columns (ProductionBalanceAnalysisController)
+      summary: 查詢生產平衡分析欄位設定
       description: 'Generated from `ProductionBalanceAnalysisController.getColumns()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java`.
 
         '
       operationId: productionBalanceAnalysisControllerGetColumns
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java
       x-source-method: ProductionBalanceAnalysisController.getColumns:35
       responses:
@@ -454,14 +454,14 @@ paths:
                   $ref: '#/components/schemas/ColumnDTO'
   /rest/prodBalanceAnalysis/exportToCsv:
     post:
-      summary: Export to csv (ProductionBalanceAnalysisController)
+      summary: 匯出生產平衡分析 CSV
       description: 'Generated from `ProductionBalanceAnalysisController.exportToCsv()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java`.
 
         '
       operationId: productionBalanceAnalysisControllerExportToCsv
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java
       x-source-method: ProductionBalanceAnalysisController.exportToCsv:57
       requestBody:
@@ -479,14 +479,14 @@ paths:
                 type: object
   /rest/prodBalanceAnalysis/records:
     get:
-      summary: Get records (ProductionBalanceAnalysisController)
+      summary: 查詢生產平衡分析資料列
       description: 'Generated from `ProductionBalanceAnalysisController.getRecords()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java`.
 
         '
       operationId: productionBalanceAnalysisControllerGetRecords
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java
       x-source-method: ProductionBalanceAnalysisController.getRecords:47
       parameters:
@@ -512,14 +512,14 @@ paths:
                   additionalProperties: true
   /rest/prodBalanceAnalysis/validate:
     get:
-      summary: Validate (ProductionBalanceAnalysisController)
+      summary: 驗證生產平衡分析查詢條件
       description: 'Generated from `ProductionBalanceAnalysisController.validate()` in `mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java`.
 
         '
       operationId: productionBalanceAnalysisControllerValidate
       tags:
         - ProductionCounting
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-production-counting/src/main/java/com/qcadoo/mes/productionCounting/controller/ProductionBalanceAnalysisController.java
       x-source-method: ProductionBalanceAnalysisController.validate:41
       parameters:

@@ -393,11 +393,11 @@ BDD 測試若要驗證失敗路徑,只能透過資料庫斷言,不能靠 HTTP �
 
 ```
 mvn -f mes-bdd-tests/pom.xml test -Dcucumber.filter.tags="@mvp"
-→ Tests run: 19, Failures: 0, Errors: 0, Skipped: 0
+→ Tests run: 22, Failures: 0, Errors: 0, Skipped: 0
 → BUILD SUCCESS
 ```
 
-**19 個 scenario 全部對執行中的 qcadoo 實例跑綠**:
+**22 個 scenario 全部對執行中的 qcadoo 實例跑綠**:
 
 | Feature | Scenario | 類型 |
 |---|---|---|

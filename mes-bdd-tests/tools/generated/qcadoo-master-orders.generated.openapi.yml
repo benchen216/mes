@@ -45,14 +45,14 @@ servers:
 paths:
   /rest/masterOrders/generateOrdersSalePlan:
     post:
-      summary: Generate orders sale plan (SalesPlanOrdersController)
+      summary: 依銷售計畫產生訂單
       description: 'Generated from `SalesPlanOrdersController.generateOrdersSalePlan()` in `mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/orders/SalesPlanOrdersController.java`.
 
         '
       operationId: generateOrdersSalePlan
       tags:
         - MasterOrders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/orders/SalesPlanOrdersController.java
       x-source-method: SalesPlanOrdersController.generateOrdersSalePlan:56
       requestBody:
@@ -70,14 +70,14 @@ paths:
                 $ref: '#/components/schemas/GenerateOrdersSalePlanResponse'
   /rest/masterOrders/productsBySize:
     post:
-      summary: Products by size (ProductsBySizeController)
+      summary: 依尺寸產生產品清單
       description: 'Generated from `ProductsBySizeController.productsBySize()` in `mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/productBySize/ProductsBySizeController.java`.
 
         '
       operationId: productsBySize
       tags:
         - MasterOrders
-      x-summary-source: generated
+      x-summary-source: curated
       x-source-file: mes-plugins/mes-plugins-master-orders/src/main/java/com/qcadoo/mes/masterOrders/controllers/productBySize/ProductsBySizeController.java
       x-source-method: ProductsBySizeController.productsBySize:41
       requestBody:
